@@ -26,4 +26,8 @@ public class ControladorPanelEskaera {
 	public void accionadoBottonMostrarPanelResumen() {
 		this.controlador.navegarPanelResumen();
 	}
+	
+	public void accionadoBottonExit() {
+		this.controlador.navegarPanelHasiera();
+	}
 }

@@ -17,6 +17,7 @@ public class Eskaera extends JPanel {
 	private ControladorPanelEskaera controladorPanelEskaera;
 	private JLabel lblPedidos;
 	private JButton btnAurreraPedido;
+	private JButton btnExitPedido;
 	
 	public Eskaera(ControladorPanelEskaera controladorPanelEskaera) {
 		this.controladorPanelEskaera = controladorPanelEskaera;
@@ -32,9 +33,9 @@ public class Eskaera extends JPanel {
 		lblPedidos.setFont(new Font("Tahoma", Font.BOLD, 11));
 		add(lblPedidos);
 		
-		JButton btndeslog = new JButton("Exit");
-		btndeslog.setBounds(351, 266, 89, 23);
-		add(btndeslog);
+		btnExitPedido = new JButton("Exit");
+		btnExitPedido.setBounds(351, 266, 89, 23);
+		add(btnExitPedido);
 
 		
 		JLabel lblproducto1 = new JLabel("Coca-Cola");
@@ -131,12 +132,21 @@ public class Eskaera extends JPanel {
 	
 	private void initializeEvents() {
 		this.btnAurreraPedido.addActionListener(listenerBotonAurreraPedido(this.controladorPanelEskaera));
+		this.btnExitPedido.addActionListener(listenerBotonExitPedido(this.controladorPanelEskaera));
 	}
 	
 	private ActionListener listenerBotonAurreraPedido(ControladorPanelEskaera controladorPanelEskarera) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelEskaera.accionadoBottonMostrarPanelResumen();
+			}
+		};
+	}
+	
+	private ActionListener listenerBotonExitPedido(ControladorPanelEskaera controladorPanelEskarera) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelEskaera.accionadoBottonExit();
 			}
 		};
 	}

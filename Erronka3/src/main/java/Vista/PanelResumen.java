@@ -8,6 +8,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import Controlador.ControladorPanelEskaera;
 import Controlador.ControladorPanelResumen;
 import javax.swing.JTextField;
 
@@ -17,6 +19,7 @@ public class PanelResumen extends JPanel {
 	private ControladorPanelResumen controladorPanelResumen;
 	private JLabel lblLaburpena;
 	private JTextField textField;
+	private JButton btnexitResum;
 	
 	public PanelResumen(ControladorPanelResumen controladorPanelResumen) {
 		this.controladorPanelResumen = controladorPanelResumen;
@@ -32,15 +35,27 @@ public class PanelResumen extends JPanel {
 		lblLaburpena.setFont(new Font("Tahoma", Font.BOLD, 11));
 		add(lblLaburpena);
 		
-		JButton btndeslog = new JButton("Exit");
-		btndeslog.setBounds(351, 266, 89, 23);
-		add(btndeslog);
+		btnexitResum = new JButton("Exit");
+		btnexitResum.setBounds(351, 266, 89, 23);
+		add(btnexitResum);
 		
 		textField = new JTextField();
 		textField.setBounds(10, 54, 430, 201);
 		add(textField);
 		textField.setColumns(10);
 		
-		//initializeEvents();
+		initializeEvents();
+	}
+	
+	private void initializeEvents() {
+		this.btnexitResum.addActionListener(listenerBotonExitResumen(this.controladorPanelResumen));
+	}
+	
+	private ActionListener listenerBotonExitResumen(ControladorPanelResumen controladorPanelResumen) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelResumen.accionadoBottonExit();
+			}
+		};
 	}
 }

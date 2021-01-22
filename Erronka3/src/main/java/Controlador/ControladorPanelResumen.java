@@ -24,4 +24,7 @@ public class ControladorPanelResumen {
 		this.vista.mostrarPanel(panelResumen);
 	}
 	
+	public void accionadoBottonExit() {
+		this.controlador.navegarPanelHasiera();
+	}
 }

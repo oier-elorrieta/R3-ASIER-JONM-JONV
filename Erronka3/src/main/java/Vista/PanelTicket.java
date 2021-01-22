@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 public class PanelTicket extends JPanel {
 
 	private ControladorPanelTicket controladorPanelTicket;
-	private JButton btndeslog;
+	private JButton btnExitTicket;
 	private JButton btnAurreraTicket;
 
 	public PanelTicket(ControladorPanelTicket controladorPanelTicket) {
@@ -33,9 +33,9 @@ public class PanelTicket extends JPanel {
 		lblTicket.setBounds(207, 11, 39, 14);
 		add(lblTicket);
 		
-		btndeslog = new JButton("Exit");
-		btndeslog.setBounds(387, 266, 51, 23);
-		add(btndeslog);
+		btnExitTicket = new JButton("Exit");
+		btnExitTicket.setBounds(387, 266, 51, 23);
+		add(btnExitTicket);
 
 		
 		JLabel lblproducto1 = new JLabel("Coca-Cola");
@@ -123,12 +123,21 @@ public class PanelTicket extends JPanel {
 	
 	private void initializeEvents() {
 		this.btnAurreraTicket.addActionListener(listenerBotonAurreraTicket(this.controladorPanelTicket));
+		this.btnExitTicket.addActionListener(listenerBotonExitTicket(this.controladorPanelTicket));
 	}
 	
 	private ActionListener listenerBotonAurreraTicket(ControladorPanelTicket controladorPanelTicket) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelTicket.accionadoBottonMostrarPanelResumen();
+			}
+		};
+	}
+	
+	private ActionListener listenerBotonExitTicket(ControladorPanelTicket controladorPanelTicket) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelTicket.accionadoBottonExit();
 			}
 		};
 	}
