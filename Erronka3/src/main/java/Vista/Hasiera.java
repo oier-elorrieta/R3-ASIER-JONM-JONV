@@ -1,69 +1,83 @@
 package Vista;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.EventQueue;
-import java.awt.Font;
 
+import java.awt.event.ActionEvent;
+
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+import Controlador.ControladorPanelHasiera;
+import java.awt.Color;
 
-public class Hasiera extends JFrame {
 
-	private JPanel contentPane;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Hasiera frame = new Hasiera();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+@SuppressWarnings("serial")
+public class Hasiera extends JPanel {
+	
+	private JButton btnpedido;
+	private JButton btncomandas;
+	private JButton btntickets;
+	private JButton btnaprovisionamiento;
+	private JLabel lbloperatividad;
+	private ControladorPanelHasiera controladorPanelHasiera;
+	private JLabel lblAukerak;
+	
+	public Hasiera(ControladorPanelHasiera controladorPanelHasiera) {
+		this.controladorPanelHasiera = controladorPanelHasiera;
+		
+		setLayout(null);
+		
+		setBackground(Color.DARK_GRAY);
+		setForeground(Color.DARK_GRAY);
+		setLayout(null);
+		
+		btntickets = new JButton("Ticket");
+		btntickets.setBounds(87, 84, 89, 23);
+		add(btntickets);
+		
+		btnpedido = new JButton("Pedido");
+		btnpedido.setBounds(262, 84, 89, 23);
+		add(btnpedido);
+		
+		btncomandas = new JButton("Comandas");
+		btncomandas.setBounds(87, 196, 89, 23);
+		add(btncomandas);
+		
+		btnaprovisionamiento = new JButton("Aprovisionamientos");
+		btnaprovisionamiento.setBounds(262, 196, 125, 23);
+		add(btnaprovisionamiento);
+		
+		lblAukerak = new JLabel("Aukeratu");
+		lblAukerak.setForeground(Color.WHITE);
+		lblAukerak.setBackground(Color.WHITE);
+		lblAukerak.setBounds(196, 22, 46, 14);
+		add(lblAukerak);
+		
+		initializeEvents();
 	}
 
-	/**
-	 * Create the frame.
-	 */
-	public Hasiera() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JButton btnpedidos = new JButton("Pedidos");
-		btnpedidos.setBounds(70, 62, 111, 23);
-		contentPane.add(btnpedidos);
-		
-		JButton btncomandas = new JButton("Comandas");
-		btncomandas.setBounds(221, 62, 121, 23);
-		contentPane.add(btncomandas);
-		
-		JButton btntickets = new JButton("Tickets");
-		btntickets.setBounds(70, 164, 111, 23);
-		contentPane.add(btntickets);
-		
-		JButton btnaprovisionamiento = new JButton("Aprovisionamiento");
-		btnaprovisionamiento.setBounds(221, 164, 121, 23);
-		contentPane.add(btnaprovisionamiento);
-		
-		JLabel lbloperatividad = new JLabel("OPERATIVIDAD");
-		lbloperatividad.setForeground(Color.WHITE);
-		lbloperatividad.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lbloperatividad.setBounds(165, 11, 85, 14);
-		contentPane.add(lbloperatividad);
+	
+	
+	
+	private void initializeEvents() {
+		this.btntickets.addActionListener(listenerBotonticket(this.controladorPanelHasiera));
+		this.btnpedido.addActionListener(listenerBotonpedido(this.controladorPanelHasiera));
+	}
+	
+	private ActionListener listenerBotonticket(ControladorPanelHasiera controladorPanelHasiera) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelHasiera.accionadoBottonMostrarPanelTicket();
+			}
+		};
+	}
+	
+	private ActionListener listenerBotonpedido(ControladorPanelHasiera controladorPanelHasiera) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelHasiera.accionadoBottonMostrarPanelEskaera();
+			}
+		};
 	}
 
 }
