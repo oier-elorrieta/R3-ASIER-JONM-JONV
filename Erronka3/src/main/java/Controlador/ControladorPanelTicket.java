@@ -30,4 +30,8 @@ public class ControladorPanelTicket {
 	public void accionadoBottonExit() {
 		this.controlador.navegarPanelHasiera();
 	}
+	
+	/*public void accionandoBottonAukeratu() {
+		this.modelo.botonaukeratu();
+	}*/
 }

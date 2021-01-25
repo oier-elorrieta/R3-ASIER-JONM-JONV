@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import Controlador.ControladorPanelHasiera;
+import Modelo.Metodoak;
+
 import java.awt.Color;
 
 

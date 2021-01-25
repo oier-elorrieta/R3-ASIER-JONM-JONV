@@ -3,7 +3,7 @@ package Modelo;
 public class Produktuak {
 	
 	private String izena;
-	private int prezioa=1;
+	private int prezioa;
 	
 	
 	public String getIzena() {

@@ -10,6 +10,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import Controlador.ControladorPanelEskaera;
 import Controlador.ControladorPanelTicket;
+import Modelo.Metodoak;
+
 import javax.swing.JList;
 import javax.swing.JMenuItem;
 import javax.swing.JCheckBoxMenuItem;
@@ -21,11 +23,10 @@ import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public class Eskaera extends JPanel {
 
-	private ControladorPanelEskaera controladorPanelEskaera;
-	private JLabel lblPedidos;
+	private ControladorPanelEskaera controladorPanelEskaera;;
 	private JButton btnAurreraPedido;
 	private JButton btnExitPedido;
-	private JTextField textDiruTot;
+	private JComboBox<String> Izenak;
 	
 	public Eskaera(ControladorPanelEskaera controladorPanelEskaera) {
 		this.controladorPanelEskaera = controladorPanelEskaera;
@@ -35,7 +36,7 @@ public class Eskaera extends JPanel {
 		
 		setLayout(null);
 		
-		lblPedidos = new JLabel("PEDIDOS");
+		JLabel lblPedidos = new JLabel("PEDIDOS");
 		lblPedidos.setBounds(205, 21, 103, 14);
 		lblPedidos.setForeground(Color.WHITE);
 		lblPedidos.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -55,7 +56,7 @@ public class Eskaera extends JPanel {
 		add(lbllocal);
 		
 		JButton btndomicilio = new JButton("BAI");
-		btndomicilio.setBounds(351, 174, 89, 23);
+		btndomicilio.setBounds(332, 212, 89, 23);
 		add(btndomicilio);
 		
 		
@@ -64,22 +65,26 @@ public class Eskaera extends JPanel {
 		btnAurreraPedido.setBounds(254, 266, 89, 23);
 		add(btnAurreraPedido);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(21, 76, 226, 21);
-		add(comboBox);
+		Izenak = new JComboBox();
+		Izenak.setBounds(21, 76, 226, 21);
+		add(Izenak);
+		String[] arrayizenak = Metodoak.irakurriarray();
+		for(int i = 0;i < arrayizenak.length;i++) {
+			Izenak.addItem(arrayizenak[i]);
+		}
 		
 		JLabel lbldomicilio = new JLabel("Etxera:");
 		lbldomicilio.setForeground(Color.WHITE);
-		lbldomicilio.setBounds(277, 179, 45, 13);
+		lbldomicilio.setBounds(254, 217, 45, 13);
 		add(lbldomicilio);
 		
 		JSpinner spinnerKanti = new JSpinner();
-		spinnerKanti.setBounds(410, 122, 30, 20);
+		spinnerKanti.setBounds(362, 76, 30, 20);
 		add(spinnerKanti);
 		
 		JLabel lblKanti = new JLabel("Kantitatea:");
 		lblKanti.setForeground(Color.WHITE);
-		lblKanti.setBounds(277, 125, 123, 13);
+		lblKanti.setBounds(254, 80, 123, 13);
 		add(lblKanti);
 		
 		JLabel lblDiruTot = new JLabel("Daramazun dirua:");
@@ -87,10 +92,14 @@ public class Eskaera extends JPanel {
 		lblDiruTot.setBounds(23, 264, 106, 13);
 		add(lblDiruTot);
 		
-		textDiruTot = new JTextField();
+		JTextField textDiruTot = new JTextField();
 		textDiruTot.setBounds(139, 251, 60, 39);
 		add(textDiruTot);
 		textDiruTot.setColumns(10);
+		
+		JButton btnAukeratu = new JButton("Aukeratu");
+		btnAukeratu.setBounds(288, 116, 89, 23);
+		add(btnAukeratu);
 		
 		initializeEvents();
 	}
