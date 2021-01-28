@@ -27,11 +27,19 @@ public class ControladorPanelTicket {
 		this.controlador.navegarPanelResumen();
 	}
 	
+	/*public void accionadoBottonMostrarArrayPanelResumen(String[] array) {
+		this.modelo.mostrarPanelResumen(array);
+	}*/
+
 	public void accionadoBottonExit() {
 		this.controlador.navegarPanelHasiera();
 	}
 	
-	/*public void accionandoBottonAukeratu() {
-		this.modelo.botonaukeratu();
-	}*/
+	public String accionandoBottonAukeratu1(String kanti,int emaitzatot) {
+		return this.modelo.botonaukeratu1(kanti,emaitzatot);
+	}
+	
+	public Object[] accionandoBottonAukeratu2(Object prodizena,Object[] arrayresumen) {
+		return this.modelo.botonaukeratu2(prodizena, arrayresumen);
+	}
 }

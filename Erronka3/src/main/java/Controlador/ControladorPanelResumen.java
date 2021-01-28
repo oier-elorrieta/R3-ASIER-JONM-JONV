@@ -27,4 +27,8 @@ public class ControladorPanelResumen {
 	public void accionadoBottonExit() {
 		this.controlador.navegarPanelHasiera();
 	}
+
+	/*public String arraystring() {
+		this.modelo.arraystringmodelo();
+	}*/
 }

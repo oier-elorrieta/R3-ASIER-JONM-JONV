@@ -28,6 +28,9 @@ public class PanelTicket extends JPanel {
 	private JTextField textDiruTot;
 	private JButton btnAukeratu;
 	private JSpinner spinnerKanti;
+	static Object[] array= new Object [10];
+	int emaitzatot=0;
+
 
 	public PanelTicket(ControladorPanelTicket controladorPanelTicket) {
 		
@@ -101,6 +104,7 @@ public class PanelTicket extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelTicket.accionadoBottonMostrarPanelResumen();
+				//controladorPanelTicket.accionadoBottonMostrarArrayPanelResumen(array);
 			}
 		};
 	}
@@ -116,10 +120,20 @@ public class PanelTicket extends JPanel {
 	private ActionListener listenerBotonAukeratu(ControladorPanelTicket controladorPanelTicket) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//controladorPanelTicket.accionandoBottonAukeratu();
+				String kanti=spinnerKanti.getValue().toString();
+				Object prodizena=Izenak.getSelectedItem();
 				
-				//textDiruTot.setText(as);
-			}
+				String emaitzafin=controladorPanelTicket.accionandoBottonAukeratu1(kanti,emaitzatot);
+				int emaitzafinint=Integer.parseInt(emaitzafin);
+				emaitzatot=emaitzatot+emaitzafinint;
+				String emaitza=Integer.toString(emaitzatot);
+				array=controladorPanelTicket.accionandoBottonAukeratu2(prodizena,array);
+				textDiruTot.setText(emaitza);
+				for(int i=0;i<array.length;i++) {
+					System.out.println(array[i]);
+				}
+				
+				}
 		};
 	}
 }

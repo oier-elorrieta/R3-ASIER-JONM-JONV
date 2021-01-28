@@ -42,17 +42,17 @@ public class Hasiera extends JPanel {
 		add(btnpedido);
 		
 		btncomandas = new JButton("Comandas");
-		btncomandas.setBounds(87, 196, 89, 23);
+		btncomandas.setBounds(73, 196, 112, 23);
 		add(btncomandas);
 		
 		btnaprovisionamiento = new JButton("Aprovisionamientos");
-		btnaprovisionamiento.setBounds(262, 196, 125, 23);
+		btnaprovisionamiento.setBounds(245, 196, 149, 23);
 		add(btnaprovisionamiento);
 		
 		lblAukerak = new JLabel("Aukeratu");
 		lblAukerak.setForeground(Color.WHITE);
 		lblAukerak.setBackground(Color.WHITE);
-		lblAukerak.setBounds(196, 22, 46, 14);
+		lblAukerak.setBounds(196, 22, 89, 14);
 		add(lblAukerak);
 		
 		initializeEvents();

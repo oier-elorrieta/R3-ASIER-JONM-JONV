@@ -27,6 +27,12 @@ public class Eskaera extends JPanel {
 	private JButton btnAurreraPedido;
 	private JButton btnExitPedido;
 	private JComboBox<String> Izenak;
+	private JTextField textDiruTot;
+	private JButton btndomicilio;
+	private JSpinner spinnerKanti;
+	private JButton btnAukeratu;
+	static Object[] arrayb= new Object [10];
+	int emaitzatot=0;
 	
 	public Eskaera(ControladorPanelEskaera controladorPanelEskaera) {
 		this.controladorPanelEskaera = controladorPanelEskaera;
@@ -55,7 +61,7 @@ public class Eskaera extends JPanel {
 		lbllocal.setFont(new Font("Tahoma", Font.BOLD, 11));
 		add(lbllocal);
 		
-		JButton btndomicilio = new JButton("BAI");
+		btndomicilio = new JButton("BAI");
 		btndomicilio.setBounds(332, 212, 89, 23);
 		add(btndomicilio);
 		
@@ -78,7 +84,7 @@ public class Eskaera extends JPanel {
 		lbldomicilio.setBounds(254, 217, 45, 13);
 		add(lbldomicilio);
 		
-		JSpinner spinnerKanti = new JSpinner();
+		spinnerKanti = new JSpinner();
 		spinnerKanti.setBounds(362, 76, 30, 20);
 		add(spinnerKanti);
 		
@@ -92,12 +98,12 @@ public class Eskaera extends JPanel {
 		lblDiruTot.setBounds(23, 264, 106, 13);
 		add(lblDiruTot);
 		
-		JTextField textDiruTot = new JTextField();
+		textDiruTot = new JTextField();
 		textDiruTot.setBounds(139, 251, 60, 39);
 		add(textDiruTot);
 		textDiruTot.setColumns(10);
 		
-		JButton btnAukeratu = new JButton("Aukeratu");
+		btnAukeratu = new JButton("Aukeratu");
 		btnAukeratu.setBounds(288, 116, 89, 23);
 		add(btnAukeratu);
 		
@@ -107,6 +113,7 @@ public class Eskaera extends JPanel {
 	private void initializeEvents() {
 		this.btnAurreraPedido.addActionListener(listenerBotonAurreraPedido(this.controladorPanelEskaera));
 		this.btnExitPedido.addActionListener(listenerBotonExitPedido(this.controladorPanelEskaera));
+		this.btnAukeratu.addActionListener(listenerBotonAukeratu(this.controladorPanelEskaera));
 	}
 	
 	private ActionListener listenerBotonAurreraPedido(ControladorPanelEskaera controladorPanelEskarera) {
@@ -124,4 +131,24 @@ public class Eskaera extends JPanel {
 			}
 		};
 	}
+	
+	private ActionListener listenerBotonAukeratu(ControladorPanelEskaera controladorPanelEskaera) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String kanti=spinnerKanti.getValue().toString();
+				Object prodizena=Izenak.getSelectedItem();
+				
+				String emaitzafin=controladorPanelEskaera.accionandoBottonAukeratu1(kanti,emaitzatot);
+				int emaitzafinint=Integer.parseInt(emaitzafin);
+				emaitzatot=emaitzatot+emaitzafinint;
+				String emaitza=Integer.toString(emaitzatot);
+				arrayb=controladorPanelEskaera.accionandoBottonAukeratu2(prodizena,arrayb);
+				textDiruTot.setText(emaitza);
+				for(int i=0;i<arrayb.length;i++) {
+					System.out.println(arrayb[i]);
+				}
+				
+				}
+		};
+}
 }
