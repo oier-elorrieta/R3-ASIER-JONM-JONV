@@ -21,7 +21,7 @@ public class PanelResumen extends JPanel {
 	private JLabel lblLaburpena;
 	private JButton btnexitResum;
 	private JButton btnResumen;
-	private JLabel lblNewLabel;
+	private JLabel lblResumen;
 	
 	public PanelResumen(ControladorPanelResumen controladorPanelResumen) {
 		this.controladorPanelResumen = controladorPanelResumen;
@@ -41,12 +41,23 @@ public class PanelResumen extends JPanel {
 		add(btnexitResum);
 		
 		btnResumen = new JButton("Resumen");
-		btnResumen.setBounds(26, 27, 85, 21);
+		btnResumen.setBounds(26, 27, 106, 21);
 		add(btnResumen);
 		
-		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(26, 68, 400, 188);
-		add(lblNewLabel);
+		lblResumen = new JLabel("New label");
+		lblResumen.setForeground(Color.WHITE);
+		lblResumen.setBounds(26, 68, 400, 188);
+		add(lblResumen);
+		
+		JLabel lblNewLabel_1 = new JLabel("----------------------------------------------------------------------------------------------------");
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setBounds(26, 43, 400, 14);
+		add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("----------------------------------------------------------------------------------------------------");
+		lblNewLabel_1_1.setForeground(Color.WHITE);
+		lblNewLabel_1_1.setBounds(26, 55, 400, 14);
+		add(lblNewLabel_1_1);
 		
 		initializeEvents();
 	}
@@ -67,12 +78,11 @@ public class PanelResumen extends JPanel {
 	private ActionListener listenerBotonResumen(ControladorPanelResumen controladorPanelResumen) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Object[] arrays = new Object[10];
-				arrays=PanelTicket.array;
-				for(int i=0;i<arrays.length;i++) {
-					lblNewLabel.setText(arrays[i].toString());;
+				Object[]array=PanelTicket.array;
+				String[] arrayresumen = controladorPanelResumen.accionadoBottonResumen(array);//aurrera botoian jarri metodo hau
+				for(int i=0;i<arrayresumen.length;i++) {
+					//lblResumen.add(arrayresumen[i]);
 				}
-				
 			}
 		};
 	}

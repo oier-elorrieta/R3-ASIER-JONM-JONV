@@ -122,18 +122,19 @@ public class PanelTicket extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				String kanti=spinnerKanti.getValue().toString();
 				Object prodizena=Izenak.getSelectedItem();
-				
-				String emaitzafin=controladorPanelTicket.accionandoBottonAukeratu1(kanti,emaitzatot);
+				//emaitzatotala
+				String emaitzafin=controladorPanelTicket.accionandoBottonEmaitzafin(kanti,emaitzatot);
 				int emaitzafinint=Integer.parseInt(emaitzafin);
 				emaitzatot=emaitzatot+emaitzafinint;
 				String emaitza=Integer.toString(emaitzatot);
-				array=controladorPanelTicket.accionandoBottonAukeratu2(prodizena,array);
+				//array bete
+				array=controladorPanelTicket.accionandoBottonArray(prodizena,array);
 				textDiruTot.setText(emaitza);
-				for(int i=0;i<array.length;i++) {
+				for(int i=0;i<array.length;i++) {//ikusteko
 					System.out.println(array[i]);
-				}
 				
 				}
+			}
 		};
 	}
 }

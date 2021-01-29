@@ -2,6 +2,7 @@ package Modelo;
 
 public class Metodoak {
 
+	 static Object[] array= new Object [10];
 	public static String[] irakurriarray() {
 		Produktuak a1 = new Produktuak("Esnea",1);
 		Produktuak a2 = new Produktuak("Arrautza",1);
@@ -41,6 +42,7 @@ public class Metodoak {
 		return emaitzafin;
 	}
 	
+	
 	public static Object[] produktuenarray(Object prodizena,Object[] arrayresumen) {
 		//Produktuaren izena arrayera sartu
 			for(int i=0;i<arrayresumen.length;i++) {
@@ -52,8 +54,4 @@ public class Metodoak {
 			return arrayresumen;
 	}
 	
-	public static String[] bueltatuarray(String[] array) {
-		//Resumena PanelResumen-ean agertzea
-		return array;	
-	}
 }
