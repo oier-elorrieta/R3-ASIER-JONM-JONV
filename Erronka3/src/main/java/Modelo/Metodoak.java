@@ -2,6 +2,7 @@ package Modelo;
 
 public class Metodoak {
 
+	 static Object[] array= new Object [10];
 	public static String[] irakurriarray() {
 		Produktuak a1 = new Produktuak("Esnea",1);
 		Produktuak a2 = new Produktuak("Arrautza",1);
@@ -32,21 +33,25 @@ public class Metodoak {
 		return produktizena;
 	}
 	
-	/*public static String daramanprezioaagertzea() {
-		String emaitza="";
-		//String variable = jComboBox1.getSelectedItem(); eta  spnValor. getValue()
-		int ai=0;
-		String bs=spinnerKanti.getValue().toString();
-		int bi=Integer.parseInt(bs);
-		ai=1*bi;
-		String as=Integer.toString(ai);
-		return emaitza;
+	public static String daramanprezioaagertzea(String kanti,int emaitzatot) {
+		//dirua kalkulatu
+		int kantiint=Integer.parseInt(kanti);
+		int emaitzaint=1*kantiint;
+		//emaitzatot=emaitzatot+emaitzaint;
+		String emaitzafin=Integer.toString(emaitzaint);
+		return emaitzafin;
 	}
 	
-	public static String resumena() {
-		String[] arrayresumen = new String[10];
-		if(Izenak.getSelectedItem()=="Esnea") {
-			arrayresumen[0]=irakurriarray.produktizena[0];
-		}
-	}*/
+	
+	public static Object[] produktuenarray(Object prodizena,Object[] arrayresumen) {
+		//Produktuaren izena arrayera sartu
+			for(int i=0;i<arrayresumen.length;i++) {
+				if(arrayresumen[i]==null) {
+					arrayresumen[i]=prodizena;
+						break;
+					}
+				}
+			return arrayresumen;
+	}
+	
 }
