@@ -28,8 +28,7 @@ public class PanelTicket extends JPanel {
 	private JTextField textDiruTot;
 	private JButton btnAukeratu;
 	private JSpinner spinnerKanti;
-	static Object[] array= new Object [10];
-	int emaitzatot=0;
+	
 
 
 	public PanelTicket(ControladorPanelTicket controladorPanelTicket) {
@@ -68,6 +67,7 @@ public class PanelTicket extends JPanel {
 			Izenak.addItem(arrayizenak[i]);
 		}
 		
+		
 		spinnerKanti = new JSpinner();
 		spinnerKanti.setBounds(356, 76, 30, 20);
 		add(spinnerKanti);
@@ -104,7 +104,6 @@ public class PanelTicket extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelTicket.accionadoBottonMostrarPanelResumen();
-				//controladorPanelTicket.accionadoBottonMostrarArrayPanelResumen(array);
 			}
 		};
 	}
@@ -113,6 +112,8 @@ public class PanelTicket extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelTicket.accionadoBottonExit();
+				controladorPanelTicket.arrayizenaborratu();
+				controladorPanelTicket.arrayprezioborratu();
 			}
 		};
 	}
@@ -120,20 +121,12 @@ public class PanelTicket extends JPanel {
 	private ActionListener listenerBotonAukeratu(ControladorPanelTicket controladorPanelTicket) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String kanti=spinnerKanti.getValue().toString();
-				Object prodizena=Izenak.getSelectedItem();
-				//emaitzatotala
-				String emaitzafin=controladorPanelTicket.accionandoBottonEmaitzafin(kanti,emaitzatot);
-				int emaitzafinint=Integer.parseInt(emaitzafin);
-				emaitzatot=emaitzatot+emaitzafinint;
-				String emaitza=Integer.toString(emaitzatot);
-				//array bete
-				array=controladorPanelTicket.accionandoBottonArray(prodizena,array);
-				textDiruTot.setText(emaitza);
-				for(int i=0;i<array.length;i++) {//ikusteko
-					System.out.println(array[i]);
 				
-				}
+				String kanti=spinnerKanti.getValue().toString();
+				String emaitza=controladorPanelTicket.accionandoBottonEmaitzafin(kanti);
+				textDiruTot.setText(emaitza);
+				String izena=Izenak.getSelectedItem().toString();
+				controladorPanelTicket.accionandoBottonArray(izena);
 			}
 		};
 	}

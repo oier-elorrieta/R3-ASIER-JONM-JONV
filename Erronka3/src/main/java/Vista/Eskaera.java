@@ -31,8 +31,6 @@ public class Eskaera extends JPanel {
 	private JButton btndomicilio;
 	private JSpinner spinnerKanti;
 	private JButton btnAukeratu;
-	static Object[] arrayb= new Object [10];
-	int emaitzatot=0;
 	
 	public Eskaera(ControladorPanelEskaera controladorPanelEskaera) {
 		this.controladorPanelEskaera = controladorPanelEskaera;
@@ -114,6 +112,7 @@ public class Eskaera extends JPanel {
 		this.btnAurreraPedido.addActionListener(listenerBotonAurreraPedido(this.controladorPanelEskaera));
 		this.btnExitPedido.addActionListener(listenerBotonExitPedido(this.controladorPanelEskaera));
 		this.btnAukeratu.addActionListener(listenerBotonAukeratu(this.controladorPanelEskaera));
+		this.btndomicilio.addActionListener(listenerBotonEtxera(this.controladorPanelEskaera));
 	}
 	
 	private ActionListener listenerBotonAurreraPedido(ControladorPanelEskaera controladorPanelEskarera) {
@@ -128,6 +127,8 @@ public class Eskaera extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelEskaera.accionadoBottonExit();
+				controladorPanelEskaera.arrayizenaborratu();
+				controladorPanelEskaera.arrayprezioborratu();
 			}
 		};
 	}
@@ -135,19 +136,25 @@ public class Eskaera extends JPanel {
 	private ActionListener listenerBotonAukeratu(ControladorPanelEskaera controladorPanelEskaera) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				String kanti=spinnerKanti.getValue().toString();
-				Object prodizena=Izenak.getSelectedItem();
-				
-				String emaitzafin=controladorPanelEskaera.accionandoBottonAukeratu1(kanti,emaitzatot);
-				int emaitzafinint=Integer.parseInt(emaitzafin);
-				emaitzatot=emaitzatot+emaitzafinint;
-				String emaitza=Integer.toString(emaitzatot);
-				arrayb=controladorPanelEskaera.accionandoBottonAukeratu2(prodizena,arrayb);
+				String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti);
 				textDiruTot.setText(emaitza);
-				for(int i=0;i<arrayb.length;i++) {
-					System.out.println(arrayb[i]);
+				String izena=Izenak.getSelectedItem().toString();
+				controladorPanelEskaera.accionandoBottonArray(izena);				
 				}
+		};
+}
+	private ActionListener listenerBotonEtxera(ControladorPanelEskaera controladorPanelEskaera) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				
+				double prezioetxera=2.5;
+				controladorPanelEskaera.accionandoBottonEtxera(prezioetxera);
+				String emaitza=controladorPanelEskaera.emaitzaetxerekin();
+				textDiruTot.setText(emaitza);
+				String izena="Etxera";
+				controladorPanelEskaera.accionandoBottonArray(izena);				
 				}
 		};
 }

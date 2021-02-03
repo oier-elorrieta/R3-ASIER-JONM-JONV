@@ -28,8 +28,21 @@ public class ControladorPanelResumen {
 		this.controlador.navegarPanelHasiera();
 	}
 	
-	public String[] accionadoBottonResumen(Object[] array) {
-		return this.modelo.arrayresumenbistaratu(array);
+	public String accionadoBottonResumen() {
+		return this.modelo.arrayresumenbistaratu();
 	}
+	
+	public void arrayizenaborratu() {
+		modelo.arrayizenaasieratu();
+	}
+	
+	public void arrayprezioborratu() {
+		modelo.arrayprezioasieratu();
+	}
+	
+	public String preziofinbistaratu() {
+		return modelo.Emaitzafinenresumen();
+	}
+	
 
 }

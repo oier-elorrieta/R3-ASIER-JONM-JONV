@@ -39,4 +39,5 @@ public class Controlador {
 		this.controladorPanelResumen.mostrarPanelResumen();
 	}
 	
+	
 }

@@ -21,7 +21,8 @@ public class PanelResumen extends JPanel {
 	private JLabel lblLaburpena;
 	private JButton btnexitResum;
 	private JButton btnResumen;
-	private JLabel lblResumen;
+	private JTextField textpreziotot;
+	private JLabel lblresumen;
 	
 	public PanelResumen(ControladorPanelResumen controladorPanelResumen) {
 		this.controladorPanelResumen = controladorPanelResumen;
@@ -44,11 +45,6 @@ public class PanelResumen extends JPanel {
 		btnResumen.setBounds(26, 27, 106, 21);
 		add(btnResumen);
 		
-		lblResumen = new JLabel("New label");
-		lblResumen.setForeground(Color.WHITE);
-		lblResumen.setBounds(26, 68, 400, 188);
-		add(lblResumen);
-		
 		JLabel lblNewLabel_1 = new JLabel("----------------------------------------------------------------------------------------------------");
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setBounds(26, 43, 400, 14);
@@ -58,6 +54,21 @@ public class PanelResumen extends JPanel {
 		lblNewLabel_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1.setBounds(26, 55, 400, 14);
 		add(lblNewLabel_1_1);
+		
+		JLabel lblpreziotot = new JLabel("Prezio totala");
+		lblpreziotot.setForeground(Color.WHITE);
+		lblpreziotot.setBounds(36, 247, 111, 14);
+		add(lblpreziotot);
+		
+		textpreziotot = new JTextField();
+		textpreziotot.setBounds(163, 247, 86, 20);
+		add(textpreziotot);
+		textpreziotot.setColumns(10);
+		
+		lblresumen = new JLabel("New label");
+		lblresumen.setForeground(Color.WHITE);
+		lblresumen.setBounds(26, 81, 400, 155);
+		add(lblresumen);
 		
 		initializeEvents();
 	}
@@ -71,6 +82,8 @@ public class PanelResumen extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelResumen.accionadoBottonExit();
+				controladorPanelResumen.arrayizenaborratu();
+				controladorPanelResumen.arrayprezioborratu();
 			}
 		};
 	}
@@ -78,11 +91,11 @@ public class PanelResumen extends JPanel {
 	private ActionListener listenerBotonResumen(ControladorPanelResumen controladorPanelResumen) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Object[]array=PanelTicket.array;
-				String[] arrayresumen = controladorPanelResumen.accionadoBottonResumen(array);//aurrera botoian jarri metodo hau
-				for(int i=0;i<arrayresumen.length;i++) {
-					//lblResumen.add(arrayresumen[i]);
-				}
+				
+				String resumen = controladorPanelResumen.accionadoBottonResumen();
+				lblresumen.setText(resumen);
+				String emaitza=controladorPanelResumen.preziofinbistaratu();
+				textpreziotot.setText(emaitza);
 			}
 		};
 	}
