@@ -42,15 +42,15 @@ public class Nagusia extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(86, 117, 97, 23);
-		contentPane.add(btnNewButton);
+		JButton btnLogin = new JButton("Login");
+		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnLogin.setBounds(86, 117, 97, 23);
+		contentPane.add(btnLogin);
 		
-		JButton btnNewButton_1 = new JButton("Sign Up");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.setBounds(243, 117, 97, 23);
-		contentPane.add(btnNewButton_1);
+		JButton btnSignup = new JButton("Sign Up");
+		btnSignup.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnSignup.setBounds(243, 117, 97, 23);
+		contentPane.add(btnSignup);
 	}
 
 }

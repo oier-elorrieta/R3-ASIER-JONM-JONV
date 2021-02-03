@@ -24,7 +24,7 @@ public class PanelTicket extends JPanel {
 	private ControladorPanelTicket controladorPanelTicket;
 	private JButton btnExitTicket;
 	private JButton btnAurreraTicket;
-	public JComboBox<String> Izenak;
+	private JComboBox<String> Izenak;
 	private JTextField textDiruTot;
 	private JButton btnAukeratu;
 	private JSpinner spinnerKanti;

@@ -15,7 +15,7 @@ public class ConexionBD {
 		try {
 			Class.forName(CONTROLADOR);
 		} catch (ClassNotFoundException e) {
-			System.out.println("Error al cargar el controlador");
+			System.out.println("Errorea kontroladorea kargatzerakoan");
 			e.printStackTrace();
 		}
 	}
@@ -25,10 +25,10 @@ public class ConexionBD {
 		try {
 
 			Conexion = DriverManager.getConnection(URL, USUARIO, CONTRASEÑA);
-			System.out.println("Conexion establecida");
+			System.out.println("konektatuta");
 
 		} catch (SQLException e) {
-			System.out.println("Error en la conexion");
+			System.out.println("Konexio errorea");
 			e.printStackTrace();
 		}
 		return Conexion;
