@@ -14,7 +14,7 @@ public class Modelo {
 	}
 	
 	public String Emaitzafinenresumen() {
-		return Metodoak.daramanprezioaagertzearesumen(arrayprezio);
+		return Metodoak.emaitzaetxerekin(arrayprezio);
 		
 	}
 	

@@ -45,15 +45,15 @@ public class PanelResumen extends JPanel {
 		btnResumen.setBounds(26, 27, 106, 21);
 		add(btnResumen);
 		
-		JLabel lblNewLabel_1 = new JLabel("----------------------------------------------------------------------------------------------------");
-		lblNewLabel_1.setForeground(Color.WHITE);
-		lblNewLabel_1.setBounds(26, 43, 400, 14);
-		add(lblNewLabel_1);
+		JLabel lbllinea_1 = new JLabel("----------------------------------------------------------------------------------------------------");
+		lbllinea_1.setForeground(Color.WHITE);
+		lbllinea_1.setBounds(26, 43, 400, 14);
+		add(lbllinea_1);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("----------------------------------------------------------------------------------------------------");
-		lblNewLabel_1_1.setForeground(Color.WHITE);
-		lblNewLabel_1_1.setBounds(26, 55, 400, 14);
-		add(lblNewLabel_1_1);
+		JLabel lblline_2 = new JLabel("----------------------------------------------------------------------------------------------------");
+		lblline_2.setForeground(Color.WHITE);
+		lblline_2.setBounds(26, 55, 400, 14);
+		add(lblline_2);
 		
 		JLabel lblpreziotot = new JLabel("Prezio totala");
 		lblpreziotot.setForeground(Color.WHITE);
@@ -65,7 +65,7 @@ public class PanelResumen extends JPanel {
 		add(textpreziotot);
 		textpreziotot.setColumns(10);
 		
-		lblresumen = new JLabel("New label");
+		lblresumen = new JLabel("");
 		lblresumen.setForeground(Color.WHITE);
 		lblresumen.setBounds(26, 81, 400, 155);
 		add(lblresumen);

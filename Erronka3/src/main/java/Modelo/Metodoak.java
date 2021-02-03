@@ -65,16 +65,6 @@ public class Metodoak {
 		return emaitza;
 	}
 	
-	public static String daramanprezioaagertzearesumen(double[] arrayprezio) {
-		double emaitzatot=0;
-		for(int i=0;i<arrayprezio.length;i++) {
-			 emaitzatot= emaitzatot+arrayprezio[i];
-		}
-		String emaitza=Double.toString(emaitzatot);
-		
-		return emaitza;
-	}
-	
 	public static String[] produktuenarray(String prodizena,String[] arrayizena) {
 			for(int i=0;i<arrayizena.length;i++) {
 				if(arrayizena[i]==null) {

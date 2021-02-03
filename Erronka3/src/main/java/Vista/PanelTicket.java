@@ -45,11 +45,11 @@ public class PanelTicket extends JPanel {
 		add(lblTicket);
 		
 		
-		JLabel lbllocal = new JLabel("Produktuak");
-		lbllocal.setForeground(Color.WHITE);
-		lbllocal.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lbllocal.setBounds(22, 26, 111, 14);
-		add(lbllocal);
+		JLabel lblproduktuak = new JLabel("Produktuak");
+		lblproduktuak.setForeground(Color.WHITE);
+		lblproduktuak.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblproduktuak.setBounds(22, 26, 111, 14);
+		add(lblproduktuak);
 		
 		btnExitTicket = new JButton("Exit");
 		btnExitTicket.setBounds(356, 266, 82, 23);
