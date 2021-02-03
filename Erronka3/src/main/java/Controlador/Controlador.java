@@ -39,12 +39,5 @@ public class Controlador {
 		this.controladorPanelResumen.mostrarPanelResumen();
 	}
 	
-	/*public void navegarArrayIzenaTicket(String[] array) {
-		this.controladorPanelResumen.ArrayIzenaTicket(array);
-	}
-	
-	public void navegarArrayPrezioTicket(double[] arrayprezio) {
-		this.controladorPanelResumen.ArrayPrezioTicket(arrayprezio);
-	}*/
 	
 }
