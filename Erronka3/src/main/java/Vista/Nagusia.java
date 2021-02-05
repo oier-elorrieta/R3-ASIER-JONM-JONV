@@ -3,6 +3,7 @@ package Vista;
 import java.awt.BorderLayout;
 
 
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -12,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import Controlador.ControladorPanelNagusia;
+import Controlador.ControladorPanelLogin;
 
 @SuppressWarnings("serial")
 public class Nagusia extends JPanel {
@@ -21,20 +23,20 @@ public class Nagusia extends JPanel {
 	private JButton btnSingup;
 	
 	public Nagusia(ControladorPanelNagusia controladorPanelNagusia) {
-		
+		this.controladorPanelNagusia = controladorPanelNagusia;
 		setBounds(100, 100, 450, 300);
 		setBackground(Color.DARK_GRAY);
 		
 		setLayout(null);
 		
 		btnLogin = new JButton("Login");
-		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnLogin.setBounds(86, 117, 97, 23);
+		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnLogin.setBounds(23, 44, 197, 220);
 		add(btnLogin);
 		
 		btnSingup = new JButton("Sign Up");
-		btnSingup.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnSingup.setBounds(243, 117, 97, 23);
+		btnSingup.setFont(new Font("Tahoma", Font.BOLD, 18));
+		btnSingup.setBounds(230, 44, 187, 220);
 		add(btnSingup);
 		
 		initializeEvents();
@@ -48,6 +50,7 @@ public class Nagusia extends JPanel {
 	private ActionListener listenerBotonLogeatu(ControladorPanelNagusia controladorPanelNagusia) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				controladorPanelNagusia.accionadoBottonMostrarPanelLogin();
 			}
 		};

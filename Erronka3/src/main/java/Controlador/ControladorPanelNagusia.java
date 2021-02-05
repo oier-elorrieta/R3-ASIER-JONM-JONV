@@ -25,6 +25,7 @@ public class ControladorPanelNagusia {
 	}
 	
 	public void accionadoBottonMostrarPanelLogin() {
+		
 		this.controlador.navegarPanelLogin();
 	}
 	

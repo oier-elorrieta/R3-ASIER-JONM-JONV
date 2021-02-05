@@ -56,12 +56,13 @@ public class PanelResumen extends JPanel {
 		add(lblline_2);
 		
 		JLabel lblpreziotot = new JLabel("Prezio totala");
+		lblpreziotot.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblpreziotot.setForeground(Color.WHITE);
 		lblpreziotot.setBounds(36, 247, 111, 14);
 		add(lblpreziotot);
 		
 		textpreziotot = new JTextField();
-		textpreziotot.setBounds(163, 247, 86, 20);
+		textpreziotot.setBounds(340, 244, 86, 20);
 		add(textpreziotot);
 		textpreziotot.setColumns(10);
 		
@@ -69,6 +70,11 @@ public class PanelResumen extends JPanel {
 		lblresumen.setForeground(Color.WHITE);
 		lblresumen.setBounds(26, 81, 400, 155);
 		add(lblresumen);
+		
+		JLabel lblline_2_1 = new JLabel("----------------------------------------------------------------------------------------------------");
+		lblline_2_1.setForeground(Color.WHITE);
+		lblline_2_1.setBounds(26, 225, 400, 14);
+		add(lblline_2_1);
 		
 		initializeEvents();
 	}

@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.Modelo;
 
 
+
 import Vista.Login;
 import Vista.Vista;
 
@@ -25,6 +26,8 @@ public class ControladorPanelLogin {
 		this.vista.mostrarPanel(login);
 	}
 	
-	
+	public void accionadoBottonAtzera() {
+		this.controlador.navegarPanelNagusia();
+	}
 	
 }

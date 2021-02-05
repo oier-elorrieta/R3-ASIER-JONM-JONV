@@ -11,6 +11,7 @@ import Controlador.ControladorPanelHasiera;
 import Modelo.Metodoak;
 
 import java.awt.Color;
+import java.awt.Font;
 
 
 @SuppressWarnings("serial")
@@ -22,7 +23,6 @@ public class Hasiera extends JPanel {
 	private JButton btnaprovisionamiento;
 	private JLabel lbloperatividad;
 	private ControladorPanelHasiera controladorPanelHasiera;
-	private JLabel lblAukerak;
 	
 	
 	public Hasiera(ControladorPanelHasiera controladorPanelHasiera) {
@@ -35,26 +35,25 @@ public class Hasiera extends JPanel {
 		setLayout(null);
 		
 		btntickets = new JButton("Ticket");
-		btntickets.setBounds(87, 84, 89, 23);
+		btntickets.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btntickets.setBackground(Color.WHITE);
+		btntickets.setBounds(28, 30, 182, 114);
 		add(btntickets);
 		
 		btnpedido = new JButton("Pedido");
-		btnpedido.setBounds(262, 84, 89, 23);
+		btnpedido.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnpedido.setBounds(245, 30, 178, 114);
 		add(btnpedido);
 		
 		btncomandas = new JButton("Comandas");
-		btncomandas.setBounds(73, 196, 112, 23);
+		btncomandas.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btncomandas.setBounds(28, 175, 182, 114);
 		add(btncomandas);
 		
 		btnaprovisionamiento = new JButton("Aprovisionamientos");
-		btnaprovisionamiento.setBounds(245, 196, 149, 23);
+		btnaprovisionamiento.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnaprovisionamiento.setBounds(245, 175, 178, 114);
 		add(btnaprovisionamiento);
-		
-		lblAukerak = new JLabel("Aukeratu");
-		lblAukerak.setForeground(Color.WHITE);
-		lblAukerak.setBackground(Color.WHITE);
-		lblAukerak.setBounds(196, 22, 89, 14);
-		add(lblAukerak);
 		
 		initializeEvents();
 	}

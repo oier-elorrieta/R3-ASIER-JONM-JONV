@@ -3,7 +3,8 @@ package Controlador;
 import Modelo.Modelo;
 
 
-import Vista.Login;
+
+import Vista.PanelRegistratu;
 import Vista.Vista;
 
 public class ControladorPanelRegistratu {
@@ -12,7 +13,7 @@ public class ControladorPanelRegistratu {
 	private Modelo modelo;
 	private Vista vista;
 	private Controlador controlador;
-	//private PanelRegistratu panelRegistratu;
+	private PanelRegistratu panelRegistratu;
 	
 	public ControladorPanelRegistratu(Modelo modelo, Vista vista, Controlador controlador) {
 		this.modelo = modelo;
@@ -20,11 +21,14 @@ public class ControladorPanelRegistratu {
 		this.controlador = controlador;	
 	}
 	
-	/*public void mostrarPanelRegistratu() {
+	public void mostrarPanelRegistratu() {
 		this.panelRegistratu = new PanelRegistratu(this);
 		this.vista.mostrarPanel(panelRegistratu);
-	}*/
+	}
 	
+	public void accionadoBottonAtzera() {
+		this.controlador.navegarPanelNagusia();
+	}
 	
 	
 }
