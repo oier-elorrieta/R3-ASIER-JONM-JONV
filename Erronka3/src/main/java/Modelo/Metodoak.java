@@ -2,7 +2,6 @@ package Modelo;
 
 public class Metodoak {
 
-	 static Object[] array= new Object [10];
 	public static String[] irakurriarray() {
 		Produktuak a1 = new Produktuak("Esnea",1);
 		Produktuak a2 = new Produktuak("Arrautza",1);
@@ -33,25 +32,68 @@ public class Metodoak {
 		return produktizena;
 	}
 	
-	public static String daramanprezioaagertzea(String kanti,int emaitzatot) {
-		//dirua kalkulatu
+	public static String daramanprezioaagertzea(String kanti,double[] arrayprezio) {//prezio fin egin
 		int kantiint=Integer.parseInt(kanti);
 		int emaitzaint=1*kantiint;
-		//emaitzatot=emaitzatot+emaitzaint;
-		String emaitzafin=Integer.toString(emaitzaint);
-		return emaitzafin;
+		arrayprezio=Metodoak.sartuprezioa(emaitzaint, arrayprezio);
+		double emaitzatot=0;
+		for(int i=0;i<arrayprezio.length;i++) {
+			 emaitzatot= emaitzatot+arrayprezio[i];
+		}
+		String emaitza=Double.toString(emaitzatot);
+		
+		return emaitza;
 	}
 	
+	public static double[] sartuprezioa(double emaitzaint,double[] arrayprezio) {//prezioa array sartu
+		for(int i=0;i<arrayprezio.length;i++) {
+			if(arrayprezio[i]==0) {
+				arrayprezio[i]=emaitzaint;
+					break;
+				}
+		}
+		return arrayprezio;
+	}
 	
-	public static Object[] produktuenarray(Object prodizena,Object[] arrayresumen) {
-		//Produktuaren izena arrayera sartu
-			for(int i=0;i<arrayresumen.length;i++) {
-				if(arrayresumen[i]==null) {
-					arrayresumen[i]=prodizena;
+	public static String emaitzaetxerekin(double[] arrayprezio) {
+		double emaitzatot=0;
+		for(int i=0;i<arrayprezio.length;i++) {
+			 emaitzatot= emaitzatot+arrayprezio[i];
+		}
+		String emaitza=Double.toString(emaitzatot);
+		
+		return emaitza;
+	}
+	
+	public static String[] produktuenarray(String prodizena,String[] arrayizena) {
+			for(int i=0;i<arrayizena.length;i++) {
+				if(arrayizena[i]==null) {
+					arrayizena[i]=prodizena;
 						break;
 					}
 				}
-			return arrayresumen;
+			return arrayizena;
 	}
 	
+	public static String arrayresuemnbueltatu(String[] array,double[] arrayprezio) {//arrayak bistaratu
+		String resumen ="";
+		for(int kont=0;array[kont]!=null;kont++) {
+			 resumen=resumen+"<html>"+ array[kont]+".............................."+arrayprezio[kont]+"euro"+"<br><html>";
+		}
+		return resumen;
+	}
+	
+	public static String[] asieratuarrayizena(String[] arrayizena) {
+			for(int i=0;i<arrayizena.length;i++) {
+					arrayizena[i]=null;
+				}
+			return arrayizena;
+	}
+	
+	public static double[] asieratuarrayprezioa(double[] arrayprezio) {
+			for(int i=0;i<arrayprezio.length;i++) {
+				arrayprezio[i]=0;
+				}
+			return arrayprezio;
+	}
 }

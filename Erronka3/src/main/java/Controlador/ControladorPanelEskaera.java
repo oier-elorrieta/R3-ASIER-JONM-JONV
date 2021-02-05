@@ -30,12 +30,28 @@ public class ControladorPanelEskaera {
 	public void accionadoBottonExit() {
 		this.controlador.navegarPanelHasiera();
 	}
-	
-	public String accionandoBottonAukeratu1(String kanti,int emaitzatot) {
-		return this.modelo.botonEmaitzafin(kanti,emaitzatot);
+	//-------------------------------------------------------------------------------------
+	public String accionandoBottonEmaitzafin(String kanti) {
+		return this.modelo.botonEmaitzafin(kanti);
 	}
 	
-	public Object[] accionandoBottonAukeratu2(Object prodizena,Object[] arrayresumen) {
-		return this.modelo.botonArray(prodizena, arrayresumen);
+	public void accionandoBottonArray(String izena) {
+		this.modelo.botonArray(izena);
+	}
+	
+	public void accionandoBottonEtxera(double prezio) {
+		this.modelo.botonEtxera(prezio);
+	}
+	
+	public String emaitzaetxerekin() {
+		return this.modelo.botonEtxeraemaitza();
+	}
+	
+	public void arrayizenaborratu() {
+		modelo.arrayizenaasieratu();
+	}
+	
+	public void arrayprezioborratu() {
+		modelo.arrayprezioasieratu();
 	}
 }

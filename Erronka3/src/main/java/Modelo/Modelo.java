@@ -1,19 +1,45 @@
 package Modelo;
 
 public class Modelo {
+	private double[] arrayprezio= new double [10];
+	private String[] arrayizena= new String [10];
+	
 	public String[] autoakJaso() {
 		return Metodoak.irakurriarray();
 	}
 	
-	public String botonEmaitzafin(String kanti,int emaitzatot) {
-		return Metodoak.daramanprezioaagertzea(kanti,emaitzatot);
+	public String botonEmaitzafin(String kanti) {
+		return Metodoak.daramanprezioaagertzea(kanti,arrayprezio);
+		
 	}
 	
-	public Object[] botonArray(Object prodizena,Object[] arrayresumen) {
-		return Metodoak.produktuenarray(prodizena,arrayresumen);
+	public String Emaitzafinenresumen() {
+		return Metodoak.emaitzaetxerekin(arrayprezio);
+		
 	}
 	
-	public String[] arrayresumenbistaratu(Object[] array) {
-		return Metodoscarrito.arrayresuemnbueltatu(array);
+	public String[] botonArray(String prodizena) {
+		return Metodoak.produktuenarray(prodizena,arrayizena);
 	}
+	
+	public String arrayresumenbistaratu() {
+		return Metodoak.arrayresuemnbueltatu(arrayizena,arrayprezio);
+	}
+	
+	public void botonEtxera(double emaitza) {
+		 Metodoak.sartuprezioa(emaitza,arrayprezio);
+	}
+	
+	public String botonEtxeraemaitza() {
+		 return Metodoak.emaitzaetxerekin(arrayprezio);
+	}
+	
+	public void arrayizenaasieratu() {
+		 Metodoak.asieratuarrayizena(arrayizena);
+	}
+	
+	public void arrayprezioasieratu() {
+		 Metodoak.asieratuarrayprezioa(arrayprezio);
+	}
+	
 }
