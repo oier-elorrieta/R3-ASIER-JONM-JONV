@@ -1,56 +1,64 @@
 package Vista;
 
 import java.awt.BorderLayout;
+
+
 import java.awt.Color;
-import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
-public class Nagusia extends JFrame {
+import Controlador.ControladorPanelNagusia;
 
-	private JPanel contentPane;
+@SuppressWarnings("serial")
+public class Nagusia extends JPanel {
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Nagusia frame = new Nagusia();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public Nagusia() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	private ControladorPanelNagusia controladorPanelNagusia;
+	private JButton btnLogin;
+	private JButton btnSingup;
+	
+	public Nagusia(ControladorPanelNagusia controladorPanelNagusia) {
+		
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBackground(Color.DARK_GRAY);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
+		setBackground(Color.DARK_GRAY);
 		
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(86, 117, 97, 23);
-		contentPane.add(btnNewButton);
+		setLayout(null);
 		
-		JButton btnNewButton_1 = new JButton("Sign Up");
-		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton_1.setBounds(243, 117, 97, 23);
-		contentPane.add(btnNewButton_1);
+		btnLogin = new JButton("Login");
+		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnLogin.setBounds(86, 117, 97, 23);
+		add(btnLogin);
+		
+		btnSingup = new JButton("Sign Up");
+		btnSingup.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnSingup.setBounds(243, 117, 97, 23);
+		add(btnSingup);
+		
+		initializeEvents();
+	}
+	
+	private void initializeEvents() {
+		this.btnLogin.addActionListener(listenerBotonLogeatu(this.controladorPanelNagusia));
+		this.btnSingup.addActionListener(listenerBotonRegistratu(this.controladorPanelNagusia)); 
+	}
+	
+	private ActionListener listenerBotonLogeatu(ControladorPanelNagusia controladorPanelNagusia) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelNagusia.accionadoBottonMostrarPanelLogin();
+			}
+		};
+	}
+	
+	private ActionListener listenerBotonRegistratu(ControladorPanelNagusia controladorPanelNagusia) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelNagusia.accionadoBottonMostrarPanelRegistratu();
+			}
+		};
 	}
 
 }
