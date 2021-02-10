@@ -21,6 +21,9 @@ public class Login extends JPanel {
 	private JTextField textIzena;
 	private JTextField textpasahitza;
 	private JButton btnAtzera;
+	private JButton btnLogin;
+	private JLabel lblpasahitza;
+	private JLabel lblIzena;
 	private ControladorPanelLogin controladorPanelLogin;
 
 
@@ -29,13 +32,13 @@ public class Login extends JPanel {
 		this.controladorPanelLogin = controladorPanelLogin;
 		setLayout(null);
 		
-		JLabel lblIzena = new JLabel("Izena");
+		lblIzena = new JLabel("Izena");
 		lblIzena.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblIzena.setForeground(Color.WHITE);
 		lblIzena.setBounds(87, 105, 80, 14);
 		add(lblIzena);
 		
-		JLabel lblpasahitza = new JLabel("Pasahitza");
+		lblpasahitza = new JLabel("Pasahitza");
 		lblpasahitza.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblpasahitza.setForeground(Color.WHITE);
 		lblpasahitza.setBounds(87, 171, 80, 14);
@@ -51,10 +54,10 @@ public class Login extends JPanel {
 		add(textpasahitza);
 		textpasahitza.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(351, 266, 89, 23);
-		add(btnNewButton);
+		btnLogin = new JButton("Login");
+		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnLogin.setBounds(351, 266, 89, 23);
+		add(btnLogin);
 		
 		btnAtzera = new JButton("Atzera");
 		btnAtzera.setFont(new Font("Tahoma", Font.BOLD, 11));
@@ -66,12 +69,24 @@ public class Login extends JPanel {
 	
 	private void initializeEvents() {
 		this.btnAtzera.addActionListener(listenerBotonAtzeraLogin(this.controladorPanelLogin));
+		this.btnLogin.addActionListener(listenerBotonLogin(this.controladorPanelLogin));
 	}
 	
 	private ActionListener listenerBotonAtzeraLogin(ControladorPanelLogin controladorPanelLogin) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelLogin.accionadoBottonAtzera();
+			}
+		};
+	}
+	
+	private ActionListener listenerBotonLogin(ControladorPanelLogin controladorPanelLogin) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelLogin.accionadoBottonLogin();
+				String Izena=textIzena.getText();
+				String pasahitza=textpasahitza.getText();
+				controladorPanelLogin.BottonLoginBeri(Izena,pasahitza);
 			}
 		};
 	}

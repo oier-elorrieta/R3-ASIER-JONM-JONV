@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
@@ -21,6 +23,7 @@ public class PanelRegistratu extends JPanel {
 	private JTextField textIzena;
 	private JTextField textpasahitza;
 	private JButton btnAtzera;
+	private JButton btnLoeginErre;
 	private ControladorPanelRegistratu controladorPanelRegistratu;
 	private JTextField textpasahitza2;
 
@@ -53,10 +56,10 @@ public class PanelRegistratu extends JPanel {
 		add(textpasahitza);
 		textpasahitza.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Login");
-		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnNewButton.setBounds(351, 266, 89, 23);
-		add(btnNewButton);
+		btnLoeginErre = new JButton("Login");
+		btnLoeginErre.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnLoeginErre.setBounds(351, 266, 89, 23);
+		add(btnLoeginErre);
 		
 		JLabel lblpasahitza_2 = new JLabel("Pasahitza");
 		lblpasahitza_2.setForeground(Color.WHITE);
@@ -79,12 +82,31 @@ public class PanelRegistratu extends JPanel {
 	
 	private void initializeEvents() {
 		this.btnAtzera.addActionListener(listenerBotonAtzeraRegistatu(this.controladorPanelRegistratu));
+		this.btnLoeginErre.addActionListener(listenerBotonLogin(this.controladorPanelRegistratu));
 	}
 	
 	private ActionListener listenerBotonAtzeraRegistatu(ControladorPanelRegistratu controladorPanelRegistratu) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelRegistratu.accionadoBottonAtzera();
+			}
+		};
+	}
+	
+	private ActionListener listenerBotonLogin(ControladorPanelRegistratu controladorPanelRegistratu) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String Izena=textIzena.getText();
+				String pasahitza=textpasahitza.getText();
+				String pasahitza2=textpasahitza2.getText();
+				boolean berdina=controladorPanelRegistratu.BottonErregistratu(Izena,pasahitza,pasahitza2);
+				if(berdina==true) {
+					controladorPanelRegistratu.accionadoBottonLogin();
+				}else {
+					JOptionPane.showInternalMessageDialog(null,"Pasahitzak ez dute koinziditzen");
+					textpasahitza.setText("");
+					textpasahitza2.setText("");
+				}
 			}
 		};
 	}

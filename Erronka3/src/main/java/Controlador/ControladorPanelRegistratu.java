@@ -30,5 +30,11 @@ public class ControladorPanelRegistratu {
 		this.controlador.navegarPanelNagusia();
 	}
 	
+	public void accionadoBottonLogin() {
+		this.controlador.navegarPanelHasiera();
+	}
 	
+	public boolean BottonErregistratu(String Izena,String pasahitza,String pasahitza2) {
+		return this.modelo.UsuarioInsert(Izena,pasahitza,pasahitza2);
+	}
 }

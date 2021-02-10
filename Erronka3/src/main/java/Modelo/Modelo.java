@@ -1,9 +1,10 @@
 package Modelo;
 
+import java.sql.Connection;
+
 public class Modelo {
 	private double[] arrayprezio= new double [10];
 	private String[] arrayizena= new String [10];
-	
 	public String[] autoakJaso() {
 		return Metodoak.irakurriarray();
 	}
@@ -40,6 +41,14 @@ public class Modelo {
 	
 	public void arrayprezioasieratu() {
 		 Metodoak.asieratuarrayprezioa(arrayprezio);
+	}
+	
+	public void BeriUsuario(String izena, String pasahitza) {
+		 Metodoak.UsuariaBerifikatu();	
+	}
+	
+	public boolean UsuarioInsert(String izena, String pasahitza,String pasahitza2) {
+		return Metodoak.UsuarioaInsertatu(izena,pasahitza,pasahitza2);	
 	}
 	
 }

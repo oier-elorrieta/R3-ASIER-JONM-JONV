@@ -1,6 +1,14 @@
 package Modelo;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class Metodoak {
+
+	private static PreparedStatement preparedStatement;
 
 	public static String[] irakurriarray() {
 		Produktuak a1 = new Produktuak("Esnea",1);
@@ -96,4 +104,27 @@ public class Metodoak {
 				}
 			return arrayprezio;
 	}
+	
+	public static boolean UsuarioaInsertatu(String izena,String pasahitza,String pasahitza2){
+		boolean berdina=true;
+		if(pasahitza.equals(pasahitza2)) {
+			Connection conexion = ConexionBD.getConexion();
+	        String query = "INSERT INTO usuarios values('"+izena+"','"+pasahitza+"')";
+
+	        try {
+	        	Statement s;
+	            s=conexion.createStatement();
+	            s.executeUpdate(query);
+	            System.out.println("ondo");
+	        } catch (SQLException e) {
+	        	System.out.println("error");
+	            e.printStackTrace();
+
+	        }
+		}else {
+			System.out.println("Pasahitza ez dago ondo");
+			berdina=false;
+		}
+		 return berdina;
+}
 }

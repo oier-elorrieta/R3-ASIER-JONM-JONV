@@ -30,4 +30,11 @@ public class ControladorPanelLogin {
 		this.controlador.navegarPanelNagusia();
 	}
 	
+	public void accionadoBottonLogin() {
+		this.controlador.navegarPanelHasiera();
+	}
+	
+	public void BottonLoginBeri(String izena, String pasahitza) {
+		this.modelo.BeriUsuario(izena,pasahitza);
+	}
 }

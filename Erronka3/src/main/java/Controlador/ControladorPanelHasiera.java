@@ -30,4 +30,8 @@ public class ControladorPanelHasiera {
 	public void accionadoBottonMostrarPanelEskaera() {
 		this.controlador.navegarPanelEskaera();
 	}
+	
+	public void accionadoBottonMostrarPanelNagusia() {
+		this.controlador.navegarPanelNagusia();
+	}
 }
