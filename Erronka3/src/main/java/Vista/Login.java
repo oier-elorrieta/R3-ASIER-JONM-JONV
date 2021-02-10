@@ -5,6 +5,8 @@ import javax.swing.JPanel;
 
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.event.ActionEvent;
@@ -83,10 +85,17 @@ public class Login extends JPanel {
 	private ActionListener listenerBotonLogin(ControladorPanelLogin controladorPanelLogin) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelLogin.accionadoBottonLogin();
 				String Izena=textIzena.getText();
 				String pasahitza=textpasahitza.getText();
-				controladorPanelLogin.BottonLoginBeri(Izena,pasahitza);
+				boolean badago=controladorPanelLogin.BottonLoginBeri(Izena,pasahitza);
+				if(badago==true) {
+					controladorPanelLogin.accionadoBottonLogin();
+				}else {
+					JOptionPane.showInternalMessageDialog(null,"Usuarioa ez da existitzen");
+					textpasahitza.setText("");
+					textIzena.setText("");
+				}
+				
 			}
 		};
 	}

@@ -43,12 +43,15 @@ public class Modelo {
 		 Metodoak.asieratuarrayprezioa(arrayprezio);
 	}
 	
-	public void BeriUsuario(String izena, String pasahitza) {
-		 Metodoak.UsuariaBerifikatu();	
+	public boolean BeriUsuario(String izena, String pasahitza) {
+		 return Metodoak.UsuariaBerifikatu(izena,pasahitza);	
 	}
 	
 	public boolean UsuarioInsert(String izena, String pasahitza,String pasahitza2) {
 		return Metodoak.UsuarioaInsertatu(izena,pasahitza,pasahitza2);	
 	}
 	
+	public void operazioaBD() {
+		 Metodoak.operazioaBDsartu();
+	}
 }

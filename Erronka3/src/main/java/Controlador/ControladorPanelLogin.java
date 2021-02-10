@@ -34,7 +34,7 @@ public class ControladorPanelLogin {
 		this.controlador.navegarPanelHasiera();
 	}
 	
-	public void BottonLoginBeri(String izena, String pasahitza) {
-		this.modelo.BeriUsuario(izena,pasahitza);
+	public boolean BottonLoginBeri(String izena, String pasahitza) {
+		return this.modelo.BeriUsuario(izena,pasahitza);
 	}
 }

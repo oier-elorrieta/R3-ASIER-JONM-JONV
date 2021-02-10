@@ -102,6 +102,8 @@ public class PanelResumen extends JPanel {
 				lblresumen.setText(resumen);
 				String emaitza=controladorPanelResumen.preziofinbistaratu();
 				textpreziotot.setText(emaitza);
+				
+				controladorPanelResumen.registraroperacion();
 			}
 		};
 	}

@@ -44,5 +44,7 @@ public class ControladorPanelResumen {
 		return modelo.Emaitzafinenresumen();
 	}
 	
-
+	public void registraroperacion() {
+		 modelo.operazioaBD();
+	}
 }
