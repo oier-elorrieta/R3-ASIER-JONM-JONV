@@ -47,11 +47,15 @@ public class Modelo {
 		 return Metodoak.UsuariaBerifikatu(izena,pasahitza);	
 	}
 	
-	public boolean UsuarioInsert(String izena, String pasahitza,String pasahitza2) {
-		return Metodoak.UsuarioaInsertatu(izena,pasahitza,pasahitza2);	
+	public boolean UsuarioInsert(String izena, String pasahitza,String pasahitza2,String NIF) {
+		return Metodoak.UsuarioaInsertatu(izena,pasahitza,pasahitza2,NIF);	
 	}
 	
-	public void operazioaBD() {
-		 Metodoak.operazioaBDsartu();
+	public void operazioaBD(String emaitza) {
+		 Metodoak.operazioaBDsartu(emaitza);
+	}
+	
+	public void pedidoBD(String direccion) {
+		 Metodoak.pedidoBDsartu(direccion);
 	}
 }

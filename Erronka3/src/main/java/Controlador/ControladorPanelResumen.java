@@ -44,7 +44,7 @@ public class ControladorPanelResumen {
 		return modelo.Emaitzafinenresumen();
 	}
 	
-	public void registraroperacion() {
-		 modelo.operazioaBD();
+	public void registraroperacion(String emaitza) {
+		 modelo.operazioaBD(emaitza);
 	}
 }

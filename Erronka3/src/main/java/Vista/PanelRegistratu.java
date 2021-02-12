@@ -26,6 +26,7 @@ public class PanelRegistratu extends JPanel {
 	private JButton btnLoeginErre;
 	private ControladorPanelRegistratu controladorPanelRegistratu;
 	private JTextField textpasahitza2;
+	private JTextField textNIF;
 
 
 	public PanelRegistratu(ControladorPanelRegistratu controladorPanelRegistratu) {
@@ -37,22 +38,22 @@ public class PanelRegistratu extends JPanel {
 		JLabel lblIzena = new JLabel("Izena");
 		lblIzena.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblIzena.setForeground(Color.WHITE);
-		lblIzena.setBounds(87, 78, 80, 14);
+		lblIzena.setBounds(34, 67, 80, 14);
 		add(lblIzena);
 		
 		JLabel lblpasahitza = new JLabel("Pasahitza");
 		lblpasahitza.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblpasahitza.setForeground(Color.WHITE);
-		lblpasahitza.setBounds(87, 130, 80, 14);
+		lblpasahitza.setBounds(34, 117, 80, 14);
 		add(lblpasahitza);
 		
 		textIzena = new JTextField();
-		textIzena.setBounds(226, 77, 86, 20);
+		textIzena.setBounds(124, 66, 86, 20);
 		add(textIzena);
 		textIzena.setColumns(10);
 		
 		textpasahitza = new JTextField();
-		textpasahitza.setBounds(226, 129, 86, 20);
+		textpasahitza.setBounds(124, 116, 86, 20);
 		add(textpasahitza);
 		textpasahitza.setColumns(10);
 		
@@ -64,18 +65,29 @@ public class PanelRegistratu extends JPanel {
 		JLabel lblpasahitza_2 = new JLabel("Pasahitza");
 		lblpasahitza_2.setForeground(Color.WHITE);
 		lblpasahitza_2.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblpasahitza_2.setBounds(87, 180, 80, 14);
+		lblpasahitza_2.setBounds(34, 180, 80, 14);
 		add(lblpasahitza_2);
 		
 		textpasahitza2 = new JTextField();
 		textpasahitza2.setColumns(10);
-		textpasahitza2.setBounds(226, 179, 86, 20);
+		textpasahitza2.setBounds(124, 179, 86, 20);
 		add(textpasahitza2);
 		
 		btnAtzera = new JButton("Atzera");
 		btnAtzera.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAtzera.setBounds(252, 266, 89, 23);
 		add(btnAtzera);
+		
+		JLabel lblNIF = new JLabel("NIF");
+		lblNIF.setForeground(Color.WHITE);
+		lblNIF.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNIF.setBounds(305, 69, 80, 14);
+		add(lblNIF);
+		
+		textNIF = new JTextField();
+		textNIF.setColumns(10);
+		textNIF.setBounds(283, 111, 86, 20);
+		add(textNIF);
 		
 		initializeEvents();
 	}
@@ -99,7 +111,8 @@ public class PanelRegistratu extends JPanel {
 				String Izena=textIzena.getText();
 				String pasahitza=textpasahitza.getText();
 				String pasahitza2=textpasahitza2.getText();
-				boolean berdina=controladorPanelRegistratu.BottonErregistratu(Izena,pasahitza,pasahitza2);
+				String NIF=textNIF.getText();
+				boolean berdina=controladorPanelRegistratu.BottonErregistratu(Izena,pasahitza,pasahitza2,NIF);
 				if(berdina==true) {
 					controladorPanelRegistratu.accionadoBottonLogin();
 				}else {
@@ -107,6 +120,7 @@ public class PanelRegistratu extends JPanel {
 					textpasahitza.setText("");
 					textpasahitza2.setText("");
 				}
+				
 			}
 		};
 	}

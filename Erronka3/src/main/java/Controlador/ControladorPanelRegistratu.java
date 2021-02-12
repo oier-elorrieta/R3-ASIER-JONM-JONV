@@ -34,7 +34,7 @@ public class ControladorPanelRegistratu {
 		this.controlador.navegarPanelHasiera();
 	}
 	
-	public boolean BottonErregistratu(String Izena,String pasahitza,String pasahitza2) {
-		return this.modelo.UsuarioInsert(Izena,pasahitza,pasahitza2);
+	public boolean BottonErregistratu(String Izena,String pasahitza,String pasahitza2,String NIF) {
+		return this.modelo.UsuarioInsert(Izena,pasahitza,pasahitza2,NIF);
 	}
 }

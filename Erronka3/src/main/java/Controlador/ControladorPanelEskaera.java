@@ -54,4 +54,8 @@ public class ControladorPanelEskaera {
 	public void arrayprezioborratu() {
 		modelo.arrayprezioasieratu();
 	}
+	
+	public void pedidosartu(String direccion) {
+		modelo.pedidoBD(direccion);
+	}
 }

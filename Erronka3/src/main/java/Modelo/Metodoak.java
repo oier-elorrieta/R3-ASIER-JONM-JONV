@@ -106,11 +106,11 @@ public class Metodoak {
 		return arrayprezio;
 	}
 
-	public static boolean UsuarioaInsertatu(String izena, String pasahitza, String pasahitza2) {
+	public static boolean UsuarioaInsertatu(String izena, String pasahitza, String pasahitza2,String NIF) {
 		boolean berdina = true;
 		if (pasahitza.equals(pasahitza2)) {
 			Connection conexion = ConexionBD.getConexion();
-			String query = "INSERT INTO usuarios values('" + izena + "','" + pasahitza + "')";
+			String query = "INSERT INTO usuarios values('" + izena + "','" + pasahitza + "','" + NIF +"')";
 
 			try {
 				Statement s;
@@ -157,10 +157,46 @@ public class Metodoak {
 		return badago;
 	}
 	
-	public static double[] opreazioaBDsartu(double[] arrayprezio) {
-		for (int i = 0; i < arrayprezio.length; i++) {
-			arrayprezio[i] = 0;
-		}
-		return arrayprezio;
+	
+	
+	public static void operazioaBDsartu(String emaitza) {
+			Connection conexion = ConexionBD.getConexion();
+			String query = "INSERT INTO operaciones values('3','" + emaitza + "','12345678a')";
+
+			try {
+				Statement s;
+				s = conexion.createStatement();
+				s.executeUpdate(query);
+				System.out.println("ondo");
+			} catch (SQLException e) {
+				System.out.println("error");
+				e.printStackTrace();
+
+			}
 	}
+	
+	public static void pedidoBDsartu(String direccion) {
+		String etxera=" ";
+		if(direccion.equals(null)) {
+			etxera="NO";
+			direccion="Ez dago";
+		}else {
+			etxera="SI";
+		}
+		System.out.println(direccion);
+		Connection conexion = ConexionBD.getConexion();
+		
+		String query = "INSERT INTO pedido(ID,DomicilioSioNo,DirDomicilio) values('1','" + etxera + "','" + direccion + "')";
+
+		try {
+			Statement s;
+			s = conexion.createStatement();
+			s.executeUpdate(query);
+			System.out.println("ondo");
+		} catch (SQLException e) {
+			System.out.println("error");
+			e.printStackTrace();
+
+		}
+}
 }

@@ -32,6 +32,7 @@ public class Eskaera extends JPanel {
 	private JButton btndomicilio;
 	private JSpinner spinnerKanti;
 	private JButton btnAukeratu;
+	private JTextField textdireccion;
 	
 	public Eskaera(ControladorPanelEskaera controladorPanelEskaera) {
 		this.controladorPanelEskaera = controladorPanelEskaera;
@@ -60,8 +61,8 @@ public class Eskaera extends JPanel {
 		lbllocal.setFont(new Font("Tahoma", Font.BOLD, 11));
 		add(lbllocal);
 		
-		btndomicilio = new JButton("BAI");
-		btndomicilio.setBounds(332, 212, 89, 23);
+		btndomicilio = new JButton("ETXERA");
+		btndomicilio.setBounds(298, 219, 89, 23);
 		add(btndomicilio);
 		
 		
@@ -78,9 +79,9 @@ public class Eskaera extends JPanel {
 			Izenak.addItem(arrayizenak[i]);
 		}
 		
-		JLabel lbldomicilio = new JLabel("Etxera:");
+		JLabel lbldomicilio = new JLabel("Etxera eramateko:");
 		lbldomicilio.setForeground(Color.WHITE);
-		lbldomicilio.setBounds(254, 217, 45, 13);
+		lbldomicilio.setBounds(298, 160, 112, 13);
 		add(lbldomicilio);
 		
 		spinnerKanti = new JSpinner();
@@ -106,6 +107,11 @@ public class Eskaera extends JPanel {
 		btnAukeratu.setBounds(288, 116, 89, 23);
 		add(btnAukeratu);
 		
+		textdireccion = new JTextField();
+		textdireccion.setBounds(298, 188, 89, 20);
+		add(textdireccion);
+		textdireccion.setColumns(10);
+		
 		initializeEvents();
 	}
 	
@@ -120,6 +126,8 @@ public class Eskaera extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelEskaera.accionadoBottonMostrarPanelResumen();
+				String direccion=textdireccion.getText();
+				controladorPanelEskaera.pedidosartu(direccion);
 			}
 		};
 	}
@@ -142,7 +150,7 @@ public class Eskaera extends JPanel {
 				String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti);
 				textDiruTot.setText(emaitza);
 				String izena=Izenak.getSelectedItem().toString();
-				controladorPanelEskaera.accionandoBottonArray(izena);				
+				controladorPanelEskaera.accionandoBottonArray(izena);
 				}
 		};
 }
