@@ -29,7 +29,7 @@ public class prueba extends JPanel {
 		
 		setLayout(null);
 		
-		setBackground(Color.DARK_GRAY);
+		setBackground(Color.LIGHT_GRAY);
 		setForeground(Color.DARK_GRAY);
 		setLayout(null);
 		
@@ -37,15 +37,24 @@ public class prueba extends JPanel {
 		btntickets.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btntickets.setBackground(Color.WHITE);
 		btntickets.setBounds(28, 11, 182, 114);
+		btntickets.setBackground(new java.awt.Color(130, 130, 130)); 
+		btntickets.setOpaque(true); 
+		btntickets.setBorderPainted(false);
 		add(btntickets);
 		
 		btnpedido = new JButton("Pedido");
 		btnpedido.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnpedido.setBounds(245, 11, 178, 114);
+		btnpedido.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnpedido.setOpaque(true); 
+		btnpedido.setBorderPainted(false);
 		add(btnpedido);
 		
 		btnDeslogeatu = new JButton("Deslogeatu");
 		btnDeslogeatu.setBounds(301, 266, 122, 23);
+		btnDeslogeatu.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnDeslogeatu.setOpaque(true); 
+		btnDeslogeatu.setBorderPainted(false);
 		add(btnDeslogeatu);
 		
 		initializeEvents();
