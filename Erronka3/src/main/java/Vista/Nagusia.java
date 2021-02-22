@@ -25,18 +25,24 @@ public class Nagusia extends JPanel {
 	public Nagusia(ControladorPanelNagusia controladorPanelNagusia) {
 		this.controladorPanelNagusia = controladorPanelNagusia;
 		setBounds(100, 100, 450, 300);
-		setBackground(Color.DARK_GRAY);
+		setBackground(Color.LIGHT_GRAY);
 		
 		setLayout(null);
 		
 		btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnLogin.setBounds(23, 44, 197, 220);
+		btnLogin.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnLogin.setOpaque(true); 
+		btnLogin.setBorderPainted(false);
 		add(btnLogin);
 		
 		btnSingup = new JButton("Sign Up");
 		btnSingup.setFont(new Font("Tahoma", Font.BOLD, 18));
 		btnSingup.setBounds(230, 44, 187, 220);
+		btnSingup.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnSingup.setOpaque(true); 
+		btnSingup.setBorderPainted(false);
 		add(btnSingup);
 		
 		initializeEvents();

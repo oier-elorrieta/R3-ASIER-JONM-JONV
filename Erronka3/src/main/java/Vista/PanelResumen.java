@@ -26,38 +26,44 @@ public class PanelResumen extends JPanel {
 	
 	public PanelResumen(ControladorPanelResumen controladorPanelResumen) {
 		this.controladorPanelResumen = controladorPanelResumen;
-		setBackground(Color.DARK_GRAY);
+		setBackground(Color.LIGHT_GRAY);
 		
 		setLayout(null);
 		setLayout(null);
 		
 		lblLaburpena = new JLabel("LABURPENA");
 		lblLaburpena.setBounds(181, 30, 106, 14);
-		lblLaburpena.setForeground(Color.WHITE);
+		lblLaburpena.setForeground(Color.BLACK);
 		lblLaburpena.setFont(new Font("Tahoma", Font.BOLD, 11));
 		add(lblLaburpena);
 		
 		btnexitResum = new JButton("Exit");
 		btnexitResum.setBounds(351, 266, 89, 23);
+		btnexitResum.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnexitResum.setOpaque(true); 
+		btnexitResum.setBorderPainted(false);
 		add(btnexitResum);
 		
 		btnResumen = new JButton("Resumen");
 		btnResumen.setBounds(26, 27, 106, 21);
+		btnResumen.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnResumen.setOpaque(true); 
+		btnResumen.setBorderPainted(false);
 		add(btnResumen);
 		
 		JLabel lbllinea_1 = new JLabel("----------------------------------------------------------------------------------------------------");
-		lbllinea_1.setForeground(Color.WHITE);
+		lbllinea_1.setForeground(Color.BLACK);
 		lbllinea_1.setBounds(26, 43, 400, 14);
 		add(lbllinea_1);
 		
 		JLabel lblline_2 = new JLabel("----------------------------------------------------------------------------------------------------");
-		lblline_2.setForeground(Color.WHITE);
+		lblline_2.setForeground(Color.BLACK);
 		lblline_2.setBounds(26, 55, 400, 14);
 		add(lblline_2);
 		
 		JLabel lblpreziotot = new JLabel("Prezio totala");
 		lblpreziotot.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblpreziotot.setForeground(Color.WHITE);
+		lblpreziotot.setForeground(Color.BLACK);
 		lblpreziotot.setBounds(36, 247, 111, 14);
 		add(lblpreziotot);
 		
@@ -72,7 +78,7 @@ public class PanelResumen extends JPanel {
 		add(lblresumen);
 		
 		JLabel lblline_2_1 = new JLabel("----------------------------------------------------------------------------------------------------");
-		lblline_2_1.setForeground(Color.WHITE);
+		lblline_2_1.setForeground(Color.BLACK);
 		lblline_2_1.setBounds(26, 225, 400, 14);
 		add(lblline_2_1);
 		

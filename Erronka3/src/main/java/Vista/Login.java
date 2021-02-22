@@ -30,19 +30,19 @@ public class Login extends JPanel {
 
 
 	public Login(ControladorPanelLogin controladorPanelLogin) {
-		setBackground(Color.DARK_GRAY);
+		setBackground(Color.LIGHT_GRAY);
 		this.controladorPanelLogin = controladorPanelLogin;
 		setLayout(null);
 		
 		lblIzena = new JLabel("Izena");
 		lblIzena.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblIzena.setForeground(Color.WHITE);
+		lblIzena.setForeground(Color.BLACK);
 		lblIzena.setBounds(87, 105, 80, 14);
 		add(lblIzena);
 		
 		lblpasahitza = new JLabel("Pasahitza");
 		lblpasahitza.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblpasahitza.setForeground(Color.WHITE);
+		lblpasahitza.setForeground(Color.BLACK);
 		lblpasahitza.setBounds(87, 171, 80, 14);
 		add(lblpasahitza);
 		
@@ -59,11 +59,17 @@ public class Login extends JPanel {
 		btnLogin = new JButton("Login");
 		btnLogin.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnLogin.setBounds(351, 266, 89, 23);
+		btnLogin.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnLogin.setOpaque(true); 
+		btnLogin.setBorderPainted(false);
 		add(btnLogin);
 		
 		btnAtzera = new JButton("Atzera");
 		btnAtzera.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAtzera.setBounds(252, 266, 89, 23);
+		btnAtzera.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnAtzera.setOpaque(true); 
+		btnAtzera.setBorderPainted(false);
 		add(btnAtzera);
 		
 		initializeEvents();

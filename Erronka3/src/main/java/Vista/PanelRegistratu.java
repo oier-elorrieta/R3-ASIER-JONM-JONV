@@ -31,19 +31,19 @@ public class PanelRegistratu extends JPanel {
 
 	public PanelRegistratu(ControladorPanelRegistratu controladorPanelRegistratu) {
 		
-		setBackground(Color.DARK_GRAY);
+		setBackground(Color.LIGHT_GRAY);
 		this.controladorPanelRegistratu = controladorPanelRegistratu;
 		setLayout(null);
 		
 		JLabel lblIzena = new JLabel("Izena");
 		lblIzena.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblIzena.setForeground(Color.WHITE);
+		lblIzena.setForeground(Color.BLACK);
 		lblIzena.setBounds(34, 67, 80, 14);
 		add(lblIzena);
 		
 		JLabel lblpasahitza = new JLabel("Pasahitza");
 		lblpasahitza.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblpasahitza.setForeground(Color.WHITE);
+		lblpasahitza.setForeground(Color.BLACK);
 		lblpasahitza.setBounds(34, 117, 80, 14);
 		add(lblpasahitza);
 		
@@ -60,10 +60,13 @@ public class PanelRegistratu extends JPanel {
 		btnLoeginErre = new JButton("Login");
 		btnLoeginErre.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnLoeginErre.setBounds(351, 266, 89, 23);
+		btnLoeginErre.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnLoeginErre.setOpaque(true); 
+		btnLoeginErre.setBorderPainted(false);
 		add(btnLoeginErre);
 		
 		JLabel lblpasahitza_2 = new JLabel("Pasahitza");
-		lblpasahitza_2.setForeground(Color.WHITE);
+		lblpasahitza_2.setForeground(Color.BLACK);
 		lblpasahitza_2.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblpasahitza_2.setBounds(34, 180, 80, 14);
 		add(lblpasahitza_2);
@@ -76,10 +79,13 @@ public class PanelRegistratu extends JPanel {
 		btnAtzera = new JButton("Atzera");
 		btnAtzera.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnAtzera.setBounds(252, 266, 89, 23);
+		btnAtzera.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnAtzera.setOpaque(true); 
+		btnAtzera.setBorderPainted(false);
 		add(btnAtzera);
 		
 		JLabel lblNIF = new JLabel("NIF");
-		lblNIF.setForeground(Color.WHITE);
+		lblNIF.setForeground(Color.BLACK);
 		lblNIF.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblNIF.setBounds(305, 69, 80, 14);
 		add(lblNIF);

@@ -36,30 +36,36 @@ public class PanelTicket extends JPanel {
 
 	public PanelTicket(ControladorPanelTicket controladorPanelTicket) {
 		
-		setBackground(Color.DARK_GRAY);
+		setBackground(Color.LIGHT_GRAY);
 		this.controladorPanelTicket = controladorPanelTicket;
 		setLayout(null);
 		
 		
 		JLabel lblTicket = new JLabel("TICKET");
-		lblTicket.setForeground(Color.WHITE);
+		lblTicket.setForeground(Color.BLACK);
 		lblTicket.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblTicket.setBounds(207, 11, 77, 14);
 		add(lblTicket);
 		
 		
 		JLabel lblproduktuak = new JLabel("Produktuak");
-		lblproduktuak.setForeground(Color.WHITE);
+		lblproduktuak.setForeground(Color.BLACK);
 		lblproduktuak.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblproduktuak.setBounds(22, 26, 111, 14);
 		add(lblproduktuak);
 		
 		btnExitTicket = new JButton("Exit");
 		btnExitTicket.setBounds(356, 266, 82, 23);
+		btnExitTicket.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnExitTicket.setOpaque(true); 
+		btnExitTicket.setBorderPainted(false);
 		add(btnExitTicket);
 		
 		btnAurreraTicket = new JButton("Aurrera");
 		btnAurreraTicket.setBounds(264, 266, 84, 23);
+		btnAurreraTicket.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnAurreraTicket.setOpaque(true); 
+		btnAurreraTicket.setBorderPainted(false);
 		add(btnAurreraTicket);
 		
 		Izenak = new JComboBox();
@@ -76,12 +82,12 @@ public class PanelTicket extends JPanel {
 		add(spinnerKanti);
 		
 		JLabel lblKanti = new JLabel("Kantitatea:");
-		lblKanti.setForeground(Color.WHITE);
+		lblKanti.setForeground(Color.BLACK);
 		lblKanti.setBounds(264, 80, 123, 13);
 		add(lblKanti);
 		
 		JLabel lblDiruTot = new JLabel("Daramazun dirua:");
-		lblDiruTot.setForeground(Color.WHITE);
+		lblDiruTot.setForeground(Color.BLACK);
 		lblDiruTot.setBounds(23, 264, 106, 13);
 		add(lblDiruTot);
 		
@@ -92,6 +98,9 @@ public class PanelTicket extends JPanel {
 		
 		btnAukeratu = new JButton("Aukeratu");
 		btnAukeratu.setBounds(297, 117, 89, 23);
+		btnAukeratu.setBackground(new java.awt.Color(130, 130, 130)); 
+		btnAukeratu.setOpaque(true); 
+		btnAukeratu.setBorderPainted(false);
 		add(btnAukeratu);
 		
 		initializeEvents();
