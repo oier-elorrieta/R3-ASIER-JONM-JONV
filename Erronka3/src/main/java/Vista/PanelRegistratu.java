@@ -1,7 +1,7 @@
 package Vista;
 
 import javax.swing.JPanel;
-
+import javax.swing.JPasswordField;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -52,7 +52,7 @@ public class PanelRegistratu extends JPanel {
 		add(textIzena);
 		textIzena.setColumns(10);
 
-		textpasahitza = new JTextField();
+		textpasahitza = new JPasswordField();
 		textpasahitza.setBounds(124, 116, 86, 20);
 		add(textpasahitza);
 		textpasahitza.setColumns(10);
@@ -71,7 +71,7 @@ public class PanelRegistratu extends JPanel {
 		lblpasahitza_2.setBounds(34, 180, 80, 14);
 		add(lblpasahitza_2);
 
-		textpasahitza2 = new JTextField();
+		textpasahitza2 = new JPasswordField();
 		textpasahitza2.setColumns(10);
 		textpasahitza2.setBounds(124, 179, 86, 20);
 		add(textpasahitza2);
