@@ -62,4 +62,8 @@ public class Modelo {
 	public String AteraNIFmetodoa(String Izena,String pasahitza) {
 		return Metodoak.AteraNIF(Izena,pasahitza);
 	}
+	
+	public String AteraTipolocalmetodoa(String NIF) {
+		return Metodoak.TipoLocalAtera(NIF);
+	}
 }

@@ -96,9 +96,15 @@ public class Login extends JPanel {
 				String pasahitza=textpasahitza.getText();
 				boolean badago=controladorPanelLogin.BottonLoginBeri(Izena,pasahitza);
 				if(badago==true) {
-					controladorPanelLogin.accionadoBottonLogin();
-					String num=controladorPanelLogin.NIFatera(Izena, pasahitza);
-					System.out.println(num);
+					String NIF=controladorPanelLogin.NIFatera(Izena, pasahitza);
+					String Tipolocal=controladorPanelLogin.Tipolocalatera(NIF);
+					if(Tipolocal.equals("Bar")) {
+						controladorPanelLogin.accionadoBar();
+					}if(Tipolocal.equals("Restaurante")) {
+						controladorPanelLogin.accionadoBottonLogin();
+					}if(Tipolocal.equals("Cafeteria")) {
+						controladorPanelLogin.accionadoCafeteria();
+					}
 				}else {
 					JOptionPane.showInternalMessageDialog(null,"Usuarioa ez da existitzen");
 					textpasahitza.setText("");

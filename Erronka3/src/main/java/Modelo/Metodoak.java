@@ -53,7 +53,7 @@ public class Metodoak {
 		return emaitza;
 	}
 
-	public static double[] sartuprezioa(double emaitzaint, double[] arrayprezio) {// prezioa array sartu
+	public static double[] sartuprezioa(double emaitzaint, double[] arrayprezio) {
 		for (int i = 0; i < arrayprezio.length; i++) {
 			if (arrayprezio[i] == 0) {
 				arrayprezio[i] = emaitzaint;
@@ -106,11 +106,11 @@ public class Metodoak {
 		return arrayprezio;
 	}
 
-	public static boolean UsuarioaInsertatu(String izena, String pasahitza, String pasahitza2,String NIF) {
+	public static boolean UsuarioaInsertatu(String izena, String pasahitza, String pasahitza2, String NIF) {
 		boolean berdina = true;
 		if (pasahitza.equals(pasahitza2)) {
 			Connection conexion = ConexionBD.getConexion();
-			String query = "INSERT INTO usuarios values('" + izena + "','" + pasahitza + "','" + NIF +"')";
+			String query = "INSERT INTO usuarios values('" + izena + "','" + pasahitza + "','" + NIF + "')";
 
 			try {
 				Statement s;
@@ -128,27 +128,28 @@ public class Metodoak {
 		}
 		return berdina;
 	}
-	
+
 	public static boolean UsuariaBerifikatu(String izena, String pasahitza) {
 		Connection conexion = ConexionBD.getConexion();
 		String query = "SELECT * FROM usuarios";
-		boolean badago=true;
+		boolean badago = true;
 		try {
 			PreparedStatement pre;
 			ResultSet resul;
-			
+
 			pre = conexion.prepareStatement(query);
-			resul=pre.executeQuery();
+			resul = pre.executeQuery();
 			System.out.println("ondo");
-			while(resul.next()) {
-				String usuario=resul.getString("Usuario");
-				String contraseña=resul.getString("Contraseña");
-				if(usuario.equals(izena)&&contraseña.equals(pasahitza)) {
-					badago=true;
-				}else {
-					badago=false;				}
-			}
-			
+			do{
+				String usuario = resul.getString("Usuario");
+				String contraseña = resul.getString("Contraseña");
+				if (usuario.equals(izena) && contraseña.equals(pasahitza)) {
+					badago = true;
+				} else {
+					badago = false;
+				}
+			}while (resul.next()); 
+
 		} catch (SQLException e) {
 			System.out.println("error");
 			e.printStackTrace();
@@ -156,57 +157,32 @@ public class Metodoak {
 		}
 		return badago;
 	}
-	
+
 	public static String AteraNIF(String Izena, String pasahitza) {
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT NIF FROM usuarios WHERE Usuario='"+Izena+"'";
-		String NIF="";
+		String query = "SELECT NIF FROM usuarios WHERE Usuario='" + Izena + "'";
+		String NIF = "";
 		try {
 			PreparedStatement pre;
 			ResultSet resul;
-			
+
 			pre = conexion.prepareStatement(query);
-			resul=pre.executeQuery();
-			while(resul.next()) {
-				NIF=resul.getString("NIF");
+			resul = pre.executeQuery();
+			while (resul.next()) {
+				NIF = resul.getString("NIF");
 			}
 			System.out.println("ondo");
-			
+
 		} catch (SQLException e) {
 			System.out.println("error");
 			e.printStackTrace();
 		}
 		return NIF;
 	}
-	
+
 	public static void operazioaBDsartu(String emaitza) {
-			Connection conexion = ConexionBD.getConexion();
-			String query = "INSERT INTO operaciones values('3','" + emaitza + "','12345678a')";
-
-			try {
-				Statement s;
-				s = conexion.createStatement();
-				s.executeUpdate(query);
-				System.out.println("ondo");
-			} catch (SQLException e) {
-				System.out.println("error");
-				e.printStackTrace();
-
-			}
-	}
-	
-	public static void pedidoBDsartu(String direccion) {
-		String etxera=" ";
-		if(direccion.equals(null)) {
-			etxera="NO";
-			direccion="Ez dago";
-		}else {
-			etxera="SI";
-		}
-		System.out.println(direccion);
 		Connection conexion = ConexionBD.getConexion();
-		
-		String query = "INSERT INTO pedido(ID,DomicilioSioNo,DirDomicilio) values('1','" + etxera + "','" + direccion + "')";
+		String query = "INSERT INTO operaciones values('3','" + emaitza + "','12345678a')";
 
 		try {
 			Statement s;
@@ -218,5 +194,53 @@ public class Metodoak {
 			e.printStackTrace();
 
 		}
-}
+	}
+
+	public static void pedidoBDsartu(String direccion) {
+		String etxera = " ";
+		if (direccion.equals(null)) {
+			etxera = "NO";
+			direccion = "Ez dago";
+		} else {
+			etxera = "SI";
+		}
+		System.out.println(direccion);
+		Connection conexion = ConexionBD.getConexion();
+
+		String query = "INSERT INTO pedido(ID,DomicilioSioNo,DirDomicilio) values('1','" + etxera + "','" + direccion
+				+ "')";
+
+		try {
+			Statement s;
+			s = conexion.createStatement();
+			s.executeUpdate(query);
+			System.out.println("ondo");
+		} catch (SQLException e) {
+			System.out.println("error");
+			e.printStackTrace();
+
+		}
+	}
+	
+	public static String TipoLocalAtera(String NIF) {
+		Connection conexion = ConexionBD.getConexion();
+		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + NIF + "'";
+		String Tipolocal = "";
+		try {
+			PreparedStatement pre;
+			ResultSet resul;
+
+			pre = conexion.prepareStatement(query);
+			resul = pre.executeQuery();
+			while (resul.next()) {
+				Tipolocal = resul.getString("TipoDeNegocio");
+			}
+			System.out.println("ondo");
+
+		} catch (SQLException e) {
+			System.out.println("error");
+			e.printStackTrace();
+		}
+		return Tipolocal;
+	}
 }

@@ -4,6 +4,7 @@ import Modelo.Modelo;
 
 
 
+
 import Vista.Login;
 import Vista.Vista;
 
@@ -34,11 +35,23 @@ public class ControladorPanelLogin {
 		this.controlador.navegarPanelHasiera();
 	}
 	
+	public void accionadoBar() {
+		this.controlador.navegarPanelBar();
+	}
+	
+	public void accionadoCafeteria() {
+		this.controlador.navegarPanelCafeteria();
+	}
+	
 	public boolean BottonLoginBeri(String izena, String pasahitza) {
 		return this.modelo.BeriUsuario(izena,pasahitza);
 	}
 	
 	public String NIFatera(String Izena, String pasahitza) {
 		return this.modelo.AteraNIFmetodoa(Izena,pasahitza);
+	}
+	
+	public String Tipolocalatera(String NIF) {
+		return this.modelo.AteraTipolocalmetodoa(NIF);
 	}
 }

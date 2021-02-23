@@ -3,6 +3,7 @@ package Controlador;
 import Modelo.Modelo;
 
 
+
 import Vista.Vista;
 
 public class Controlador {
@@ -16,6 +17,8 @@ public class Controlador {
 	private ControladorPanelNagusia controladorPanelNagusia;
 	private ControladorPanelLogin controladorPanelLogin;
 	private ControladorPanelRegistratu controladorPanelRegistratu;
+	private ControladorPanelBar controladorPanelBar;
+	private ControladorPanelCafeteria controladorPanelCafeteria;
 	
 	public Controlador(Modelo modelo, Vista vista) {
 		this.modelo = modelo;
@@ -27,6 +30,8 @@ public class Controlador {
 		this.controladorPanelNagusia = new ControladorPanelNagusia(this.modelo, this.vista, this);
 		this.controladorPanelLogin = new ControladorPanelLogin(this.modelo, this.vista, this);
 		this.controladorPanelRegistratu = new ControladorPanelRegistratu(this.modelo, this.vista, this);
+		this.controladorPanelBar = new ControladorPanelBar(this.modelo, this.vista, this);
+		this.controladorPanelCafeteria = new ControladorPanelCafeteria(this.modelo, this.vista, this);
 		this.navegarPanelNagusia();
 	}
 	
@@ -58,5 +63,11 @@ public class Controlador {
 		this.controladorPanelRegistratu.mostrarPanelRegistratu();
 	}
 	
+	public void navegarPanelBar() {
+		this.controladorPanelBar.mostrarPanelBar();
+	}
 	
+	public void navegarPanelCafeteria() {
+		this.controladorPanelCafeteria.mostrarPanelCafeteria();
+	}
 }

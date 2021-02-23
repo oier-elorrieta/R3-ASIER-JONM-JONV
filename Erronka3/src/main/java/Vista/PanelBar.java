@@ -3,11 +3,13 @@ package Vista;
 
 import java.awt.event.ActionEvent;
 
+
+
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import Controlador.ControladorPanelHasiera;
+import Controlador.ControladorPanelBar;
 import Modelo.Metodoak;
 
 import java.awt.Color;
@@ -15,17 +17,17 @@ import java.awt.Font;
 
 
 @SuppressWarnings("serial")
-public class prueba extends JPanel {
+public class PanelBar extends JPanel {
 	
 	private JButton btnpedido;
 	private JButton btntickets;
 	private JLabel lbloperatividad;
 	private JButton btnDeslogeatu;
-	private ControladorPanelHasiera controladorPanelHasiera;
+	private ControladorPanelBar controladorPanelBar;
 	
 	
-	public prueba(ControladorPanelHasiera controladorPanelHasiera) {
-		this.controladorPanelHasiera = controladorPanelHasiera;
+	public PanelBar(ControladorPanelBar controladorPanelBar) {
+		this.controladorPanelBar = controladorPanelBar;
 		
 		setLayout(null);
 		
@@ -48,16 +50,16 @@ public class prueba extends JPanel {
 		btnDeslogeatu.setBounds(301, 266, 122, 23);
 		add(btnDeslogeatu);
 		
-		initializeEvents();
+		//initializeEvents();
 	}
 
 	
 	
 	
-	private void initializeEvents() {
-		this.btntickets.addActionListener(listenerBotonticket(this.controladorPanelHasiera));
-		this.btnpedido.addActionListener(listenerBotonpedido(this.controladorPanelHasiera));
-		this.btnDeslogeatu.addActionListener(listenerBotonDeslogeatu(this.controladorPanelHasiera));
+	/*private void initializeEvents() {
+		this.btntickets.addActionListener(listenerBotonticket(this.controladorPanelBar));
+		this.btnpedido.addActionListener(listenerBotonpedido(this.controladorPanelBar));
+		this.btnDeslogeatu.addActionListener(listenerBotonDeslogeatu(this.controladorPanelBar));
 	}
 	
 	private ActionListener listenerBotonticket(ControladorPanelHasiera controladorPanelHasiera) {
@@ -82,5 +84,5 @@ public class prueba extends JPanel {
 				controladorPanelHasiera.accionadoBottonMostrarPanelNagusia();
 			}
 		};
-	}
+	}*/
 }
