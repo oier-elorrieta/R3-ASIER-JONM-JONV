@@ -96,8 +96,12 @@ public class Login extends JPanel {
 				String pasahitza=textpasahitza.getText();
 				boolean badago=controladorPanelLogin.BottonLoginBeri(Izena,pasahitza);
 				if(badago==true) {
-					String NIF=controladorPanelLogin.NIFatera(Izena, pasahitza);
+					String NIF="";
+					NIF=controladorPanelLogin.NIFatera(Izena, pasahitza,NIF);
+					
 					String Tipolocal=controladorPanelLogin.Tipolocalatera(NIF);
+					System.out.println(Tipolocal);
+
 					if(Tipolocal.equals("Bar")) {
 						controladorPanelLogin.accionadoBar();
 					}if(Tipolocal.equals("Restaurante")) {

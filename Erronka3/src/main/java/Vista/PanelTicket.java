@@ -123,7 +123,17 @@ public class PanelTicket extends JPanel {
 	private ActionListener listenerBotonExitTicket(ControladorPanelTicket controladorPanelTicket) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelTicket.accionadoBottonExit();
+				
+				String Tipolocal=controladorPanelTicket.Tipolocalateraparametrogabe();
+				System.out.println(Tipolocal);
+				if(Tipolocal.equals("Bar")) {
+					controladorPanelTicket.accionadoBar();
+				}if(Tipolocal.equals("Restaurante")) {
+					controladorPanelTicket.accionadoBottonExit();
+				}if(Tipolocal.equals("Cafeteria")) {
+					controladorPanelTicket.accionadoCafeteria();
+				}
+				
 				controladorPanelTicket.arrayizenaborratu();
 				controladorPanelTicket.arrayprezioborratu();
 			}

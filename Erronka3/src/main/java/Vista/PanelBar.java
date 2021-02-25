@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 
 
 
+
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,10 +19,9 @@ import java.awt.Font;
 
 @SuppressWarnings("serial")
 public class PanelBar extends JPanel {
-	
-	private JButton btnpedido;
-	private JButton btntickets;
 	private JLabel lbloperatividad;
+	private JButton btnaprovisionamiento;
+	private JButton btntickets;
 	private JButton btnDeslogeatu;
 	private ControladorPanelBar controladorPanelBar;
 	
@@ -31,58 +31,54 @@ public class PanelBar extends JPanel {
 		
 		setLayout(null);
 		
-		setBackground(Color.DARK_GRAY);
-		setForeground(Color.DARK_GRAY);
+		setBackground(Color.LIGHT_GRAY);
+		setForeground(Color.LIGHT_GRAY);
 		setLayout(null);
 		
+		btnaprovisionamiento = new JButton("Aprovisionamientos");
+		btnaprovisionamiento.setOpaque(true);
+		btnaprovisionamiento.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnaprovisionamiento.setBorderPainted(false);
+		btnaprovisionamiento.setBackground(new Color(130, 130, 130));
+		btnaprovisionamiento.setBounds(145, 135, 178, 114);
+		add(btnaprovisionamiento);
+		
 		btntickets = new JButton("Ticket");
+		btntickets.setOpaque(true);
 		btntickets.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btntickets.setBackground(Color.WHITE);
-		btntickets.setBounds(28, 11, 182, 114);
+		btntickets.setBorderPainted(false);
+		btntickets.setBackground(Color.GRAY);
+		btntickets.setBounds(141, 11, 182, 114);
 		add(btntickets);
 		
-		btnpedido = new JButton("Pedido");
-		btnpedido.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnpedido.setBounds(245, 11, 178, 114);
-		add(btnpedido);
-		
 		btnDeslogeatu = new JButton("Deslogeatu");
-		btnDeslogeatu.setBounds(301, 266, 122, 23);
+		btnDeslogeatu.setOpaque(true);
+		btnDeslogeatu.setBorderPainted(false);
+		btnDeslogeatu.setBackground(new Color(130, 130, 130));
+		btnDeslogeatu.setBounds(318, 267, 122, 23);
 		add(btnDeslogeatu);
 		
-		//initializeEvents();
+		initializeEvents();
 	}
-
 	
-	
-	
-	/*private void initializeEvents() {
+	private void initializeEvents() {
 		this.btntickets.addActionListener(listenerBotonticket(this.controladorPanelBar));
-		this.btnpedido.addActionListener(listenerBotonpedido(this.controladorPanelBar));
 		this.btnDeslogeatu.addActionListener(listenerBotonDeslogeatu(this.controladorPanelBar));
 	}
 	
-	private ActionListener listenerBotonticket(ControladorPanelHasiera controladorPanelHasiera) {
+	private ActionListener listenerBotonticket(ControladorPanelBar controladorPanelBar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelHasiera.accionadoBottonMostrarPanelTicket();
+				controladorPanelBar.accionadoBottonMostrarPanelTicket();
 			}
 		};
 	}
 	
-	private ActionListener listenerBotonpedido(ControladorPanelHasiera controladorPanelHasiera) {
+	private ActionListener listenerBotonDeslogeatu(ControladorPanelBar controladorPanelBar) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelHasiera.accionadoBottonMostrarPanelEskaera();
+				controladorPanelBar.accionadoBottonMostrarPanelNagusia();
 			}
 		};
 	}
-	
-	private ActionListener listenerBotonDeslogeatu(ControladorPanelHasiera controladorPanelHasiera) {
-		return new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelHasiera.accionadoBottonMostrarPanelNagusia();
-			}
-		};
-	}*/
 }

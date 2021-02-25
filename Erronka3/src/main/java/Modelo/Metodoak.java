@@ -11,28 +11,19 @@ public class Metodoak {
 	private static PreparedStatement preparedStatement;
 
 	public static String[] irakurriarray() {
-		Produktuak a1 = new Produktuak("Esnea", 1);
-		Produktuak a2 = new Produktuak("Arrautza", 1);
-		Produktuak a3 = new Produktuak("Coca-Cola", 1);
-		Produktuak a4 = new Produktuak("Arroza", 1);
-		Produktuak a5 = new Produktuak("Gaileta", 1);
-		Produktuak a6 = new Produktuak("Madarina", 1);
-		Produktuak a7 = new Produktuak("Oilaskoa", 1);
-		Produktuak a8 = new Produktuak("Kafea", 1);
-		Produktuak a9 = new Produktuak("Ura", 1);
-		Produktuak a10 = new Produktuak("Tomatea", 1);
-		Produktuak[] arrayobj = new Produktuak[10];
+		Produktuak a1 = new Produktuak("coca-cola", 1);
+		Produktuak a2 = new Produktuak("kas", 1);
+		Produktuak a3 = new Produktuak("cafe con leche", 1);
+		Produktuak a4 = new Produktuak("Zumo", 1);
+		Produktuak a5 = new Produktuak("Pintxo tortilla", 1);
+		Produktuak[] arrayobj = new Produktuak[5];
 		arrayobj[0] = a1;
 		arrayobj[1] = a2;
 		arrayobj[2] = a3;
 		arrayobj[3] = a4;
 		arrayobj[4] = a5;
-		arrayobj[5] = a6;
-		arrayobj[6] = a7;
-		arrayobj[7] = a8;
-		arrayobj[8] = a9;
-		arrayobj[9] = a10;
-		String[] produktizena = new String[10];
+
+		String[] produktizena = new String[5];
 
 		for (int i = 0; i < arrayobj.length; i++) {
 			produktizena[i] = arrayobj[i].getIzena();
@@ -74,6 +65,7 @@ public class Metodoak {
 	}
 
 	public static String[] produktuenarray(String prodizena, String[] arrayizena) {
+		
 		for (int i = 0; i < arrayizena.length; i++) {
 			if (arrayizena[i] == null) {
 				arrayizena[i] = prodizena;
@@ -155,10 +147,9 @@ public class Metodoak {
 		return badago;
 	}
 
-	public static String AteraNIF(String Izena, String pasahitza) {
+	public static String AteraNIF(String Izena, String pasahitza,String NIF) {
 		Connection conexion = ConexionBD.getConexion();
 		String query = "SELECT NIF FROM usuarios WHERE Usuario='" + Izena + "'";//usuarioa lokalen dagoen nif ateratzen du
-		String NIF = "";
 		try {
 			PreparedStatement pre;
 			ResultSet resul;
@@ -168,7 +159,7 @@ public class Metodoak {
 			while (resul.next()) {
 				NIF = resul.getString("NIF");
 			}
-			System.out.println("ondo");
+			System.out.println(NIF);
 
 		} catch (SQLException e) {
 			System.out.println("error");
@@ -177,9 +168,9 @@ public class Metodoak {
 		return NIF;
 	}
 
-	public static void operazioaBDsartu(String emaitza) {
+	public static void operazioaBDsartu(String emaitza,String NIF) {
 		Connection conexion = ConexionBD.getConexion();
-		String query = "INSERT INTO operaciones values('3','" + emaitza + "','12345678a')";//operazio tablan datuak insertatzen ditu
+		String query = "INSERT INTO operaciones(PrecioTotalOp,NIF) values('" + emaitza + "','" + NIF + "')";//operazio tablan datuak insertatzen ditu
 
 		try {
 			Statement s;
@@ -203,9 +194,7 @@ public class Metodoak {
 		}
 		System.out.println(direccion);
 		Connection conexion = ConexionBD.getConexion();
-
-		String query = "INSERT INTO pedido(ID,DomicilioSioNo,DirDomicilio) values('1','" + etxera + "','" + direccion
-				+ "')";//pedido tablan datuak insertatzen du
+		String query = "INSERT INTO pedido(DomicilioSioNo,DirDomicilio) values('" + etxera + "','" + direccion + "')";//pedido tablan datuak insertatzen du
 
 		try {
 			Statement s;
@@ -219,9 +208,32 @@ public class Metodoak {
 		}
 	}
 	
-	public static String TipoLocalAtera(String NIF) {
+	public static String TipoLocalAtera(String NIFa) {
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + NIF + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
+		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + NIFa + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
+		String Tipolocal = "";
+		try {
+			PreparedStatement pre;
+			ResultSet resul;
+
+			pre = conexion.prepareStatement(query);
+			resul = pre.executeQuery();
+			while (resul.next()) {
+				Tipolocal = resul.getString("TipoDeNegocio");
+			}
+			System.out.println("ondo");
+
+		} catch (SQLException e) {
+			System.out.println("error");
+			e.printStackTrace();
+		}
+		return Tipolocal;
+	}
+	
+	public static String Tipolocalerabiltzekometodoa(String NIFa) {
+		
+		Connection conexion = ConexionBD.getConexion();
+		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + NIFa + "'";//lokalaren tipoa parametrorik gabe erabiltzeko
 		String Tipolocal = "";
 		try {
 			PreparedStatement pre;

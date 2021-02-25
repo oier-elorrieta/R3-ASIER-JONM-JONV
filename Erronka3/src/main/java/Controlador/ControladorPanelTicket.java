@@ -31,6 +31,14 @@ public class ControladorPanelTicket {
 	public void accionadoBottonExit() {
 		this.controlador.navegarPanelHasiera();
 	}
+	
+	public void accionadoBar() {
+		this.controlador.navegarPanelBar();
+	}
+	
+	public void accionadoCafeteria() {
+		this.controlador.navegarPanelCafeteria();
+	}
 	//-------------------------------------------------------------------------------------------------
 	
 	public String accionandoBottonEmaitzafin(String kanti) {
@@ -49,5 +57,7 @@ public class ControladorPanelTicket {
 		this.modelo.arrayprezioasieratu();
 	}
 	
-	
+	public String Tipolocalateraparametrogabe(String NIF) {
+		return this.modelo.Tipolocalerabiltzeko(NIF);
+	}
 }

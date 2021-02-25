@@ -27,5 +27,15 @@ public class ControladorPanelCafeteria {
 		this.vista.mostrarPanel(panelCafeteria);
 	}
 	
+	public void accionadoBottonMostrarPanelTicket() {
+		this.controlador.navegarPanelTicket();
+	}
 	
+	public void accionadoBottonMostrarPanelEskaera() {
+		this.controlador.navegarPanelEskaera();
+	}
+	
+	public void accionadoBottonMostrarPanelNagusia() {
+		this.controlador.navegarPanelNagusia();
+	}
 }

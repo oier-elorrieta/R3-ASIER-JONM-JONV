@@ -26,5 +26,11 @@ public class ControladorPanelBar {
 		this.vista.mostrarPanel(panelBar);
 	}
 	
+	public void accionadoBottonMostrarPanelTicket() {
+		this.controlador.navegarPanelTicket();
+	}
 	
+	public void accionadoBottonMostrarPanelNagusia() {
+		this.controlador.navegarPanelNagusia();
+	}
 }

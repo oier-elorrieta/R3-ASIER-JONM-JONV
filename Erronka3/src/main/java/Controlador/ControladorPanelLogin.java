@@ -47,8 +47,8 @@ public class ControladorPanelLogin {
 		return this.modelo.BeriUsuario(izena,pasahitza);
 	}
 	
-	public String NIFatera(String Izena, String pasahitza) {
-		return this.modelo.AteraNIFmetodoa(Izena,pasahitza);
+	public String NIFatera(String Izena, String pasahitza,String NIF) {
+		 return this.modelo.AteraNIFmetodoa(Izena,pasahitza,NIF);
 	}
 	
 	public String Tipolocalatera(String NIF) {

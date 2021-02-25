@@ -3,6 +3,7 @@ package Vista;
 
 import java.awt.event.ActionEvent;
 
+
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -37,7 +38,7 @@ public class Hasiera extends JPanel {
 
 		btntickets = new JButton("Ticket");
 		btntickets.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btntickets.setBackground(Color.WHITE);
+		btntickets.setBackground(Color.GRAY);
 		btntickets.setBounds(28, 11, 182, 114);
 		btntickets.setBackground(new java.awt.Color(130, 130, 130));
 		btntickets.setOpaque(true);

@@ -5,6 +5,7 @@ import java.sql.Connection;
 public class Modelo {
 	private double[] arrayprezio= new double [10];
 	private String[] arrayizena= new String [10];
+	
 	public String[] autoakJaso() {
 		return Metodoak.irakurriarray();
 	}
@@ -52,18 +53,22 @@ public class Modelo {
 	}
 	
 	public void operazioaBD(String emaitza) {
-		 Metodoak.operazioaBDsartu(emaitza);
+		 Metodoak.operazioaBDsartu(emaitza,NIFa);
 	}
 	
 	public void pedidoBD(String direccion) {
 		 Metodoak.pedidoBDsartu(direccion);
 	}
 	
-	public String AteraNIFmetodoa(String Izena,String pasahitza) {
-		return Metodoak.AteraNIF(Izena,pasahitza);
+	public String AteraNIFmetodoa(String Izena,String pasahitza,String NIF) {
+		 return Metodoak.AteraNIF(Izena,pasahitza,NIF);
 	}
 	
 	public String AteraTipolocalmetodoa(String NIF) {
 		return Metodoak.TipoLocalAtera(NIF);
+	}
+	
+	public String Tipolocalerabiltzeko(String NIF) {
+		return Metodoak.Tipolocalerabiltzekometodoa(NIF);
 	}
 }
