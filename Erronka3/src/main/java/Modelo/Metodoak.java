@@ -121,7 +121,7 @@ public class Metodoak {
 		return berdina;
 	}
 
-	public static boolean UsuariaBerifikatu(String izena, String pasahitza) {
+	public static boolean UsuariaBerifikatu(String izena, String pasahitza,Usuario nif) {
 		Connection conexion = ConexionBD.getConexion();
 		String query = "SELECT * FROM usuarios WHERE Usuario='" + izena + "'and Contraseña='" + pasahitza + "'";//datu basetik usuario espesifiko bat artzen du
 		boolean badago = true;
@@ -188,7 +188,7 @@ public class Metodoak {
 
 	public static void pedidoBDsartu(String direccion) {
 		String etxera = " ";
-		if (direccion.equals(null)) {
+		if (direccion.equals(null) || direccion.equals("Ez dago")) {
 			etxera = "NO";
 			direccion = "Ez dago";
 		} else {
@@ -204,7 +204,7 @@ public class Metodoak {
 			s.executeUpdate(query);
 			System.out.println("ondo");
 		} catch (SQLException e) {
-			System.out.println("error");
+			System.out.println("errorereri");
 			e.printStackTrace();
 
 		}

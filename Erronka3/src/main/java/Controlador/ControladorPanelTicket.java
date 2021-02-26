@@ -60,4 +60,8 @@ public class ControladorPanelTicket {
 	public String Tipolocalateraparametrogabe() {
 		return this.modelo.AteraTipolocalmetodoa();
 	}
+	
+	public void pedidosartu(String direccion) {
+		modelo.pedidoBD(direccion);
+	}
 }

@@ -45,7 +45,7 @@ public class Modelo {
 	}
 	
 	public boolean BeriUsuario(String izena, String pasahitza) {
-		 return Metodoak.UsuariaBerifikatu(izena,pasahitza);	
+		 return Metodoak.UsuariaBerifikatu(izena,pasahitza,nif);	
 	}
 	
 	public boolean UsuarioInsert(String izena, String pasahitza,String pasahitza2,String NIF) {

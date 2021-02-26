@@ -32,6 +32,14 @@ public class ControladorPanelResumen {
 		return this.modelo.arrayresumenbistaratu();
 	}
 	
+	public void accionadoBar() {
+		this.controlador.navegarPanelBar();
+	}
+	
+	public void accionadoCafeteria() {
+		this.controlador.navegarPanelCafeteria();
+	}
+	
 	public void arrayizenaborratu() {
 		modelo.arrayizenaasieratu();
 	}
@@ -46,5 +54,9 @@ public class ControladorPanelResumen {
 	
 	public void registraroperacion(String emaitza) {
 		 modelo.operazioaBD(emaitza);
+	}
+	
+	public String Tipolocalateraparametrogabe() {
+		return this.modelo.AteraTipolocalmetodoa();
 	}
 }

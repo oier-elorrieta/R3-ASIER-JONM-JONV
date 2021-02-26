@@ -93,7 +93,16 @@ public class PanelResumen extends JPanel {
 	private ActionListener listenerBotonExitResumen(ControladorPanelResumen controladorPanelResumen) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelResumen.accionadoBottonExit();
+				String Tipolocal=controladorPanelResumen.Tipolocalateraparametrogabe();
+				System.out.println(Tipolocal);
+				if(Tipolocal.equals("Bar")) {
+					controladorPanelResumen.accionadoBar();
+				}if(Tipolocal.equals("Restaurante")) {
+					controladorPanelResumen.accionadoBottonExit();
+				}if(Tipolocal.equals("Cafeteria")) {
+					controladorPanelResumen.accionadoCafeteria();
+				}
+				
 				controladorPanelResumen.arrayizenaborratu();
 				controladorPanelResumen.arrayprezioborratu();
 			}
