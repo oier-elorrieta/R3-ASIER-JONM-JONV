@@ -147,7 +147,16 @@ public class Eskaera extends JPanel {
 	private ActionListener listenerBotonExitPedido(ControladorPanelEskaera controladorPanelEskarera) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				controladorPanelEskaera.accionadoBottonExit();
+				String Tipolocal=controladorPanelEskaera.Tipolocalateraparametrogabe();
+				System.out.println(Tipolocal);
+				if(Tipolocal.equals("Bar")) {
+					controladorPanelEskaera.accionadoBar();
+				}if(Tipolocal.equals("Restaurante")) {
+					controladorPanelEskaera.accionadoBottonExit();
+				}if(Tipolocal.equals("Cafeteria")) {
+					controladorPanelEskaera.accionadoCafeteria();
+				}
+				
 				controladorPanelEskaera.arrayizenaborratu();
 				controladorPanelEskaera.arrayprezioborratu();
 			}

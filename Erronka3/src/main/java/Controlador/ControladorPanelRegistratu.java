@@ -34,7 +34,19 @@ public class ControladorPanelRegistratu {
 		this.controlador.navegarPanelHasiera();
 	}
 	
+	public void accionadoBar() {
+		this.controlador.navegarPanelBar();
+	}
+	
+	public void accionadoCafeteria() {
+		this.controlador.navegarPanelCafeteria();
+	}
+	
 	public boolean BottonErregistratu(String Izena,String pasahitza,String pasahitza2,String NIF) {
 		return this.modelo.UsuarioInsert(Izena,pasahitza,pasahitza2,NIF);
+	}
+	
+	public String Tipolocalateranif(String nif) {
+		return this.modelo.AteraTipolocalmetodoanif(nif);
 	}
 }

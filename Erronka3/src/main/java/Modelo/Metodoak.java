@@ -147,7 +147,7 @@ public class Metodoak {
 		return badago;
 	}
 
-	public static String AteraNIF(String Izena, String pasahitza,String NIF) {
+	public static void AteraNIF(String Izena, String pasahitza,Usuario NIF) {
 		Connection conexion = ConexionBD.getConexion();
 		String query = "SELECT NIF FROM usuarios WHERE Usuario='" + Izena + "'";//usuarioa lokalen dagoen nif ateratzen du
 		try {
@@ -157,7 +157,8 @@ public class Metodoak {
 			pre = conexion.prepareStatement(query);
 			resul = pre.executeQuery();
 			while (resul.next()) {
-				NIF = resul.getString("NIF");
+				NIF.setNif(resul.getString("NIF"));
+				System.out.println(NIF.getNif());
 			}
 			System.out.println(NIF);
 
@@ -165,10 +166,11 @@ public class Metodoak {
 			System.out.println("error");
 			e.printStackTrace();
 		}
-		return NIF;
+		
 	}
 
-	public static void operazioaBDsartu(String emaitza,String NIF) {
+	public static void operazioaBDsartu(String emaitza,Usuario nif) {
+		String NIF=nif.getNif();
 		Connection conexion = ConexionBD.getConexion();
 		String query = "INSERT INTO operaciones(PrecioTotalOp,NIF) values('" + emaitza + "','" + NIF + "')";//operazio tablan datuak insertatzen ditu
 
@@ -208,9 +210,10 @@ public class Metodoak {
 		}
 	}
 	
-	public static String TipoLocalAtera(String NIFa) {
+	public static String TipoLocalAtera(Usuario NIFa) {
+		String nif=NIFa.getNif();
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + NIFa + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
+		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + nif + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
 		String Tipolocal = "";
 		try {
 			PreparedStatement pre;
@@ -230,11 +233,12 @@ public class Metodoak {
 		return Tipolocal;
 	}
 	
-	public static String Tipolocalerabiltzekometodoa(String NIFa) {
+	public static String TipoLocalAteranif(String NIF,Usuario NIFa) {
 		
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + NIFa + "'";//lokalaren tipoa parametrorik gabe erabiltzeko
+		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + NIF + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
 		String Tipolocal = "";
+		NIFa.setNif(NIF);
 		try {
 			PreparedStatement pre;
 			ResultSet resul;
@@ -252,4 +256,5 @@ public class Metodoak {
 		}
 		return Tipolocal;
 	}
+	
 }

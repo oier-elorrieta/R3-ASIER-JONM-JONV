@@ -120,7 +120,18 @@ public class PanelRegistratu extends JPanel {
 				String NIF=textNIF.getText();
 				boolean berdina=controladorPanelRegistratu.BottonErregistratu(Izena,pasahitza,pasahitza2,NIF);
 				if(berdina==true) {
-					controladorPanelRegistratu.accionadoBottonLogin();
+					String Tipolocal=controladorPanelRegistratu.Tipolocalateranif(NIF);
+					System.out.println(Tipolocal);
+					System.out.println("va");
+
+					if(Tipolocal.equals("Bar")) {
+						controladorPanelRegistratu.accionadoBar();
+					}if(Tipolocal.equals("Restaurante")) {
+						controladorPanelRegistratu.accionadoBottonLogin();
+					}if(Tipolocal.equals("Cafeteria")) {
+						controladorPanelRegistratu.accionadoCafeteria();
+					}
+					
 				}else {
 					JOptionPane.showInternalMessageDialog(null,"Pasahitzak ez dute koinziditzen");
 					textpasahitza.setText("");

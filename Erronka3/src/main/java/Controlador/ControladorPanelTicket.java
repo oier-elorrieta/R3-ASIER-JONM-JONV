@@ -57,7 +57,7 @@ public class ControladorPanelTicket {
 		this.modelo.arrayprezioasieratu();
 	}
 	
-	public String Tipolocalateraparametrogabe(String NIF) {
-		return this.modelo.Tipolocalerabiltzeko(NIF);
+	public String Tipolocalateraparametrogabe() {
+		return this.modelo.AteraTipolocalmetodoa();
 	}
 }

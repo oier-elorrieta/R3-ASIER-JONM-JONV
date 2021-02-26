@@ -30,6 +30,14 @@ public class ControladorPanelEskaera {
 	public void accionadoBottonExit() {
 		this.controlador.navegarPanelHasiera();
 	}
+	
+	public void accionadoBar() {
+		this.controlador.navegarPanelBar();
+	}
+	
+	public void accionadoCafeteria() {
+		this.controlador.navegarPanelCafeteria();
+	}
 	//-------------------------------------------------------------------------------------
 	public String accionandoBottonEmaitzafin(String kanti) {
 		return this.modelo.botonEmaitzafin(kanti);
@@ -57,5 +65,9 @@ public class ControladorPanelEskaera {
 	
 	public void pedidosartu(String direccion) {
 		modelo.pedidoBD(direccion);
+	}
+	
+	public String Tipolocalateraparametrogabe() {
+		return this.modelo.AteraTipolocalmetodoa();
 	}
 }
