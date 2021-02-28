@@ -138,6 +138,8 @@ public class Eskaera extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelEskaera.accionadoBottonMostrarPanelResumen();
+				String emaitzafin=textDiruTot.getText();
+				controladorPanelEskaera.registraroperacion(emaitzafin);
 				String direccion=textdireccion.getText();
 				controladorPanelEskaera.pedidosartu(direccion);
 			}

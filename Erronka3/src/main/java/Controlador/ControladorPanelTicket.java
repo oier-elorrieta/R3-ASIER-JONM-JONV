@@ -64,4 +64,7 @@ public class ControladorPanelTicket {
 	public void pedidosartu(String direccion) {
 		modelo.pedidoBD(direccion);
 	}
+	public void registraroperacion(String emaitza) {
+		 modelo.operazioaBD(emaitza);
+	}
 }

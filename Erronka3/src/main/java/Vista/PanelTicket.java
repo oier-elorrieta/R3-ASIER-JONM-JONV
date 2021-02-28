@@ -115,6 +115,8 @@ public class PanelTicket extends JPanel {
 	private ActionListener listenerBotonAurreraTicket(ControladorPanelTicket controladorPanelTicket) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				String emaitzafin=textDiruTot.getText();
+				controladorPanelTicket.registraroperacion(emaitzafin);
 				String direccion="Ez dago";
 				controladorPanelTicket.pedidosartu(direccion);
 				controladorPanelTicket.accionadoBottonMostrarPanelResumen();
