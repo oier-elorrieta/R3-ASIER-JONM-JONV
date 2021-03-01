@@ -9,19 +9,53 @@ import java.sql.Statement;
 public class Metodoak {
 
 	private static PreparedStatement preparedStatement;
-
+	
 	public static String[] irakurriarray() {
-		Produktuak a1 = new Produktuak("coca-cola", 1);
+		int id=1;
+		Produktuak[] arrayobj = new Produktuak[5];
+		Connection conexion = ConexionBD.getConexion();
+		for(int i=0;i<id;i++) {
+			String query = "SELECT NomProd,PrecioVentaProd FROM productos WHERE IDProducto='"+id+"'";// lokalaren nif-rekin lokal tipoa ateratzen du
+			String NomProd = "";
+			int PrecioVentaProd = 0;
+			try {
+				PreparedStatement pre;
+				ResultSet resul;
+
+				pre = conexion.prepareStatement(query);
+				resul = pre.executeQuery();
+				
+					while (resul.next()) {
+
+						NomProd = resul.getString("NomProd");
+						System.out.println(NomProd);
+						PrecioVentaProd = resul.getInt("PrecioVentaProd");
+						Produktuak a = new Produktuak(NomProd, PrecioVentaProd);
+
+						arrayobj[i] = a;
+						id++;
+					}
+
+			
+				System.out.println("ondo");
+
+			} catch (SQLException e) {
+				System.out.println("error");
+				e.printStackTrace();
+			}
+		}
+		
+		/*Produktuak a1 = new Produktuak("coca-cola", 1);
 		Produktuak a2 = new Produktuak("kas", 1);
 		Produktuak a3 = new Produktuak("cafe con leche", 1);
 		Produktuak a4 = new Produktuak("Zumo", 1);
 		Produktuak a5 = new Produktuak("Pintxo tortilla", 1);
-		Produktuak[] arrayobj = new Produktuak[5];
+
 		arrayobj[0] = a1;
 		arrayobj[1] = a2;
 		arrayobj[2] = a3;
 		arrayobj[3] = a4;
-		arrayobj[4] = a5;
+		arrayobj[4] = a5;*/
 
 		String[] produktizena = new String[5];
 
