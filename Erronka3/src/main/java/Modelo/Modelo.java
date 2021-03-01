@@ -10,8 +10,8 @@ public class Modelo {
 		return Metodoak.irakurriarray();
 	}
 	
-	public String botonEmaitzafin(String kanti) {
-		return Metodoak.daramanprezioaagertzea(kanti,arrayprezio);
+	public String botonEmaitzafin(String kanti,String izena) {
+		return Metodoak.daramanprezioaagertzea(kanti,arrayprezio,izena);
 		
 	}
 	

@@ -39,8 +39,8 @@ public class ControladorPanelEskaera {
 		this.controlador.navegarPanelCafeteria();
 	}
 	//-------------------------------------------------------------------------------------
-	public String accionandoBottonEmaitzafin(String kanti) {
-		return this.modelo.botonEmaitzafin(kanti);
+	public String accionandoBottonEmaitzafin(String kanti,String izena) {
+		return this.modelo.botonEmaitzafin(kanti,izena);
 	}
 	
 	public void accionandoBottonArray(String izena) {

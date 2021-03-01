@@ -150,9 +150,9 @@ public class PanelTicket extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String kanti=spinnerKanti.getValue().toString();
-				String emaitza=controladorPanelTicket.accionandoBottonEmaitzafin(kanti);
-				textDiruTot.setText(emaitza);
 				String izena=Izenak.getSelectedItem().toString();
+				String emaitza=controladorPanelTicket.accionandoBottonEmaitzafin(kanti,izena);
+				textDiruTot.setText(emaitza);
 				controladorPanelTicket.accionandoBottonArray(izena);
 			}
 		};

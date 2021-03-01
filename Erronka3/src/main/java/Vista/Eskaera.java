@@ -171,9 +171,9 @@ public class Eskaera extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String kanti=spinnerKanti.getValue().toString();
-				String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti);
-				textDiruTot.setText(emaitza);
 				String izena=Izenak.getSelectedItem().toString();
+				String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti,izena);
+				textDiruTot.setText(emaitza);
 				controladorPanelEskaera.accionandoBottonArray(izena);
 				}
 		};
