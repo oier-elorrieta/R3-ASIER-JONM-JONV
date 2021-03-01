@@ -26,9 +26,10 @@ public class ModeloTest {
 		prezio[8]=0;
 		prezio[9]=0;
 		
-		String kanti="2";
-		String emaitza=Metodoak.daramanprezioaagertzea(kanti, prezio);
-		double espero=2;
+		String kanti="1";
+		String izena="kas";
+		String emaitza=Metodoak.daramanprezioaagertzea(kanti, prezio,izena);
+		double espero=1.5;
 		double emaitzazbk=Double.parseDouble(emaitza);
 		assertEquals(espero,emaitzazbk,0);
 	}
@@ -178,4 +179,23 @@ public class ModeloTest {
 		espero[9]=0;
 		assertArrayEquals(espero,prezio,0);
 }
+	@Test
+	public void Test_UsuarioaInsertatuTrue() {
+		boolean berdina=Metodoak.UsuarioaInsertatu("asier", "1234", "1234","12345678a");
+		boolean espero=true;
+		assertEquals(espero,berdina);
+	}
+	@Test
+	public void Test_UsuarioaInsertatuFalse() {
+		boolean berdina=Metodoak.UsuarioaInsertatu("asier", "1234", "12345","12345678a");
+		boolean espero=false;
+		assertEquals(espero,berdina);
+	}
+	
+	@Test
+	public void Test_UsuariaBerifikatu() {
+		boolean berdina=Metodoak.UsuariaBerifikatu("asier", "1234", "12345678a");
+		boolean espero=false;
+		assertEquals(espero,berdina);
+	}
 }

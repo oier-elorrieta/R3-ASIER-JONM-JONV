@@ -17,7 +17,7 @@ public class Metodoak {
 		for(int i=0;i<id;i++) {
 			String query = "SELECT NomProd,PrecioVentaProd FROM productos WHERE IDProducto='"+id+"'";// lokalaren nif-rekin lokal tipoa ateratzen du
 			String NomProd = "";
-			int PrecioVentaProd = 0;
+			double PrecioVentaProd = 0;
 			try {
 				PreparedStatement pre;
 				ResultSet resul;
@@ -29,7 +29,8 @@ public class Metodoak {
 
 						NomProd = resul.getString("NomProd");
 						System.out.println(NomProd);
-						PrecioVentaProd = resul.getInt("PrecioVentaProd");
+						PrecioVentaProd = resul.getDouble("PrecioVentaProd");
+						System.out.println(PrecioVentaProd);
 						Produktuak a = new Produktuak(NomProd, PrecioVentaProd);
 
 						arrayobj[i] = a;
@@ -57,7 +58,7 @@ public class Metodoak {
 		Connection conexion = ConexionBD.getConexion();
 		
 			String query = "SELECT PrecioVentaProd FROM productos WHERE NomProd='"+izena+"'";// lokalaren nif-rekin lokal tipoa ateratzen du
-			int PrecioVentaProd = 0;
+			double PrecioVentaProd = 0;
 			try {
 				PreparedStatement pre;
 				ResultSet resul;
@@ -65,7 +66,7 @@ public class Metodoak {
 				resul = pre.executeQuery();
 				
 					while (resul.next()) {
-						PrecioVentaProd = resul.getInt("PrecioVentaProd");
+						PrecioVentaProd = resul.getDouble("PrecioVentaProd");
 						System.out.println(PrecioVentaProd);
 					}
 				System.out.println("ondo");
@@ -74,7 +75,7 @@ public class Metodoak {
 				e.printStackTrace();
 			}
 		int kantiint = Integer.parseInt(kanti);
-		int emaitzaint = PrecioVentaProd * kantiint;
+		double emaitzaint = PrecioVentaProd * kantiint;
 		arrayprezio = Metodoak.sartuprezioa(emaitzaint, arrayprezio);
 		double emaitzatot = 0;
 		for (int i = 0; i < arrayprezio.length; i++) {

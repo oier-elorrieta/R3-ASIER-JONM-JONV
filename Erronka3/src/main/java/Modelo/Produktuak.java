@@ -3,7 +3,7 @@ package Modelo;
 public class Produktuak {
 	
 	private String izena;
-	private int prezioa;
+	private double prezioa;
 	
 	
 	public String getIzena() {
@@ -12,7 +12,7 @@ public class Produktuak {
 	public void setIzena(String izena) {
 		this.izena = izena;
 	}
-	public int getPrezioa() {
+	public double getPrezioa() {
 		return prezioa;
 	}
 	public void setPrezioa(int prezioa) {
@@ -20,7 +20,7 @@ public class Produktuak {
 	}
 	
 	
-	public Produktuak(String izena, int prezioa) {
+	public Produktuak(String izena, double prezioa) {
 		this.izena = izena;
 		this.prezioa = prezioa;
 	}
