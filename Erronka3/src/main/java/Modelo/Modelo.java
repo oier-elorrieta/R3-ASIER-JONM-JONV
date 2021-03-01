@@ -56,8 +56,8 @@ public class Modelo {
 		 Metodoak.operazioaBDsartu(emaitza,nif);
 	}
 	
-	public void pedidoBD(String direccion) {
-		 Metodoak.pedidoBDsartu(direccion);
+	public void pedidoBD(String direccion,int ID) {
+		 Metodoak.pedidoBDsartu(direccion,ID);
 	}
 	
 	public void AteraNIFmetodoa(String Izena,String pasahitza) {
@@ -70,5 +70,9 @@ public class Modelo {
 	
 	public String AteraTipolocalmetodoanif(String NIF) {
 		return Metodoak.TipoLocalAteranif(NIF,nif);
+	}
+	
+	public int AteraoperazioID() {
+		return Metodoak.operazioID();
 	}
 }

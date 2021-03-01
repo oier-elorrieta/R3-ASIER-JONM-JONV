@@ -185,8 +185,31 @@ public class Metodoak {
 
 		}
 	}
+	
+	public static int operazioID() {
 
-	public static void pedidoBDsartu(String direccion) {
+		Connection conexion = ConexionBD.getConexion();
+		String query = "SELECT max(IDOperaciones) FROM operaciones";//usuarioa lokalen dagoen nif ateratzen du
+		int ID=0;
+		try {
+			PreparedStatement pre;
+			ResultSet resul;
+
+			pre = conexion.prepareStatement(query);
+			resul = pre.executeQuery();
+			while (resul.next()) {
+				ID=resul.getInt("max(IDOperaciones)");
+				
+			}
+
+		} catch (SQLException e) {
+			System.out.println("error");
+			e.printStackTrace();
+		}
+		return ID;
+	}
+
+	public static void pedidoBDsartu(String direccion,int ID) {
 		String etxera = " ";
 		if (direccion.equals(null) || direccion.equals("Ez dago")) {
 			etxera = "NO";
@@ -196,7 +219,7 @@ public class Metodoak {
 		}
 		System.out.println(direccion);
 		Connection conexion = ConexionBD.getConexion();
-		String query = "INSERT INTO pedido(DomicilioSioNo,DirDomicilio) values('" + etxera + "','" + direccion + "')";//pedido tablan datuak insertatzen du
+		String query = "INSERT INTO pedido(ID,DomicilioSioNo,DirDomicilio) values('" + ID + "','" + etxera + "','" + direccion + "')";//pedido tablan datuak insertatzen du
 
 		try {
 			Statement s;
