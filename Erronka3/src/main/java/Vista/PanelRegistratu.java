@@ -133,9 +133,10 @@ public class PanelRegistratu extends JPanel {
 					}
 					
 				}else {
-					JOptionPane.showInternalMessageDialog(null,"Pasahitzak ez dute koinziditzen");
+					JOptionPane.showInternalMessageDialog(null,"Ezin da usuarioa erregistratu");
 					textpasahitza.setText("");
 					textpasahitza2.setText("");
+					textIzena.setText("");
 				}
 				
 			}

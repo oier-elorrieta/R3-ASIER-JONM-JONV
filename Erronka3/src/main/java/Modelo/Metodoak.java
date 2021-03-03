@@ -15,7 +15,7 @@ public class Metodoak {
 		Produktuak[] arrayobj = new Produktuak[5];
 		Connection conexion = ConexionBD.getConexion();
 		for(int i=0;i<id;i++) {
-			String query = "SELECT NomProd,PrecioVentaProd FROM productos WHERE IDProducto='"+id+"'";// lokalaren nif-rekin lokal tipoa ateratzen du
+			String query = "SELECT NomProd,PrecioVentaProd FROM productos WHERE IDProducto='"+id+"'";// produktuak base datutik ateratzen du
 			String NomProd = "";
 			double PrecioVentaProd = 0;
 			try {
@@ -120,7 +120,7 @@ public class Metodoak {
 	public static String arrayresuemnbueltatu(String[] array, double[] arrayprezio) {
 		String resumen = "";
 		for (int kont = 0; array[kont] != null; kont++) {
-			resumen = resumen + "<html>" + array[kont] + ".............................." + arrayprezio[kont] + "euro"
+			resumen = resumen + "<html>" + array[kont] + "....................................................................................." + arrayprezio[kont] + "euro"
 					+ "<br><html>";
 		}
 		return resumen;
@@ -142,30 +142,61 @@ public class Metodoak {
 
 	public static boolean UsuarioaInsertatu(String izena, String pasahitza, String pasahitza2, String NIF) {
 		boolean berdina = true;
-		if (pasahitza.equals(pasahitza2)) {
-			Connection conexion = ConexionBD.getConexion();
-			String query = "INSERT INTO usuarios values('" + izena + "','" + pasahitza + "','" + NIF + "')";//usuario berri bat insertatzen du 
+		boolean badago=izenaBerifikatu( izena);
+		if(badago!=true) {
+			if (pasahitza.equals(pasahitza2)) {
+				Connection conexion = ConexionBD.getConexion();
+				String query = "INSERT INTO usuarios values('" + izena + "','" + pasahitza + "','" + NIF + "')";//usuario berri bat insertatzen du 
 
-			try {
-				Statement s;
-				s = conexion.createStatement();
-				s.executeUpdate(query);
-				System.out.println("ondo");
-			} catch (SQLException e) {
-				System.out.println("error");
-				e.printStackTrace();
+				try {
+					Statement s;
+					s = conexion.createStatement();
+					s.executeUpdate(query);
+					System.out.println("ondo");
+				} catch (SQLException e) {
+					System.out.println("error");
+					e.printStackTrace();
 
+				}
+			} else {
+				berdina = false;
 			}
-		} else {
-			System.out.println("Pasahitza ez dago ondo");
-			berdina = false;
+			
+		}else {
+			berdina=false;
 		}
 		return berdina;
 	}
 
-	public static boolean UsuariaBerifikatu(String izena, String pasahitza,Usuario nif) {
+	public static boolean UsuariaBerifikatu(String izena, String pasahitza) {
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT * FROM usuarios WHERE Usuario='" + izena + "'and Contraseña='" + pasahitza + "'";//datu basetik usuario espesifiko bat artzen du
+		String query = "SELECT * FROM usuarios WHERE Usuario='" + izena + "'and Contraseña='" + pasahitza + "'";//datu basetik usuarioa badagon berifikatzen du
+		boolean badago = true;
+		try {
+			PreparedStatement pre;
+			ResultSet resul;
+
+			pre = conexion.prepareStatement(query);
+			resul = pre.executeQuery();
+			System.out.println("ondo");
+				if (resul.next()) {
+					badago = true;
+				} else {
+					badago = false;
+				}
+			 
+
+		} catch (SQLException e) {
+			System.out.println("error");
+			e.printStackTrace();
+
+		}
+		return badago;
+	}
+	
+	public static boolean izenaBerifikatu(String izena) {
+		Connection conexion = ConexionBD.getConexion();
+		String query = "SELECT * FROM usuarios WHERE Usuario='" + izena + "'";//datu basetik usuarioa errepikatuta badagoen ikusten du
 		boolean badago = true;
 		try {
 			PreparedStatement pre;

@@ -195,7 +195,7 @@ public class ModeloTest {
 }
 	@Test
 	public void Test_UsuarioaInsertatuTrue() {
-		boolean berdina=Metodoak.UsuarioaInsertatu("juan", "1234", "1234","12345678a");
+		boolean berdina=Metodoak.UsuarioaInsertatu("antonio", "1234", "1234","12345678a");
 		boolean espero=true;
 		assertEquals(espero,berdina);
 	}
