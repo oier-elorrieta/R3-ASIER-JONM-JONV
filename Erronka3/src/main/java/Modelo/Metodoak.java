@@ -231,7 +231,7 @@ public class Metodoak {
 	public static int operazioID() {
 
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT max(IDOperaciones) FROM operaciones";//usuarioa lokalen dagoen nif ateratzen du
+		String query = "SELECT max(IDOperaciones) FROM operaciones";//usuarioa operazioan dagoen id ateratzen du
 		int ID=0;
 		try {
 			PreparedStatement pre;

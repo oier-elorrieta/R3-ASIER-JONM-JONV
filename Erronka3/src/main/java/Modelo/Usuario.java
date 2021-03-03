@@ -13,7 +13,6 @@ public class Usuario {
 	}
 
 	public Usuario(String nif) {
-		super();
 		this.nif = nif;
 	}
 
