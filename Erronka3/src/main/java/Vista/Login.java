@@ -100,7 +100,6 @@ public class Login extends JPanel {
 					controladorPanelLogin.NIFatera(Izena, pasahitza);
 					
 					String Tipolocal=controladorPanelLogin.Tipolocalatera();
-					System.out.println(Tipolocal);
 
 					if(Tipolocal.equals("Bar")) {
 						controladorPanelLogin.accionadoBar();

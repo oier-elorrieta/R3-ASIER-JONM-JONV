@@ -29,10 +29,10 @@ public class Eskaera extends JPanel {
 	private JButton btnExitPedido;
 	private JComboBox<String> Izenak;
 	private JTextField textDiruTot;
-	private JButton btndomicilio;
+	private JButton btnetxera;
 	private JSpinner spinnerKanti;
 	private JButton btnAukeratu;
-	private JTextField textdireccion;
+	private JTextField texthelbidea;
 	
 	public Eskaera(ControladorPanelEskaera controladorPanelEskaera) {
 		this.controladorPanelEskaera = controladorPanelEskaera;
@@ -64,12 +64,12 @@ public class Eskaera extends JPanel {
 		lbllocal.setFont(new Font("Tahoma", Font.BOLD, 11));
 		add(lbllocal);
 
-		btndomicilio = new JButton("ETXERA");
-		btndomicilio.setBounds(298, 219, 89, 23);
-		btndomicilio.setBackground(new java.awt.Color(130, 130, 130));
-		btndomicilio.setOpaque(true);
-		btndomicilio.setBorderPainted(false);
-		add(btndomicilio);
+		btnetxera = new JButton("ETXERA");
+		btnetxera.setBounds(298, 219, 89, 23);
+		btnetxera.setBackground(new java.awt.Color(130, 130, 130));
+		btnetxera.setOpaque(true);
+		btnetxera.setBorderPainted(false);
+		add(btnetxera);
 
 
 
@@ -119,10 +119,10 @@ public class Eskaera extends JPanel {
 		btnAukeratu.setBorderPainted(false);
 		add(btnAukeratu);
 
-		textdireccion = new JTextField();
-		textdireccion.setBounds(298, 188, 89, 20);
-		add(textdireccion);
-		textdireccion.setColumns(10);
+		texthelbidea = new JTextField();
+		texthelbidea.setBounds(298, 188, 89, 20);
+		add(texthelbidea);
+		texthelbidea.setColumns(10);
 
 		initializeEvents();
 		}
@@ -131,7 +131,7 @@ public class Eskaera extends JPanel {
 		this.btnAurreraPedido.addActionListener(listenerBotonAurreraPedido(this.controladorPanelEskaera));
 		this.btnExitPedido.addActionListener(listenerBotonExitPedido(this.controladorPanelEskaera));
 		this.btnAukeratu.addActionListener(listenerBotonAukeratu(this.controladorPanelEskaera));
-		this.btndomicilio.addActionListener(listenerBotonEtxera(this.controladorPanelEskaera));
+		this.btnetxera.addActionListener(listenerBotonEtxera(this.controladorPanelEskaera));
 	}
 	
 	private ActionListener listenerBotonAurreraPedido(ControladorPanelEskaera controladorPanelEskarera) {
@@ -141,7 +141,7 @@ public class Eskaera extends JPanel {
 				String emaitzafin=textDiruTot.getText();
 				controladorPanelEskaera.registraroperacion(emaitzafin);
 				int ID=controladorPanelEskaera.ateraID();
-				String direccion=textdireccion.getText();
+				String direccion=texthelbidea.getText();
 				controladorPanelEskaera.pedidosartu(direccion,ID);
 			}
 		};

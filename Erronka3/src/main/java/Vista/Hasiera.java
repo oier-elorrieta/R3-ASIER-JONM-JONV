@@ -19,9 +19,9 @@ import java.awt.Font;
 public class Hasiera extends JPanel {
 	
 	private JButton btnpedido;
-	private JButton btncomandas;
+	private JButton btnkomandak;
 	private JButton btntickets;
-	private JButton btnaprovisionamiento;
+	private JButton btnhornikuntza;
 	private JLabel lbloperatividad;
 	private JButton btnDeslogeatu;
 	private ControladorPanelHasiera controladorPanelHasiera;
@@ -53,21 +53,21 @@ public class Hasiera extends JPanel {
 		btnpedido.setBorderPainted(false);
 		add(btnpedido);
 
-		btncomandas = new JButton("Comandas");
-		btncomandas.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btncomandas.setBounds(28, 136, 182, 114);
-		btncomandas.setBackground(new java.awt.Color(130, 130, 130));
-		btncomandas.setOpaque(true);
-		btncomandas.setBorderPainted(false);
-		add(btncomandas);
+		btnkomandak = new JButton("Comandas");
+		btnkomandak.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnkomandak.setBounds(28, 136, 182, 114);
+		btnkomandak.setBackground(new java.awt.Color(130, 130, 130));
+		btnkomandak.setOpaque(true);
+		btnkomandak.setBorderPainted(false);
+		add(btnkomandak);
 
-		btnaprovisionamiento = new JButton("Aprovisionamientos");
-		btnaprovisionamiento.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnaprovisionamiento.setBounds(245, 136, 178, 114);
-		btnaprovisionamiento.setBackground(new java.awt.Color(130, 130, 130));
-		btnaprovisionamiento.setOpaque(true);
-		btnaprovisionamiento.setBorderPainted(false);
-		add(btnaprovisionamiento);
+		btnhornikuntza = new JButton("Aprovisionamientos");
+		btnhornikuntza.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnhornikuntza.setBounds(245, 136, 178, 114);
+		btnhornikuntza.setBackground(new java.awt.Color(130, 130, 130));
+		btnhornikuntza.setOpaque(true);
+		btnhornikuntza.setBorderPainted(false);
+		add(btnhornikuntza);
 
 		btnDeslogeatu = new JButton("Deslogeatu");
 		btnDeslogeatu.setBounds(301, 266, 122, 23);

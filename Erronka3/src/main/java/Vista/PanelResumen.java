@@ -94,7 +94,6 @@ public class PanelResumen extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String Tipolocal=controladorPanelResumen.Tipolocalateraparametrogabe();
-				System.out.println(Tipolocal);
 				if(Tipolocal.equals("Bar")) {
 					controladorPanelResumen.accionadoBar();
 				}if(Tipolocal.equals("Restaurante")) {

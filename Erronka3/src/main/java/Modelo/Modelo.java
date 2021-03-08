@@ -1,12 +1,14 @@
 package Modelo;
+import java.util.ArrayList;
 
 import java.sql.Connection;
 
 public class Modelo {
-	private double[] arrayprezio= new double [10];
-	private String[] arrayizena= new String [10];
+	private ArrayList arrayprezio = new ArrayList<Double>();
+	private ArrayList arrayizena = new ArrayList<String>();
 	Usuario nif = new Usuario(null);
-	public String[] autoakJaso() {
+	
+	public String[] arrayirakurri() {
 		return Metodoak.irakurriarray();
 	}
 	
@@ -20,7 +22,7 @@ public class Modelo {
 		
 	}
 	
-	public String[] botonArray(String prodizena) {
+	public ArrayList<String> botonArray(String prodizena) {
 		return Metodoak.produktuenarray(prodizena,arrayizena);
 	}
 	

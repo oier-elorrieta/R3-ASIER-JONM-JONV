@@ -18,12 +18,10 @@ public class ConexionBD {
 		try {
 			Class.forName(CONTROLADOR);
 			Conexion = DriverManager.getConnection(URL, USUARIO, CONTRASEÑA);
-			System.out.println("Conexion establecida");
+			
 		}catch(ClassNotFoundException e){
-			System.out.println("Error al cargar el a");
 			e.printStackTrace();
 		}catch(SQLException e){
-			System.out.println("Error al cargar el b");
 			e.printStackTrace();
 		}
 		

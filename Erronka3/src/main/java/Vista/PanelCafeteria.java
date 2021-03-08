@@ -22,7 +22,7 @@ import java.awt.Font;
 public class PanelCafeteria extends JPanel {
 	private JLabel lbloperatividad;
 	private JButton btntickets;
-	private JButton btnaprovisionamiento;
+	private JButton btnhornikuntza;
 	private JButton btnpedido;
 	private JButton btnDeslogeatu;
 	private ControladorPanelCafeteria controladorPanelCafeteria;
@@ -45,13 +45,13 @@ public class PanelCafeteria extends JPanel {
 		btnpedido.setBounds(245, 11, 178, 114);
 		add(btnpedido);
 		
-		btnaprovisionamiento = new JButton("Aprovisionamientos");
-		btnaprovisionamiento.setOpaque(true);
-		btnaprovisionamiento.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnaprovisionamiento.setBorderPainted(false);
-		btnaprovisionamiento.setBackground(new Color(130, 130, 130));
-		btnaprovisionamiento.setBounds(139, 135, 178, 114);
-		add(btnaprovisionamiento);
+		btnhornikuntza = new JButton("Hornikuntza");
+		btnhornikuntza.setOpaque(true);
+		btnhornikuntza.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnhornikuntza.setBorderPainted(false);
+		btnhornikuntza.setBackground(new Color(130, 130, 130));
+		btnhornikuntza.setBounds(139, 135, 178, 114);
+		add(btnhornikuntza);
 		
 		btntickets = new JButton("Ticket");
 		btntickets.setOpaque(true);

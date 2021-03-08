@@ -20,7 +20,7 @@ import java.awt.Font;
 @SuppressWarnings("serial")
 public class PanelBar extends JPanel {
 	private JLabel lbloperatividad;
-	private JButton btnaprovisionamiento;
+	private JButton btnhornikuntza;
 	private JButton btntickets;
 	private JButton btnDeslogeatu;
 	private ControladorPanelBar controladorPanelBar;
@@ -30,18 +30,15 @@ public class PanelBar extends JPanel {
 		this.controladorPanelBar = controladorPanelBar;
 		
 		setLayout(null);
-		
 		setBackground(Color.LIGHT_GRAY);
-		setForeground(Color.LIGHT_GRAY);
-		setLayout(null);
 		
-		btnaprovisionamiento = new JButton("Aprovisionamientos");
-		btnaprovisionamiento.setOpaque(true);
-		btnaprovisionamiento.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnaprovisionamiento.setBorderPainted(false);
-		btnaprovisionamiento.setBackground(new Color(130, 130, 130));
-		btnaprovisionamiento.setBounds(145, 135, 178, 114);
-		add(btnaprovisionamiento);
+		btnhornikuntza = new JButton("Hornikuntza");
+		btnhornikuntza.setOpaque(true);
+		btnhornikuntza.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnhornikuntza.setBorderPainted(false);
+		btnhornikuntza.setBackground(new Color(130, 130, 130));
+		btnhornikuntza.setBounds(145, 135, 178, 114);
+		add(btnhornikuntza);
 		
 		btntickets = new JButton("Ticket");
 		btntickets.setOpaque(true);
