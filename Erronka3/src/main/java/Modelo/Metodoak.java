@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class Metodoak {
 
-	private static PreparedStatement preparedStatement;
+	
 	
 	public static String[] irakurriarray() {
 		int id=1;

@@ -29,7 +29,7 @@ public class PanelResumen extends JPanel {
 		setBackground(Color.LIGHT_GRAY);
 
 		setLayout(null);
-		setLayout(null);
+		
 
 		lblLaburpena = new JLabel("LABURPENA");
 		lblLaburpena.setBounds(181, 30, 106, 14);
