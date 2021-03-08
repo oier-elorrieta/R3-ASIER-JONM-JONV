@@ -102,12 +102,7 @@ public class Metodoak {
 	}
 
 	public static ArrayList<Double> sartuprezioa(double emaitzaint, ArrayList<Double> arrayprezio) {
-		/*for (int i = 0; i < arrayprezio.size(); i++) {
-			if (arrayprezio.get(i) == 0) {*/
-				arrayprezio.add(emaitzaint);
-				//break;
-			//}
-		//}
+			arrayprezio.add(emaitzaint);
 		return arrayprezio;
 	}
 
@@ -122,13 +117,7 @@ public class Metodoak {
 	}
 
 	public static ArrayList<String> produktuenarray(String prodizena, ArrayList<String> arrayizena) {
-		
-		/*for (int i = 0; i < arrayizena.size(); i++) {
-			if (arrayizena.get(i) == null) {*/
-				arrayizena.add(prodizena);
-			//	break;
-		//	}
-		//}
+			arrayizena.add(prodizena);
 		return arrayizena;
 	}
 
