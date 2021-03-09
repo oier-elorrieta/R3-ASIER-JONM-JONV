@@ -30,6 +30,7 @@ public class ControladorPanelResumen {
 	
 	public String accionadoBottonResumen() {
 		return this.modelo.arrayresumenbistaratu();
+<<<<<<< HEAD
 	}
 	
 	public void accionadoBar() {
@@ -57,4 +58,21 @@ public class ControladorPanelResumen {
 	public String Tipolocalateraparametrogabe() {
 		return this.modelo.AteraTipolocalmetodoa();
 	}
+=======
+	}
+	
+	public void arrayizenaborratu() {
+		modelo.arrayizenaasieratu();
+	}
+	
+	public void arrayprezioborratu() {
+		modelo.arrayprezioasieratu();
+	}
+	
+	public String preziofinbistaratu() {
+		return modelo.Emaitzafinenresumen();
+	}
+	
+
+>>>>>>> main
 }

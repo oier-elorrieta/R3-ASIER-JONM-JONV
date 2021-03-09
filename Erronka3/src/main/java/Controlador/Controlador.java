@@ -55,6 +55,7 @@ public class Controlador {
 		this.controladorPanelResumen.mostrarPanelResumen();
 	}
 	
+<<<<<<< HEAD
 	public void navegarPanelLogin() {
 		this.controladorPanelLogin.mostrarPanelLogin();
 	}
@@ -70,4 +71,7 @@ public class Controlador {
 	public void navegarPanelCafeteria() {
 		this.controladorPanelCafeteria.mostrarPanelCafeteria();
 	}
+=======
+	
+>>>>>>> main
 }

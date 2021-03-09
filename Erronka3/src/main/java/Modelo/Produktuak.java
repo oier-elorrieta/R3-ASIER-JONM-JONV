@@ -24,6 +24,10 @@ public class Produktuak {
 		this.izena = izena;
 		this.prezioa = prezioa;
 	}
+	@Override
+	public String toString() {
+		return "Produktuak [izena=" + izena + ", prezioa=" + prezioa + "]";
+	}
 	
 	
 	

@@ -9,8 +9,11 @@ import java.sql.Statement;
 
 public class Metodoak {
 
+<<<<<<< HEAD
 	
 	
+=======
+>>>>>>> main
 	public static String[] irakurriarray() {
 		int id=1;
 		
@@ -51,6 +54,7 @@ public class Metodoak {
 		return produktizena;
 	}
 	
+<<<<<<< HEAD
 	public static int Zenbatproduktu() {
 		int zenbat=0;
 		Connection conexion = ConexionBD.getConexion();
@@ -85,6 +89,46 @@ public class Metodoak {
 				
 					while (resul.next()) {
 						PrecioVentaProd = resul.getDouble("PrecioVentaProd");
+=======
+	public static String daramanprezioaagertzea(String kanti,double[] arrayprezio) {//prezio fin egin
+		int kantiint=Integer.parseInt(kanti);
+		int emaitzaint=1*kantiint;
+		arrayprezio=Metodoak.sartuprezioa(emaitzaint, arrayprezio);
+		double emaitzatot=0;
+		for(int i=0;i<arrayprezio.length;i++) {
+			 emaitzatot= emaitzatot+arrayprezio[i];
+		}
+		String emaitza=Double.toString(emaitzatot);
+		
+		return emaitza;
+	}
+	
+	public static double[] sartuprezioa(double emaitzaint,double[] arrayprezio) {//prezioa array sartu
+		for(int i=0;i<arrayprezio.length;i++) {
+			if(arrayprezio[i]==0) {
+				arrayprezio[i]=emaitzaint;
+					break;
+				}
+		}
+		return arrayprezio;
+	}
+	
+	public static String emaitzaetxerekin(double[] arrayprezio) {
+		double emaitzatot=0;
+		for(int i=0;i<arrayprezio.length;i++) {
+			 emaitzatot= emaitzatot+arrayprezio[i];
+		}
+		String emaitza=Double.toString(emaitzatot);
+		
+		return emaitza;
+	}
+	
+	public static String[] produktuenarray(String prodizena,String[] arrayizena) {
+			for(int i=0;i<arrayizena.length;i++) {
+				if(arrayizena[i]==null) {
+					arrayizena[i]=prodizena;
+						break;
+>>>>>>> main
 					}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -177,6 +221,7 @@ public class Metodoak {
 				if (resul.next()) {
 					badago = true;
 				}
+<<<<<<< HEAD
 		} catch (SQLException e) {
 			e.printStackTrace();
 
@@ -322,6 +367,30 @@ public class Metodoak {
 			e.printStackTrace();
 		}
 		return Tipolocal;
+=======
+			return arrayizena;
+>>>>>>> main
 	}
 	
+	public static String arrayresuemnbueltatu(String[] array,double[] arrayprezio) {//arrayak bistaratu
+		String resumen ="";
+		for(int kont=0;array[kont]!=null;kont++) {
+			 resumen=resumen+"<html>"+ array[kont]+".............................."+arrayprezio[kont]+"euro"+"<br><html>";
+		}
+		return resumen;
+	}
+	
+	public static String[] asieratuarrayizena(String[] arrayizena) {
+			for(int i=0;i<arrayizena.length;i++) {
+					arrayizena[i]=null;
+				}
+			return arrayizena;
+	}
+	
+	public static double[] asieratuarrayprezioa(double[] arrayprezio) {
+			for(int i=0;i<arrayprezio.length;i++) {
+				arrayprezio[i]=0;
+				}
+			return arrayprezio;
+	}
 }

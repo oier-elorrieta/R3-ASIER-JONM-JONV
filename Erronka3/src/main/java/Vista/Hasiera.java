@@ -26,6 +26,7 @@ public class Hasiera extends JPanel {
 	private ControladorPanelHasiera controladorPanelHasiera;
 	
 	
+	
 	public Hasiera(ControladorPanelHasiera controladorPanelHasiera) {
 		this.controladorPanelHasiera = controladorPanelHasiera;
 

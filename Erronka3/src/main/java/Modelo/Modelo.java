@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.sql.Connection;
 
 public class Modelo {
+<<<<<<< HEAD
 	private ArrayList arrayprezio = new ArrayList<Double>();
 	private ArrayList arrayizena = new ArrayList<String>();
 	Usuario nif = new Usuario(null);
@@ -14,6 +15,17 @@ public class Modelo {
 	
 	public String botonEmaitzafin(String kanti,String izena) {
 		return Metodoak.daramanprezioaagertzea(kanti,arrayprezio,izena);
+=======
+	private double[] arrayprezio= new double [10];
+	private String[] arrayizena= new String [10];
+	
+	public String[] autoakJaso() {
+		return Metodoak.irakurriarray();
+	}
+	
+	public String botonEmaitzafin(String kanti) {
+		return Metodoak.daramanprezioaagertzea(kanti,arrayprezio);
+>>>>>>> main
 		
 	}
 	
@@ -22,7 +34,11 @@ public class Modelo {
 		
 	}
 	
+<<<<<<< HEAD
 	public ArrayList<String> botonArray(String prodizena) {
+=======
+	public String[] botonArray(String prodizena) {
+>>>>>>> main
 		return Metodoak.produktuenarray(prodizena,arrayizena);
 	}
 	
@@ -32,6 +48,7 @@ public class Modelo {
 	
 	public void botonEtxera(double emaitza) {
 		 Metodoak.sartuprezioa(emaitza,arrayprezio);
+<<<<<<< HEAD
 	}
 	
 	public String botonEtxeraemaitza() {
@@ -76,5 +93,20 @@ public class Modelo {
 	
 	public int AteraoperazioID() {
 		return Metodoak.operazioID();
+=======
 	}
+	
+	public String botonEtxeraemaitza() {
+		 return Metodoak.emaitzaetxerekin(arrayprezio);
+	}
+	
+	public void arrayizenaasieratu() {
+		 Metodoak.asieratuarrayizena(arrayizena);
+>>>>>>> main
+	}
+	
+	public void arrayprezioasieratu() {
+		 Metodoak.asieratuarrayprezioa(arrayprezio);
+	}
+	
 }
