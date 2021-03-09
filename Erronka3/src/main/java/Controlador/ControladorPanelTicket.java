@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Modelo;
+
 import Vista.PanelTicket;
 import Vista.Vista;
 
@@ -36,12 +37,49 @@ public class ControladorPanelTicket {
 		return this.modelo.botonEmaitzafin(kanti);
 	}
 	
+<<<<<<< HEAD
+	public void accionadoBar() {
+		this.controlador.navegarPanelBar();
+	}
+	
+	public void accionadoCafeteria() {
+		this.controlador.navegarPanelCafeteria();
+	}
+	//-------------------------------------------------------------------------------------------------
+	
+	public String accionandoBottonEmaitzafin(String kanti,String izena) {
+		return this.modelo.botonEmaitzafin(kanti,izena);
+	}
+	
+=======
+>>>>>>> main
 	public void accionandoBottonArray(String izena) {
 		this.modelo.botonArray(izena);
 	}
 	
 	public void arrayizenaborratu() {
 		this.modelo.arrayizenaasieratu();
+<<<<<<< HEAD
+	}
+	
+	public void arrayprezioborratu() {
+		this.modelo.arrayprezioasieratu();
+	}
+	
+	public String Tipolocalateraparametrogabe() {
+		return this.modelo.AteraTipolocalmetodoa();
+	}
+	
+	public void pedidosartu(String direccion,int ID) {
+		modelo.pedidoBD(direccion,ID);
+	}
+	public void registraroperacion(String emaitza) {
+		 modelo.operazioaBD(emaitza);
+	}
+	public int ateraID() {
+		return this.modelo.AteraoperazioID();
+=======
+>>>>>>> main
 	}
 	
 	public void arrayprezioborratu() {

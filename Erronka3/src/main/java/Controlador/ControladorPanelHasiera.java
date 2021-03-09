@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.Modelo;
+
 import Vista.Hasiera;
 import Vista.Vista;
 
@@ -29,5 +30,9 @@ public class ControladorPanelHasiera {
 	
 	public void accionadoBottonMostrarPanelEskaera() {
 		this.controlador.navegarPanelEskaera();
+	}
+	
+	public void accionadoBottonMostrarPanelNagusia() {
+		this.controlador.navegarPanelNagusia();
 	}
 }

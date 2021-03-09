@@ -30,6 +30,35 @@ public class ControladorPanelResumen {
 	
 	public String accionadoBottonResumen() {
 		return this.modelo.arrayresumenbistaratu();
+<<<<<<< HEAD
+	}
+	
+	public void accionadoBar() {
+		this.controlador.navegarPanelBar();
+	}
+	
+	public void accionadoCafeteria() {
+		this.controlador.navegarPanelCafeteria();
+	}
+	
+	public void arrayizenaborratu() {
+		modelo.arrayizenaasieratu();
+	}
+	
+	public void arrayprezioborratu() {
+		modelo.arrayprezioasieratu();
+	}
+	
+	public String preziofinbistaratu() {
+		return modelo.Emaitzafinenresumen();
+	}
+	
+	
+	
+	public String Tipolocalateraparametrogabe() {
+		return this.modelo.AteraTipolocalmetodoa();
+	}
+=======
 	}
 	
 	public void arrayizenaborratu() {
@@ -45,4 +74,5 @@ public class ControladorPanelResumen {
 	}
 	
 
+>>>>>>> main
 }

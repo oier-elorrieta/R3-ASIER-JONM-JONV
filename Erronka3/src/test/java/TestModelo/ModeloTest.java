@@ -2,14 +2,44 @@ package TestModelo;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
+
 import org.junit.Test;
 
 import Modelo.Metodoak;
+<<<<<<< HEAD
+import Modelo.Usuario;
+=======
+>>>>>>> main
 
 public class ModeloTest {
 
 	@Test
 	public void Test_irakurriarray() {
+<<<<<<< HEAD
+		String[] produktizena = new String[5];
+		produktizena[0]="coca-cola";
+		produktizena[1]="kas";
+		produktizena[2]="cafe con leche";
+		produktizena[3]="Zumo";
+		produktizena[4]="Pintxo tortilla";
+		produktizena=Metodoak.irakurriarray();
+		String[] espero = new String[5];
+		espero[0]="coca-cola";
+		espero[1]="kas";
+		espero[2]="café con leche";
+		espero[3]="Zumo";
+		espero[4]="Pintxo tortilla";
+		assertArrayEquals(espero,produktizena);
+	}
+	@Test
+	public void Test_daramanprezioaagertzea() {
+		ArrayList prezio = new ArrayList<Double>();
+		String kanti="1";
+		String izena="kas";
+		String emaitza=Metodoak.daramanprezioaagertzea(kanti, prezio,izena);
+		double espero=1.5;
+=======
 		
 	}
 	@Test
@@ -29,12 +59,25 @@ public class ModeloTest {
 		String kanti="2";
 		String emaitza=Metodoak.daramanprezioaagertzea(kanti, prezio);
 		double espero=2;
+>>>>>>> main
 		double emaitzazbk=Double.parseDouble(emaitza);
 		assertEquals(espero,emaitzazbk,0);
 	}
 	@Test
 	public void Test_sartuprezioa() {
 		double emaitzaint=1;
+<<<<<<< HEAD
+		ArrayList prezio = new ArrayList<Double>();
+		prezio=Metodoak.sartuprezioa(emaitzaint, prezio);
+		ArrayList espero = new ArrayList<Double>();
+		espero.add(1.0);
+		assertEquals(espero,prezio);
+	}
+	@Test
+	public void Test_emaitzaetxerekin() {
+		ArrayList prezio = new ArrayList<Double>();
+		prezio.add(2.0);
+=======
 		double[] prezio=new double[10];
 		prezio[0]=0;
 		prezio[1]=0;
@@ -74,12 +117,30 @@ public class ModeloTest {
 		prezio[8]=0;
 		prezio[9]=0;
 		
+>>>>>>> main
 		String emaitza=Metodoak.emaitzaetxerekin(prezio);
 		String espero="2.0";
 		assertEquals(espero,emaitza);
 	}
 	@Test
 	public void Test_produktuenarray() {
+<<<<<<< HEAD
+		ArrayList izena = new ArrayList<String>();
+		String prodizena="Esnea";
+		izena=Metodoak.produktuenarray(prodizena, izena);
+		ArrayList espero = new ArrayList<String>();
+		espero.add("Esnea");
+		assertEquals(espero,izena);
+	}
+	@Test
+	public void Test_arrayresuemnbueltatu() {
+		ArrayList izena = new ArrayList<String>();
+		izena.add("Esnea");
+		ArrayList prezio = new ArrayList<Double>();
+		prezio.add(2.0);
+		String resumen=Metodoak.arrayresuemnbueltatu(izena, prezio);
+		String espero="<html>Esnea.....................................................................................2.0euro<br><html>";
+=======
 		String[] izena=new String[10];
 		String prodizena="Esnea";
 		izena=Metodoak.produktuenarray(prodizena, izena);
@@ -122,10 +183,31 @@ public class ModeloTest {
 		prezio[9]=0;
 		String resumen=Metodoak.arrayresuemnbueltatu(izena, prezio);
 		String espero="<html>Esnea..............................2.0euro<br><html>";
+>>>>>>> main
 		assertEquals(espero,resumen);
 	}
 	@Test
 	public void Test_asieratuarrayizena() {
+<<<<<<< HEAD
+		ArrayList izena = new ArrayList<String>();
+		izena.add("Esnea");
+		izena.add("Oilaskoa");
+		izena.add("Gailetak");
+		izena=Metodoak.asieratuarrayizena(izena);
+		ArrayList espero = new ArrayList<String>();
+		espero.clear();
+		assertEquals(espero,izena);
+	}
+	@Test
+	public void Test_asieratuarrayprezio() {
+		ArrayList prezio = new ArrayList<Double>();
+		prezio.add(1);
+		prezio.add(5);
+		prezio.add(10);
+		prezio=Metodoak.asieratuarrayprezioa(prezio);
+		ArrayList espero = new ArrayList<Double>();
+		assertEquals(espero,prezio);
+=======
 		String[] izena=new String[10];
 		izena[0]="Esnea";
 		izena[1]="Oilaskoa";
@@ -178,4 +260,34 @@ public class ModeloTest {
 		espero[9]=0;
 		assertArrayEquals(espero,prezio,0);
 }
+>>>>>>> main
+}
+	@Test
+	public void Test_UsuarioaInsertatuTrue() {
+		boolean berdina=Metodoak.UsuarioaInsertatu("antonio", "1234", "1234","12345678a");
+		boolean espero=true;
+		assertEquals(espero,berdina);
+	}
+	@Test
+	public void Test_UsuarioaInsertatuFalse() {
+		boolean berdina=Metodoak.UsuarioaInsertatu("aitor", "1234", "12345","12345678a");
+		boolean espero=false;
+		assertEquals(espero,berdina);
+	}
+	
+	@Test
+	public void Test_TipoLocalAtera() {
+		Usuario a = new Usuario("12345678b");
+		String tipolocal=Metodoak.TipoLocalAtera(a);
+		String espero="Restaurante";
+		assertEquals(espero,tipolocal);
+	}
+	@Test
+	public void Test_TipoLocalAteranif() {
+		Usuario a = new Usuario("12345678b");
+		String tipolocal=Metodoak.TipoLocalAteranif("12345678b",a);
+		String espero="Restaurante";
+		assertEquals(espero,tipolocal);
+	}
+	
 }

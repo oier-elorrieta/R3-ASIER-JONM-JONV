@@ -1,6 +1,7 @@
 package Vista;
 
 import java.awt.Color;
+
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -28,97 +29,127 @@ public class Eskaera extends JPanel {
 	private JButton btnExitPedido;
 	private JComboBox<String> Izenak;
 	private JTextField textDiruTot;
-	private JButton btndomicilio;
+	private JButton btnetxera;
 	private JSpinner spinnerKanti;
 	private JButton btnAukeratu;
+<<<<<<< HEAD
+	private JTextField texthelbidea;
+=======
+>>>>>>> main
 	
 	public Eskaera(ControladorPanelEskaera controladorPanelEskaera) {
 		this.controladorPanelEskaera = controladorPanelEskaera;
-		
+
 		setLayout(null);
-		setBackground(Color.DARK_GRAY);
-		
+		setBackground(Color.LIGHT_GRAY);
+
 		setLayout(null);
-		
+
 		JLabel lblPedidos = new JLabel("PEDIDOS");
 		lblPedidos.setBounds(205, 21, 103, 14);
-		lblPedidos.setForeground(Color.WHITE);
+		lblPedidos.setForeground(Color.BLACK);
 		lblPedidos.setFont(new Font("Tahoma", Font.BOLD, 11));
 		add(lblPedidos);
-		
+
 		btnExitPedido = new JButton("Exit");
 		btnExitPedido.setBounds(351, 266, 89, 23);
+		btnExitPedido.setBackground(new java.awt.Color(130, 130, 130));
+		btnExitPedido.setOpaque(true);
+		btnExitPedido.setBorderPainted(false);
 		add(btnExitPedido);
 
-		
-		
-		
+
+
+
 		JLabel lbllocal = new JLabel("Produktuak");
 		lbllocal.setBounds(23, 52, 122, 14);
-		lbllocal.setForeground(Color.WHITE);
+		lbllocal.setForeground(Color.BLACK);
 		lbllocal.setFont(new Font("Tahoma", Font.BOLD, 11));
 		add(lbllocal);
-		
-		btndomicilio = new JButton("BAI");
-		btndomicilio.setBounds(332, 212, 89, 23);
-		add(btndomicilio);
-		
-		
-		
+
+		btnetxera = new JButton("ETXERA");
+		btnetxera.setBounds(298, 219, 89, 23);
+		btnetxera.setBackground(new java.awt.Color(130, 130, 130));
+		btnetxera.setOpaque(true);
+		btnetxera.setBorderPainted(false);
+		add(btnetxera);
+
+
+
 		btnAurreraPedido = new JButton("Aurrera");
 		btnAurreraPedido.setBounds(254, 266, 89, 23);
+		btnAurreraPedido.setBackground(new java.awt.Color(130, 130, 130));
+		btnAurreraPedido.setOpaque(true);
+		btnAurreraPedido.setBorderPainted(false);
 		add(btnAurreraPedido);
-		
+
 		Izenak = new JComboBox();
 		Izenak.setBounds(21, 76, 226, 21);
 		add(Izenak);
 		String[] arrayizenak = Metodoak.irakurriarray();
 		for(int i = 0;i < arrayizenak.length;i++) {
-			Izenak.addItem(arrayizenak[i]);
+		Izenak.addItem(arrayizenak[i]);
 		}
-		
-		JLabel lbldomicilio = new JLabel("Etxera:");
-		lbldomicilio.setForeground(Color.WHITE);
-		lbldomicilio.setBounds(254, 217, 45, 13);
+
+		JLabel lbldomicilio = new JLabel("Etxera eramateko:");
+		lbldomicilio.setForeground(Color.BLACK);
+		lbldomicilio.setBounds(298, 160, 112, 13);
 		add(lbldomicilio);
-		
+
 		spinnerKanti = new JSpinner();
 		spinnerKanti.setBounds(362, 76, 30, 20);
 		add(spinnerKanti);
-		
+
 		JLabel lblKanti = new JLabel("Kantitatea:");
-		lblKanti.setForeground(Color.WHITE);
+		lblKanti.setForeground(Color.BLACK);
 		lblKanti.setBounds(254, 80, 123, 13);
 		add(lblKanti);
-		
+
 		JLabel lblDiruTot = new JLabel("Daramazun dirua:");
-		lblDiruTot.setForeground(Color.WHITE);
+		lblDiruTot.setForeground(Color.BLACK);
 		lblDiruTot.setBounds(23, 264, 106, 13);
 		add(lblDiruTot);
-		
+
 		textDiruTot = new JTextField();
 		textDiruTot.setBounds(139, 251, 60, 39);
 		add(textDiruTot);
 		textDiruTot.setColumns(10);
-		
+
 		btnAukeratu = new JButton("Aukeratu");
 		btnAukeratu.setBounds(288, 116, 89, 23);
+		btnAukeratu.setBackground(new java.awt.Color(130, 130, 130));
+		btnAukeratu.setOpaque(true);
+		btnAukeratu.setBorderPainted(false);
 		add(btnAukeratu);
-		
+
+		texthelbidea = new JTextField();
+		texthelbidea.setBounds(298, 188, 89, 20);
+		add(texthelbidea);
+		texthelbidea.setColumns(10);
+
 		initializeEvents();
-	}
+		}
 	
 	private void initializeEvents() {
 		this.btnAurreraPedido.addActionListener(listenerBotonAurreraPedido(this.controladorPanelEskaera));
 		this.btnExitPedido.addActionListener(listenerBotonExitPedido(this.controladorPanelEskaera));
 		this.btnAukeratu.addActionListener(listenerBotonAukeratu(this.controladorPanelEskaera));
+<<<<<<< HEAD
+		this.btnetxera.addActionListener(listenerBotonEtxera(this.controladorPanelEskaera));
+=======
 		this.btndomicilio.addActionListener(listenerBotonEtxera(this.controladorPanelEskaera));
+>>>>>>> main
 	}
 	
 	private ActionListener listenerBotonAurreraPedido(ControladorPanelEskaera controladorPanelEskarera) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelEskaera.accionadoBottonMostrarPanelResumen();
+				String emaitzafin=textDiruTot.getText();
+				controladorPanelEskaera.registraroperacion(emaitzafin);
+				int ID=controladorPanelEskaera.ateraID();
+				String direccion=texthelbidea.getText();
+				controladorPanelEskaera.pedidosartu(direccion,ID);
 			}
 		};
 	}
@@ -126,7 +157,20 @@ public class Eskaera extends JPanel {
 	private ActionListener listenerBotonExitPedido(ControladorPanelEskaera controladorPanelEskarera) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+<<<<<<< HEAD
+				String Tipolocal=controladorPanelEskaera.Tipolocalateraparametrogabe();
+				System.out.println(Tipolocal);
+				if(Tipolocal.equals("Bar")) {
+					controladorPanelEskaera.accionadoBar();
+				}if(Tipolocal.equals("Restaurante")) {
+					controladorPanelEskaera.accionadoBottonExit();
+				}if(Tipolocal.equals("Cafeteria")) {
+					controladorPanelEskaera.accionadoCafeteria();
+				}
+				
+=======
 				controladorPanelEskaera.accionadoBottonExit();
+>>>>>>> main
 				controladorPanelEskaera.arrayizenaborratu();
 				controladorPanelEskaera.arrayprezioborratu();
 			}
@@ -138,10 +182,17 @@ public class Eskaera extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String kanti=spinnerKanti.getValue().toString();
+<<<<<<< HEAD
+				String izena=Izenak.getSelectedItem().toString();
+				String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti,izena);
+				textDiruTot.setText(emaitza);
+				controladorPanelEskaera.accionandoBottonArray(izena);
+=======
 				String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti);
 				textDiruTot.setText(emaitza);
 				String izena=Izenak.getSelectedItem().toString();
 				controladorPanelEskaera.accionandoBottonArray(izena);				
+>>>>>>> main
 				}
 		};
 }
