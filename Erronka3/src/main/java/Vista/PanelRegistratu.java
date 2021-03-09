@@ -121,9 +121,6 @@ public class PanelRegistratu extends JPanel {
 				boolean berdina=controladorPanelRegistratu.BottonErregistratu(Izena,pasahitza,pasahitza2,NIF);
 				if(berdina==true) {
 					String Tipolocal=controladorPanelRegistratu.Tipolocalateranif(NIF);
-					System.out.println(Tipolocal);
-					System.out.println("va");
-
 					if(Tipolocal.equals("Bar")) {
 						controladorPanelRegistratu.accionadoBar();
 					}if(Tipolocal.equals("Restaurante")) {

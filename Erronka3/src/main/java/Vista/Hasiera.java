@@ -3,7 +3,6 @@ package Vista;
 
 import java.awt.event.ActionEvent;
 
-
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -19,9 +18,9 @@ import java.awt.Font;
 public class Hasiera extends JPanel {
 	
 	private JButton btnpedido;
-	private JButton btnkomandak;
+	private JButton btncomandas;
 	private JButton btntickets;
-	private JButton btnhornikuntza;
+	private JButton btnaprovisionamiento;
 	private JLabel lbloperatividad;
 	private JButton btnDeslogeatu;
 	private ControladorPanelHasiera controladorPanelHasiera;
@@ -38,7 +37,7 @@ public class Hasiera extends JPanel {
 
 		btntickets = new JButton("Ticket");
 		btntickets.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btntickets.setBackground(Color.GRAY);
+		btntickets.setBackground(Color.WHITE);
 		btntickets.setBounds(28, 11, 182, 114);
 		btntickets.setBackground(new java.awt.Color(130, 130, 130));
 		btntickets.setOpaque(true);
@@ -53,21 +52,21 @@ public class Hasiera extends JPanel {
 		btnpedido.setBorderPainted(false);
 		add(btnpedido);
 
-		btnkomandak = new JButton("Comandas");
-		btnkomandak.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnkomandak.setBounds(28, 136, 182, 114);
-		btnkomandak.setBackground(new java.awt.Color(130, 130, 130));
-		btnkomandak.setOpaque(true);
-		btnkomandak.setBorderPainted(false);
-		add(btnkomandak);
+		btncomandas = new JButton("Comandas");
+		btncomandas.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btncomandas.setBounds(28, 136, 182, 114);
+		btncomandas.setBackground(new java.awt.Color(130, 130, 130));
+		btncomandas.setOpaque(true);
+		btncomandas.setBorderPainted(false);
+		add(btncomandas);
 
-		btnhornikuntza = new JButton("Aprovisionamientos");
-		btnhornikuntza.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnhornikuntza.setBounds(245, 136, 178, 114);
-		btnhornikuntza.setBackground(new java.awt.Color(130, 130, 130));
-		btnhornikuntza.setOpaque(true);
-		btnhornikuntza.setBorderPainted(false);
-		add(btnhornikuntza);
+		btnaprovisionamiento = new JButton("Aprovisionamientos");
+		btnaprovisionamiento.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnaprovisionamiento.setBounds(245, 136, 178, 114);
+		btnaprovisionamiento.setBackground(new java.awt.Color(130, 130, 130));
+		btnaprovisionamiento.setOpaque(true);
+		btnaprovisionamiento.setBorderPainted(false);
+		add(btnaprovisionamiento);
 
 		btnDeslogeatu = new JButton("Deslogeatu");
 		btnDeslogeatu.setBounds(301, 266, 122, 23);

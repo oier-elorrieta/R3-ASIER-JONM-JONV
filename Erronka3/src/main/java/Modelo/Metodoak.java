@@ -18,7 +18,7 @@ public class Metodoak {
 		int zenbat= Zenbatproduktu();
 		Produktuak[] arrayobj = new Produktuak[zenbat];
 		for(int i=0;i<id;i++) {
-			String query = "SELECT NomProd,PrecioVentaProd FROM productos WHERE IDProducto='"+id+"'";// produktuak base datutik ateratzen du
+			String query = kontsultak.selectProdiktuenizena + "'" + id + "'";// produktuak base datutik ateratzen du
 			String NomProd = "";
 			double PrecioVentaProd = 0;
 			try {
@@ -54,7 +54,7 @@ public class Metodoak {
 	public static int Zenbatproduktu() {
 		int zenbat=0;
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT count(NomProd) FROM productos";
+		String query = kontsultak.selectProduktuKantitatea;
 		
 		try {
 			PreparedStatement pre;
@@ -75,7 +75,7 @@ public class Metodoak {
 	public static String daramanprezioaagertzea(String kanti, ArrayList<Double> arrayprezio,String izena) {// prezio fin egin
 		Connection conexion = ConexionBD.getConexion();
 		
-			String query = "SELECT PrecioVentaProd FROM productos WHERE NomProd='"+izena+"'";// lokalaren nif-rekin lokal tipoa ateratzen du
+			String query = kontsultak.selectProdukturenprezioa + "'" + izena + "'";// lokalaren nif-rekin lokal tipoa ateratzen du
 			double PrecioVentaProd = 0;
 			try {
 				PreparedStatement pre;
@@ -149,7 +149,7 @@ public class Metodoak {
 			if (pasahitza.equals(pasahitza2)) {
 				berdina = true;
 				Connection conexion = ConexionBD.getConexion();
-				String query = "INSERT INTO usuarios values('" + izena + "','" + pasahitza + "','" + NIF + "')";//usuario berri bat insertatzen du 
+				String query = kontsultak.insertDatuak+"('" + izena + "', '" + pasahitza + "','" + NIF+ "')"; ;//usuario berri bat insertatzen du 
 
 				try {
 					Statement s;
@@ -166,7 +166,7 @@ public class Metodoak {
 
 	public static boolean UsuariaBerifikatu(String izena, String pasahitza) {
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT * FROM usuarios WHERE Usuario='" + izena + "'and Contraseña='" + pasahitza + "'";//datu basetik usuarioa badagon berifikatzen du
+		String query =kontsultak.selectUsuario + "'" + izena + "'and Contraseña='" + pasahitza + "'";//datu basetik usuarioa badagon berifikatzen du
 		boolean badago = false;
 		try {
 			PreparedStatement pre;
@@ -186,7 +186,7 @@ public class Metodoak {
 	
 	public static boolean izenaBerifikatu(String izena) {
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT * FROM usuarios WHERE Usuario='" + izena + "'";//datu basetik usuarioa errepikatuta badagoen ikusten du
+		String query = kontsultak.selectUsuario + "'" + izena + "'";//datu basetik usuarioa errepikatuta badagoen ikusten du
 		boolean badago = false;
 		try {
 			PreparedStatement pre;
@@ -206,7 +206,7 @@ public class Metodoak {
 
 	public static void AteraNIF(String Izena, String pasahitza,Usuario NIF) {
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT NIF FROM usuarios WHERE Usuario='" + Izena + "'";//usuarioa lokalen dagoen nif ateratzen du
+		String query = kontsultak.selectUsuarioNif+ "'" + Izena + "'";//usuarioa lokalen dagoen nif ateratzen du
 		try {
 			PreparedStatement pre;
 			ResultSet resul;
@@ -226,7 +226,7 @@ public class Metodoak {
 	public static void operazioaBDsartu(String emaitza,Usuario nif) {
 		String NIF=nif.getNif();
 		Connection conexion = ConexionBD.getConexion();
-		String query = "INSERT INTO operaciones(PrecioTotalOp,NIF) values('" + emaitza + "','" + NIF + "')";//operazio tablan datuak insertatzen ditu
+		String query = kontsultak.insertOperaciones+"('" + emaitza + "','" + NIF + "')";//operazio tablan datuak insertatzen ditu
 
 		try {
 			Statement s;
@@ -241,7 +241,7 @@ public class Metodoak {
 	public static int operazioID() {
 
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT max(IDOperaciones) FROM operaciones";//usuarioa operazioan dagoen id ateratzen du
+		String query = kontsultak.selectMaxID;//usuarioa operazioan dagoen id ateratzen du
 		int ID=0;
 		try {
 			PreparedStatement pre;
@@ -269,7 +269,7 @@ public class Metodoak {
 			etxera = "SI";
 		}
 		Connection conexion = ConexionBD.getConexion();
-		String query = "INSERT INTO pedido(ID,DomicilioSioNo,DirDomicilio) values('" + ID + "','" + etxera + "','" + direccion + "')";//pedido tablan datuak insertatzen du
+		String query = kontsultak.insertPedido+"('" + ID + "','" + etxera + "','" + direccion + "')";//pedido tablan datuak insertatzen du
 
 		try {
 			Statement s;
@@ -284,7 +284,7 @@ public class Metodoak {
 	public static String TipoLocalAtera(Usuario NIFa) {
 		String nif=NIFa.getNif();
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + nif + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
+		String query = kontsultak.selectTipoLocal+ "'" + nif + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
 		String Tipolocal = "";
 		try {
 			PreparedStatement pre;
@@ -305,7 +305,7 @@ public class Metodoak {
 	public static String TipoLocalAteranif(String NIF,Usuario NIFa) {
 		
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + NIF + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
+		String query = kontsultak.selectTipoLocal+ "'" + NIF + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
 		String Tipolocal = "";
 		NIFa.setNif(NIF);
 		try {
