@@ -9,11 +9,8 @@ import java.sql.Statement;
 
 public class Metodoak {
 
-<<<<<<< HEAD
 	
 	
-=======
->>>>>>> main
 	public static String[] irakurriarray() {
 		int id=1;
 		
@@ -21,7 +18,7 @@ public class Metodoak {
 		int zenbat= Zenbatproduktu();
 		Produktuak[] arrayobj = new Produktuak[zenbat];
 		for(int i=0;i<id;i++) {
-			String query = kontsultak.selectProdiktuenizena + "'" + id + "'";// produktuak base datutik ateratzen du
+			String query = "SELECT NomProd,PrecioVentaProd FROM productos WHERE IDProducto='"+id+"'";// produktuak base datutik ateratzen du
 			String NomProd = "";
 			double PrecioVentaProd = 0;
 			try {
@@ -54,11 +51,10 @@ public class Metodoak {
 		return produktizena;
 	}
 	
-<<<<<<< HEAD
 	public static int Zenbatproduktu() {
 		int zenbat=0;
 		Connection conexion = ConexionBD.getConexion();
-		String query = kontsultak.selectProduktuKantitatea;
+		String query = "SELECT count(NomProd) FROM productos";
 		
 		try {
 			PreparedStatement pre;
@@ -79,7 +75,7 @@ public class Metodoak {
 	public static String daramanprezioaagertzea(String kanti, ArrayList<Double> arrayprezio,String izena) {// prezio fin egin
 		Connection conexion = ConexionBD.getConexion();
 		
-			String query = kontsultak.selectProdukturenprezioa + "'" + izena + "'";// lokalaren nif-rekin lokal tipoa ateratzen du
+			String query = "SELECT PrecioVentaProd FROM productos WHERE NomProd='"+izena+"'";// lokalaren nif-rekin lokal tipoa ateratzen du
 			double PrecioVentaProd = 0;
 			try {
 				PreparedStatement pre;
@@ -89,46 +85,6 @@ public class Metodoak {
 				
 					while (resul.next()) {
 						PrecioVentaProd = resul.getDouble("PrecioVentaProd");
-=======
-	public static String daramanprezioaagertzea(String kanti,double[] arrayprezio) {//prezio fin egin
-		int kantiint=Integer.parseInt(kanti);
-		int emaitzaint=1*kantiint;
-		arrayprezio=Metodoak.sartuprezioa(emaitzaint, arrayprezio);
-		double emaitzatot=0;
-		for(int i=0;i<arrayprezio.length;i++) {
-			 emaitzatot= emaitzatot+arrayprezio[i];
-		}
-		String emaitza=Double.toString(emaitzatot);
-		
-		return emaitza;
-	}
-	
-	public static double[] sartuprezioa(double emaitzaint,double[] arrayprezio) {//prezioa array sartu
-		for(int i=0;i<arrayprezio.length;i++) {
-			if(arrayprezio[i]==0) {
-				arrayprezio[i]=emaitzaint;
-					break;
-				}
-		}
-		return arrayprezio;
-	}
-	
-	public static String emaitzaetxerekin(double[] arrayprezio) {
-		double emaitzatot=0;
-		for(int i=0;i<arrayprezio.length;i++) {
-			 emaitzatot= emaitzatot+arrayprezio[i];
-		}
-		String emaitza=Double.toString(emaitzatot);
-		
-		return emaitza;
-	}
-	
-	public static String[] produktuenarray(String prodizena,String[] arrayizena) {
-			for(int i=0;i<arrayizena.length;i++) {
-				if(arrayizena[i]==null) {
-					arrayizena[i]=prodizena;
-						break;
->>>>>>> main
 					}
 			} catch (SQLException e) {
 				e.printStackTrace();
@@ -193,7 +149,7 @@ public class Metodoak {
 			if (pasahitza.equals(pasahitza2)) {
 				berdina = true;
 				Connection conexion = ConexionBD.getConexion();
-				String query = kontsultak.insertDatuak+"('" + izena + "', '" + pasahitza + "','" + NIF+ "')"; ;//usuario berri bat insertatzen du 
+				String query = "INSERT INTO usuarios values('" + izena + "','" + pasahitza + "','" + NIF + "')";//usuario berri bat insertatzen du 
 
 				try {
 					Statement s;
@@ -210,7 +166,7 @@ public class Metodoak {
 
 	public static boolean UsuariaBerifikatu(String izena, String pasahitza) {
 		Connection conexion = ConexionBD.getConexion();
-		String query =kontsultak.selectUsuario + "'" + izena + "'and Contraseña='" + pasahitza + "'";//datu basetik usuarioa badagon berifikatzen du
+		String query = "SELECT * FROM usuarios WHERE Usuario='" + izena + "'and Contraseña='" + pasahitza + "'";//datu basetik usuarioa badagon berifikatzen du
 		boolean badago = false;
 		try {
 			PreparedStatement pre;
@@ -221,7 +177,6 @@ public class Metodoak {
 				if (resul.next()) {
 					badago = true;
 				}
-<<<<<<< HEAD
 		} catch (SQLException e) {
 			e.printStackTrace();
 
@@ -231,7 +186,7 @@ public class Metodoak {
 	
 	public static boolean izenaBerifikatu(String izena) {
 		Connection conexion = ConexionBD.getConexion();
-		String query = kontsultak.selectUsuario + "'" + izena + "'";//datu basetik usuarioa errepikatuta badagoen ikusten du
+		String query = "SELECT * FROM usuarios WHERE Usuario='" + izena + "'";//datu basetik usuarioa errepikatuta badagoen ikusten du
 		boolean badago = false;
 		try {
 			PreparedStatement pre;
@@ -251,7 +206,7 @@ public class Metodoak {
 
 	public static void AteraNIF(String Izena, String pasahitza,Usuario NIF) {
 		Connection conexion = ConexionBD.getConexion();
-		String query = kontsultak.selectUsuarioNif+ "'" + Izena + "'";//usuarioa lokalen dagoen nif ateratzen du
+		String query = "SELECT NIF FROM usuarios WHERE Usuario='" + Izena + "'";//usuarioa lokalen dagoen nif ateratzen du
 		try {
 			PreparedStatement pre;
 			ResultSet resul;
@@ -271,7 +226,7 @@ public class Metodoak {
 	public static void operazioaBDsartu(String emaitza,Usuario nif) {
 		String NIF=nif.getNif();
 		Connection conexion = ConexionBD.getConexion();
-		String query = kontsultak.insertOperaciones+"('" + emaitza + "','" + NIF + "')";//operazio tablan datuak insertatzen ditu
+		String query = "INSERT INTO operaciones(PrecioTotalOp,NIF) values('" + emaitza + "','" + NIF + "')";//operazio tablan datuak insertatzen ditu
 
 		try {
 			Statement s;
@@ -286,7 +241,7 @@ public class Metodoak {
 	public static int operazioID() {
 
 		Connection conexion = ConexionBD.getConexion();
-		String query = kontsultak.selectMaxID;//usuarioa operazioan dagoen id ateratzen du
+		String query = "SELECT max(IDOperaciones) FROM operaciones";//usuarioa operazioan dagoen id ateratzen du
 		int ID=0;
 		try {
 			PreparedStatement pre;
@@ -314,7 +269,7 @@ public class Metodoak {
 			etxera = "SI";
 		}
 		Connection conexion = ConexionBD.getConexion();
-		String query = kontsultak.insertPedido+"('" + ID + "','" + etxera + "','" + direccion + "')";//pedido tablan datuak insertatzen du
+		String query = "INSERT INTO pedido(ID,DomicilioSioNo,DirDomicilio) values('" + ID + "','" + etxera + "','" + direccion + "')";//pedido tablan datuak insertatzen du
 
 		try {
 			Statement s;
@@ -329,7 +284,7 @@ public class Metodoak {
 	public static String TipoLocalAtera(Usuario NIFa) {
 		String nif=NIFa.getNif();
 		Connection conexion = ConexionBD.getConexion();
-		String query = kontsultak.selectTipoLocal+ "'" + nif + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
+		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + nif + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
 		String Tipolocal = "";
 		try {
 			PreparedStatement pre;
@@ -350,7 +305,7 @@ public class Metodoak {
 	public static String TipoLocalAteranif(String NIF,Usuario NIFa) {
 		
 		Connection conexion = ConexionBD.getConexion();
-		String query = kontsultak.selectTipoLocal+ "'" + NIF + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
+		String query = "SELECT TipoDeNegocio FROM local WHERE NIF='" + NIF + "'";//lokalaren nif-rekin lokal tipoa ateratzen du
 		String Tipolocal = "";
 		NIFa.setNif(NIF);
 		try {
@@ -367,30 +322,6 @@ public class Metodoak {
 			e.printStackTrace();
 		}
 		return Tipolocal;
-=======
-			return arrayizena;
->>>>>>> main
 	}
 	
-	public static String arrayresuemnbueltatu(String[] array,double[] arrayprezio) {//arrayak bistaratu
-		String resumen ="";
-		for(int kont=0;array[kont]!=null;kont++) {
-			 resumen=resumen+"<html>"+ array[kont]+".............................."+arrayprezio[kont]+"euro"+"<br><html>";
-		}
-		return resumen;
-	}
-	
-	public static String[] asieratuarrayizena(String[] arrayizena) {
-			for(int i=0;i<arrayizena.length;i++) {
-					arrayizena[i]=null;
-				}
-			return arrayizena;
-	}
-	
-	public static double[] asieratuarrayprezioa(double[] arrayprezio) {
-			for(int i=0;i<arrayprezio.length;i++) {
-				arrayprezio[i]=0;
-				}
-			return arrayprezio;
-	}
 }
