@@ -52,9 +52,11 @@ public class ControladorPanelResumen {
 		return modelo.Emaitzafinenresumen();
 	}
 	
-	
-	
 	public String Tipolocalateraparametrogabe() {
 		return this.modelo.AteraTipolocalmetodoa();
+	}
+	
+	public void kantitateaarrayezabatu() {
+		this.modelo.kantitateaarrayezabatu();
 	}
 }

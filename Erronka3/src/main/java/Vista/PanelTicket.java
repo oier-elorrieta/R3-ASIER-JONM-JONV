@@ -117,9 +117,9 @@ public class PanelTicket extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				String emaitzafin=textDiruTot.getText();
 				controladorPanelTicket.registraroperacion(emaitzafin);
-				String direccion="Ez dago";
+				/*String direccion="Ez dago";
 				int ID=controladorPanelTicket.ateraID();
-				controladorPanelTicket.pedidosartu(direccion,ID);
+				controladorPanelTicket.pedidosartu(direccion,ID);*/
 				controladorPanelTicket.accionadoBottonMostrarPanelResumen();
 			}
 		};

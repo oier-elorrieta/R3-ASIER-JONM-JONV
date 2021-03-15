@@ -143,6 +143,7 @@ public class Eskaera extends JPanel {
 				int ID=controladorPanelEskaera.ateraID();
 				String direccion=texthelbidea.getText();
 				controladorPanelEskaera.pedidosartu(direccion,ID);
+				controladorPanelEskaera.accionandokantisartu(ID);
 			}
 		};
 	}
@@ -159,9 +160,9 @@ public class Eskaera extends JPanel {
 				}if(Tipolocal.equals("Cafeteria")) {
 					controladorPanelEskaera.accionadoCafeteria();
 				}
-				
 				controladorPanelEskaera.arrayizenaborratu();
 				controladorPanelEskaera.arrayprezioborratu();
+				controladorPanelEskaera.kantitateaarrayezabatu();
 			}
 		};
 	}
@@ -171,10 +172,12 @@ public class Eskaera extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String kanti=spinnerKanti.getValue().toString();
+				int kantitatea=Integer.parseInt(kanti);
 				String izena=Izenak.getSelectedItem().toString();
 				String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti,izena);
 				textDiruTot.setText(emaitza);
 				controladorPanelEskaera.accionandoBottonArray(izena);
+				controladorPanelEskaera.kantitateaarraysartu(kantitatea);
 				}
 		};
 }
@@ -187,7 +190,7 @@ public class Eskaera extends JPanel {
 				String emaitza=controladorPanelEskaera.emaitzaetxerekin();
 				textDiruTot.setText(emaitza);
 				String izena="Etxera";
-				controladorPanelEskaera.accionandoBottonArray(izena);				
+				controladorPanelEskaera.accionandoBottonArray(izena);						
 				}
 		};
 }

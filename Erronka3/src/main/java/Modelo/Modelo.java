@@ -6,6 +6,7 @@ import java.sql.Connection;
 public class Modelo {
 	private ArrayList arrayprezio = new ArrayList<Double>();
 	private ArrayList arrayizena = new ArrayList<String>();
+	private ArrayList kantitateak = new ArrayList<Integer>();
 	Usuario nif = new Usuario(null);
 	
 	public String[] arrayirakurri() {
@@ -76,5 +77,17 @@ public class Modelo {
 	
 	public int AteraoperazioID() {
 		return Metodoak.operazioID();
+	}
+	
+	public void kantisartu(int ID) {
+		Metodoak.kantisartuBD(ID,arrayprezio,arrayizena,kantitateak);
+	}
+	
+	public void kantitateaarrayeansartu(int kanti) {
+		Metodoak.kantisartuarray(kanti,kantitateak);
+	}
+	
+	public void kantitateaarrayezabatu() {
+		Metodoak.kantisartuarrayclear(kantitateak);
 	}
 }

@@ -104,6 +104,7 @@ public class PanelResumen extends JPanel {
 				
 				controladorPanelResumen.arrayizenaborratu();
 				controladorPanelResumen.arrayprezioborratu();
+				controladorPanelResumen.kantitateaarrayezabatu();
 			}
 		};
 	}
@@ -116,8 +117,6 @@ public class PanelResumen extends JPanel {
 				lblresumen.setText(resumen);
 				String emaitza=controladorPanelResumen.preziofinbistaratu();
 				textpreziotot.setText(emaitza);
-				
-				
 			}
 		};
 	}
