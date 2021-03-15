@@ -345,11 +345,12 @@ public class Metodoak {
 			int kont = 1;
 			while (kont <= arrayprezio.size()) {
 				int idproducto = IDproducto(array, i);
-				if(idproduktuadago(idproducto)==false) {
+				System.out.println(idproduktuadago(idproducto,ID));
+				if(idproduktuadago(idproducto,ID)==false) {
 					Connection conexion = ConexionBD.getConexion();
 
 					String query = "INSERT INTO aparecen VALUES ('" + ID + "','" + idproducto + "','" + kantitatea.get(i)
-							+ "','" + arrayprezio.get(i) + "','" + kantitatea.get(i) * arrayprezio.get(i) + "')";
+							+ "','" + arrayprezio.get(i)/kantitatea.get(i) + "','" + kantitatea.get(i) * arrayprezio.get(i) + "')";
 
 					try {
 						Statement s;
@@ -362,7 +363,8 @@ public class Metodoak {
 					i++;
 					kont++;
 				}else {
-					idproduktukantigehitu(kantitatea,i,idproducto);
+					idproduktukantigehitu(kantitatea,i,idproducto,arrayprezio);
+					break;
 				}
 			}
 
@@ -390,11 +392,11 @@ public class Metodoak {
 		return IDProducto;
 
 	}
-	//id produktua errepikatuta badago ikusten du
-	public static boolean idproduktuadago(int idproduktua) {
+	//id produktua eta ID oprezioarena errepikatuta badago ikusten du
+	public static boolean idproduktuadago(int idproduktua,int ID) {
 		boolean badago=false;
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT IDProducto FROM aparecen WHERE IDProducto= " + "'" + idproduktua + "'";
+		String query = "SELECT IDProducto FROM aparecen WHERE IDProducto= " + "'" + idproduktua + "'and  ID= '" + ID + "'";
 		
 		try {
 			PreparedStatement pre;
@@ -412,16 +414,14 @@ public class Metodoak {
 		return badago;
 	}
 	
-	public static void idproduktukantigehitu(ArrayList<Integer> kantitatea,int i,int idproducto) {
+	public static void idproduktukantigehitu(ArrayList<Integer> kantitatea,int i,int idproducto,ArrayList<Double> arrayprezio) {
 		Connection conexion = ConexionBD.getConexion();
-		String query="UPDATE aparecen SET NumUniPorProd= " + "'" + kantitatea.get(i) + "',PrecioTotPorProducto=" + "'" + 12 + "' where IDProducto = '" + idproducto + "'";
+		String query="UPDATE aparecen SET NumUniPorProd= NumUniPorProd +" + "'" + kantitatea.get(i) + "',PrecioTotPorProd=PrecioTotPorProd + '" + arrayprezio.get(i) + "' where IDProducto = '" + idproducto + "'";
 		
 		try {
-			PreparedStatement pre;
-			ResultSet resul;
-
-			pre = conexion.prepareStatement(query);
-			resul = pre.executeQuery();
+			Statement s;
+			s = conexion.createStatement();
+			s.executeUpdate(query);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
