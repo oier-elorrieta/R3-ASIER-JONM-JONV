@@ -117,9 +117,8 @@ public class PanelTicket extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				String emaitzafin=textDiruTot.getText();
 				controladorPanelTicket.registraroperacion(emaitzafin);
-				/*String direccion="Ez dago";
 				int ID=controladorPanelTicket.ateraID();
-				controladorPanelTicket.pedidosartu(direccion,ID);*/
+				controladorPanelTicket.accionandokantisartu(ID);
 				controladorPanelTicket.accionadoBottonMostrarPanelResumen();
 			}
 		};
@@ -141,6 +140,7 @@ public class PanelTicket extends JPanel {
 				
 				controladorPanelTicket.arrayizenaborratu();
 				controladorPanelTicket.arrayprezioborratu();
+				controladorPanelTicket.kantitateaarrayezabatu();
 			}
 		};
 	}
@@ -150,10 +150,12 @@ public class PanelTicket extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String kanti=spinnerKanti.getValue().toString();
+				int kantitatea=Integer.parseInt(kanti);
 				String izena=Izenak.getSelectedItem().toString();
 				String emaitza=controladorPanelTicket.accionandoBottonEmaitzafin(kanti,izena);
 				textDiruTot.setText(emaitza);
 				controladorPanelTicket.accionandoBottonArray(izena);
+				controladorPanelTicket.kantitateaarraysartu(kantitatea);
 			}
 		};
 	}

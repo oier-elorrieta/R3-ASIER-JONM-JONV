@@ -70,4 +70,15 @@ public class ControladorPanelTicket {
 	public int ateraID() {
 		return this.modelo.AteraoperazioID();
 	}
+	public void accionandokantisartu(int ID) {
+		this.modelo.kantisartu(ID);
+	}
+	
+	public void kantitateaarraysartu(int kanti) {
+		this.modelo.kantitateaarrayeansartu(kanti);
+	}
+	
+	public void kantitateaarrayezabatu() {
+		this.modelo.kantitateaarrayezabatu();
+	}
 }
