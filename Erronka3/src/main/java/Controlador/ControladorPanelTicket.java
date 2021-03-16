@@ -31,13 +31,7 @@ public class ControladorPanelTicket {
 	public void accionadoBottonExit() {
 		this.controlador.navegarPanelHasiera();
 	}
-	//-------------------------------------------------------------------------------------------------
 	
-	public String accionandoBottonEmaitzafin(String kanti) {
-		return this.modelo.botonEmaitzafin(kanti);
-	}
-	
-<<<<<<< HEAD
 	public void accionadoBar() {
 		this.controlador.navegarPanelBar();
 	}
@@ -51,15 +45,12 @@ public class ControladorPanelTicket {
 		return this.modelo.botonEmaitzafin(kanti,izena);
 	}
 	
-=======
->>>>>>> main
 	public void accionandoBottonArray(String izena) {
 		this.modelo.botonArray(izena);
 	}
 	
 	public void arrayizenaborratu() {
 		this.modelo.arrayizenaasieratu();
-<<<<<<< HEAD
 	}
 	
 	public void arrayprezioborratu() {
@@ -78,13 +69,16 @@ public class ControladorPanelTicket {
 	}
 	public int ateraID() {
 		return this.modelo.AteraoperazioID();
-=======
->>>>>>> main
+	}
+	public void accionandokantisartu(int ID) {
+		this.modelo.kantisartu(ID);
 	}
 	
-	public void arrayprezioborratu() {
-		this.modelo.arrayprezioasieratu();
+	public void kantitateaarraysartu(int kanti) {
+		this.modelo.kantitateaarrayeansartu(kanti);
 	}
 	
-	
+	public void kantitateaarrayezabatu() {
+		this.modelo.kantitateaarrayezabatu();
+	}
 }

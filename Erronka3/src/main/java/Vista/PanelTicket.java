@@ -46,7 +46,6 @@ public class PanelTicket extends JPanel {
 		lblTicket.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblTicket.setBounds(207, 11, 77, 14);
 		add(lblTicket);
-<<<<<<< HEAD
 
 
 		JLabel lblproduktuak = new JLabel("Produktuak");
@@ -55,16 +54,6 @@ public class PanelTicket extends JPanel {
 		lblproduktuak.setBounds(22, 26, 111, 14);
 		add(lblproduktuak);
 
-=======
-		
-		
-		JLabel lblproduktuak = new JLabel("Produktuak");
-		lblproduktuak.setForeground(Color.WHITE);
-		lblproduktuak.setFont(new Font("Tahoma", Font.BOLD, 11));
-		lblproduktuak.setBounds(22, 26, 111, 14);
-		add(lblproduktuak);
-		
->>>>>>> main
 		btnExitTicket = new JButton("Exit");
 		btnExitTicket.setBounds(356, 266, 82, 23);
 		btnExitTicket.setBackground(new java.awt.Color(130, 130, 130));
@@ -86,13 +75,8 @@ public class PanelTicket extends JPanel {
 		for(int i = 0;i < arrayizenak.length;i++) {
 		Izenak.addItem(arrayizenak[i]);
 		}
-<<<<<<< HEAD
 
 
-=======
-		
-		
->>>>>>> main
 		spinnerKanti = new JSpinner();
 		spinnerKanti.setBounds(356, 76, 30, 20);
 		add(spinnerKanti);
@@ -133,9 +117,8 @@ public class PanelTicket extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				String emaitzafin=textDiruTot.getText();
 				controladorPanelTicket.registraroperacion(emaitzafin);
-				String direccion="Ez dago";
 				int ID=controladorPanelTicket.ateraID();
-				controladorPanelTicket.pedidosartu(direccion,ID);
+				controladorPanelTicket.accionandokantisartu(ID);
 				controladorPanelTicket.accionadoBottonMostrarPanelResumen();
 			}
 		};
@@ -144,7 +127,6 @@ public class PanelTicket extends JPanel {
 	private ActionListener listenerBotonExitTicket(ControladorPanelTicket controladorPanelTicket) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-<<<<<<< HEAD
 				
 				String Tipolocal=controladorPanelTicket.Tipolocalateraparametrogabe();
 				System.out.println(Tipolocal);
@@ -156,11 +138,9 @@ public class PanelTicket extends JPanel {
 					controladorPanelTicket.accionadoCafeteria();
 				}
 				
-=======
-				controladorPanelTicket.accionadoBottonExit();
->>>>>>> main
 				controladorPanelTicket.arrayizenaborratu();
 				controladorPanelTicket.arrayprezioborratu();
+				controladorPanelTicket.kantitateaarrayezabatu();
 			}
 		};
 	}
@@ -170,16 +150,12 @@ public class PanelTicket extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String kanti=spinnerKanti.getValue().toString();
-<<<<<<< HEAD
+				int kantitatea=Integer.parseInt(kanti);
 				String izena=Izenak.getSelectedItem().toString();
 				String emaitza=controladorPanelTicket.accionandoBottonEmaitzafin(kanti,izena);
 				textDiruTot.setText(emaitza);
-=======
-				String emaitza=controladorPanelTicket.accionandoBottonEmaitzafin(kanti);
-				textDiruTot.setText(emaitza);
-				String izena=Izenak.getSelectedItem().toString();
->>>>>>> main
 				controladorPanelTicket.accionandoBottonArray(izena);
+				controladorPanelTicket.kantitateaarraysartu(kantitatea);
 			}
 		};
 	}

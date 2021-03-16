@@ -32,10 +32,7 @@ public class Eskaera extends JPanel {
 	private JButton btnetxera;
 	private JSpinner spinnerKanti;
 	private JButton btnAukeratu;
-<<<<<<< HEAD
 	private JTextField texthelbidea;
-=======
->>>>>>> main
 	
 	public Eskaera(ControladorPanelEskaera controladorPanelEskaera) {
 		this.controladorPanelEskaera = controladorPanelEskaera;
@@ -134,11 +131,7 @@ public class Eskaera extends JPanel {
 		this.btnAurreraPedido.addActionListener(listenerBotonAurreraPedido(this.controladorPanelEskaera));
 		this.btnExitPedido.addActionListener(listenerBotonExitPedido(this.controladorPanelEskaera));
 		this.btnAukeratu.addActionListener(listenerBotonAukeratu(this.controladorPanelEskaera));
-<<<<<<< HEAD
 		this.btnetxera.addActionListener(listenerBotonEtxera(this.controladorPanelEskaera));
-=======
-		this.btndomicilio.addActionListener(listenerBotonEtxera(this.controladorPanelEskaera));
->>>>>>> main
 	}
 	
 	private ActionListener listenerBotonAurreraPedido(ControladorPanelEskaera controladorPanelEskarera) {
@@ -150,6 +143,7 @@ public class Eskaera extends JPanel {
 				int ID=controladorPanelEskaera.ateraID();
 				String direccion=texthelbidea.getText();
 				controladorPanelEskaera.pedidosartu(direccion,ID);
+				controladorPanelEskaera.accionandokantisartu(ID);
 			}
 		};
 	}
@@ -157,7 +151,6 @@ public class Eskaera extends JPanel {
 	private ActionListener listenerBotonExitPedido(ControladorPanelEskaera controladorPanelEskarera) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-<<<<<<< HEAD
 				String Tipolocal=controladorPanelEskaera.Tipolocalateraparametrogabe();
 				System.out.println(Tipolocal);
 				if(Tipolocal.equals("Bar")) {
@@ -167,12 +160,9 @@ public class Eskaera extends JPanel {
 				}if(Tipolocal.equals("Cafeteria")) {
 					controladorPanelEskaera.accionadoCafeteria();
 				}
-				
-=======
-				controladorPanelEskaera.accionadoBottonExit();
->>>>>>> main
 				controladorPanelEskaera.arrayizenaborratu();
 				controladorPanelEskaera.arrayprezioborratu();
+				controladorPanelEskaera.kantitateaarrayezabatu();
 			}
 		};
 	}
@@ -182,17 +172,12 @@ public class Eskaera extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				String kanti=spinnerKanti.getValue().toString();
-<<<<<<< HEAD
+				int kantitatea=Integer.parseInt(kanti);
 				String izena=Izenak.getSelectedItem().toString();
 				String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti,izena);
 				textDiruTot.setText(emaitza);
 				controladorPanelEskaera.accionandoBottonArray(izena);
-=======
-				String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti);
-				textDiruTot.setText(emaitza);
-				String izena=Izenak.getSelectedItem().toString();
-				controladorPanelEskaera.accionandoBottonArray(izena);				
->>>>>>> main
+				controladorPanelEskaera.kantitateaarraysartu(kantitatea);
 				}
 		};
 }
@@ -205,7 +190,7 @@ public class Eskaera extends JPanel {
 				String emaitza=controladorPanelEskaera.emaitzaetxerekin();
 				textDiruTot.setText(emaitza);
 				String izena="Etxera";
-				controladorPanelEskaera.accionandoBottonArray(izena);				
+				controladorPanelEskaera.accionandoBottonArray(izena);						
 				}
 		};
 }

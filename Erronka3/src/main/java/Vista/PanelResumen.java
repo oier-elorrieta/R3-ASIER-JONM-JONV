@@ -50,7 +50,6 @@ public class PanelResumen extends JPanel {
 		btnResumen.setOpaque(true);
 		btnResumen.setBorderPainted(false);
 		add(btnResumen);
-<<<<<<< HEAD
 
 		JLabel lbllinea_1 = new JLabel("----------------------------------------------------------------------------------------------------");
 		lbllinea_1.setForeground(Color.BLACK);
@@ -73,43 +72,16 @@ public class PanelResumen extends JPanel {
 		add(textpreziotot);
 		textpreziotot.setColumns(10);
 
-=======
-		
-		JLabel lbllinea_1 = new JLabel("----------------------------------------------------------------------------------------------------");
-		lbllinea_1.setForeground(Color.WHITE);
-		lbllinea_1.setBounds(26, 43, 400, 14);
-		add(lbllinea_1);
-		
-		JLabel lblline_2 = new JLabel("----------------------------------------------------------------------------------------------------");
-		lblline_2.setForeground(Color.WHITE);
-		lblline_2.setBounds(26, 55, 400, 14);
-		add(lblline_2);
-		
-		JLabel lblpreziotot = new JLabel("Prezio totala");
-		lblpreziotot.setForeground(Color.WHITE);
-		lblpreziotot.setBounds(36, 247, 111, 14);
-		add(lblpreziotot);
-		
-		textpreziotot = new JTextField();
-		textpreziotot.setBounds(163, 247, 86, 20);
-		add(textpreziotot);
-		textpreziotot.setColumns(10);
-		
->>>>>>> main
 		lblresumen = new JLabel("");
 		lblresumen.setForeground(Color.WHITE);
 		lblresumen.setBounds(26, 81, 400, 155);
 		add(lblresumen);
-<<<<<<< HEAD
 
 		JLabel lblline_2_1 = new JLabel("----------------------------------------------------------------------------------------------------");
 		lblline_2_1.setForeground(Color.BLACK);
 		lblline_2_1.setBounds(26, 225, 400, 14);
 		add(lblline_2_1);
 
-=======
-		
->>>>>>> main
 		initializeEvents();
 		}
 	
@@ -121,7 +93,6 @@ public class PanelResumen extends JPanel {
 	private ActionListener listenerBotonExitResumen(ControladorPanelResumen controladorPanelResumen) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-<<<<<<< HEAD
 				String Tipolocal=controladorPanelResumen.Tipolocalateraparametrogabe();
 				if(Tipolocal.equals("Bar")) {
 					controladorPanelResumen.accionadoBar();
@@ -131,11 +102,9 @@ public class PanelResumen extends JPanel {
 					controladorPanelResumen.accionadoCafeteria();
 				}
 				
-=======
-				controladorPanelResumen.accionadoBottonExit();
->>>>>>> main
 				controladorPanelResumen.arrayizenaborratu();
 				controladorPanelResumen.arrayprezioborratu();
+				controladorPanelResumen.kantitateaarrayezabatu();
 			}
 		};
 	}
@@ -148,11 +117,6 @@ public class PanelResumen extends JPanel {
 				lblresumen.setText(resumen);
 				String emaitza=controladorPanelResumen.preziofinbistaratu();
 				textpreziotot.setText(emaitza);
-<<<<<<< HEAD
-				
-				
-=======
->>>>>>> main
 			}
 		};
 	}

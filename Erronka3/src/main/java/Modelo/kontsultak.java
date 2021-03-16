@@ -15,6 +15,10 @@ public class kontsultak {
 	static final String selectTipoLocal = "SELECT TipoDeNegocio FROM local WHERE NIF= ";
 	
 	static final String selectMaxID ="SELECT max(IDOperaciones) FROM operaciones";
+	
+	static final String selectIDproducto ="SELECT IDProducto FROM productos WHERE NomProd= ";
+	
+	static final String selectIDaparecen ="SELECT IDProducto FROM aparecen WHERE IDProducto= ";
 
 	// *****************************************************************************************************************************************************************************************************
 
@@ -23,4 +27,9 @@ public class kontsultak {
 	static final String insertOperaciones = "INSERT INTO operaciones(PrecioTotalOp,NIF) VALUES";
 
 	static final String insertPedido = "INSERT INTO pedido(ID,DomicilioSioNo,DirDomicilio) values";
+	
+	static final String insertAparecen = "INSERT INTO aparecen VALUES";
+	
+	// *****************************************************************************************************************************************************************************************************
+	static final String updateaparecen = "UPDATE aparecen SET NumUniPorProd=";
 }
