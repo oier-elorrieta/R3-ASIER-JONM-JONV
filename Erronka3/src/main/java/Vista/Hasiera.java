@@ -20,7 +20,7 @@ public class Hasiera extends JPanel {
 	private JButton btnpedido;
 	private JButton btncomandas;
 	private JButton btntickets;
-	private JButton btnaprovisionamiento;
+	private JButton btnhornikuntza;
 	private JLabel lbloperatividad;
 	private JButton btnDeslogeatu;
 	private ControladorPanelHasiera controladorPanelHasiera;
@@ -61,13 +61,13 @@ public class Hasiera extends JPanel {
 		btncomandas.setBorderPainted(false);
 		add(btncomandas);
 
-		btnaprovisionamiento = new JButton("Aprovisionamientos");
-		btnaprovisionamiento.setFont(new Font("Tahoma", Font.PLAIN, 17));
-		btnaprovisionamiento.setBounds(245, 136, 178, 114);
-		btnaprovisionamiento.setBackground(new java.awt.Color(130, 130, 130));
-		btnaprovisionamiento.setOpaque(true);
-		btnaprovisionamiento.setBorderPainted(false);
-		add(btnaprovisionamiento);
+		btnhornikuntza = new JButton("Hornikuntza");
+		btnhornikuntza.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		btnhornikuntza.setBounds(245, 136, 178, 114);
+		btnhornikuntza.setBackground(new java.awt.Color(130, 130, 130));
+		btnhornikuntza.setOpaque(true);
+		btnhornikuntza.setBorderPainted(false);
+		add(btnhornikuntza);
 
 		btnDeslogeatu = new JButton("Deslogeatu");
 		btnDeslogeatu.setBounds(301, 266, 122, 23);
@@ -85,6 +85,8 @@ public class Hasiera extends JPanel {
 	private void initializeEvents() {
 		this.btntickets.addActionListener(listenerBotonticket(this.controladorPanelHasiera));
 		this.btnpedido.addActionListener(listenerBotonpedido(this.controladorPanelHasiera));
+		this.btnhornikuntza.addActionListener(listenerBotonhornikuntza(this.controladorPanelHasiera));
+		this.btncomandas.addActionListener(listenerBotonkomanda(this.controladorPanelHasiera));
 		this.btnDeslogeatu.addActionListener(listenerBotonDeslogeatu(this.controladorPanelHasiera));
 	}
 	
@@ -100,6 +102,22 @@ public class Hasiera extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelHasiera.accionadoBottonMostrarPanelEskaera();
+			}
+		};
+	}
+	
+	private ActionListener listenerBotonhornikuntza(ControladorPanelHasiera controladorPanelHasiera) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelHasiera.accionadoBottonMostrarPanelhornikuntza();
+			}
+		};
+	}
+	
+	private ActionListener listenerBotonkomanda(ControladorPanelHasiera controladorPanelHasiera) {
+		return new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				controladorPanelHasiera.accionadoBottonMostrarPanelkomanda();
 			}
 		};
 	}
