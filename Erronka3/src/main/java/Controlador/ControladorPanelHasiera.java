@@ -35,4 +35,12 @@ public class ControladorPanelHasiera {
 	public void accionadoBottonMostrarPanelNagusia() {
 		this.controlador.navegarPanelNagusia();
 	}
+	
+	public void accionadoBottonMostrarPanelhornikuntza() {
+		this.controlador.navegarPanelhornikuntza();
+	}
+	
+	public void accionadoBottonMostrarPanelkomanda() {
+		this.controlador.navegarPanelkomanda();
+	}
 }

@@ -123,4 +123,38 @@ public class ModeloTest {
 		assertEquals(espero,tipolocal);
 	}
 	
+	@Test
+	public void test_kantisartuarrayclear() {
+		ArrayList kanti = new ArrayList<Integer>();
+		kanti.add(1);
+		kanti.add(4);
+		kanti.add(6);
+		Metodoak.kantisartuarrayclear(kanti);
+		ArrayList espero = new ArrayList<Integer>();
+		espero.clear();
+		assertEquals(espero,kanti);
+	}
+	@Test
+	public void Test_kantisartuarray() {
+		int kanti=1;
+		ArrayList kantitatea = new ArrayList<Integer>();
+		Metodoak.kantisartuarray(kanti, kantitatea);
+		ArrayList espero = new ArrayList<Integer>();
+		espero.add(1);
+		assertEquals(espero,kantitatea);
+	}
+	@Test
+	public void Test_IDproducto() {
+		ArrayList array = new ArrayList<Integer>();
+		array.add("coca-cola");
+		int emaitza=Metodoak.IDproducto(array, 0);
+		int espero=1;
+		assertEquals(espero,emaitza);
+	}
+	@Test
+	public void Test_idproduktuadago() {
+		boolean emaitza=Metodoak.idproduktuadago(2, 1);
+		boolean espero=false;
+		assertEquals(espero,emaitza);
+	}
 }

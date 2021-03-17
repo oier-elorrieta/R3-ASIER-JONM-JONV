@@ -372,7 +372,6 @@ public class Metodoak {
 	//produktuaren id-a ateratzen du
 	public static int IDproducto(ArrayList<String> array, int i) {
 		int IDProducto = 0;
-		System.out.println(array.get(i));
 		Connection conexion = ConexionBD.getConexion();
 		String query = kontsultak.selectIDproducto + "'" + array.get(i) + "'";
 		
