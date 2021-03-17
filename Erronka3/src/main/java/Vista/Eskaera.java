@@ -139,7 +139,7 @@ public class Eskaera extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				controladorPanelEskaera.accionadoBottonMostrarPanelResumen();
 				String emaitzafin=textDiruTot.getText();
-				controladorPanelEskaera.registraroperacion(emaitzafin);
+				controladorPanelEskaera.registraroperacion(emaitzafin,"pedido");
 				int ID=controladorPanelEskaera.ateraID();
 				String direccion=texthelbidea.getText();
 				controladorPanelEskaera.pedidosartu(direccion,ID);

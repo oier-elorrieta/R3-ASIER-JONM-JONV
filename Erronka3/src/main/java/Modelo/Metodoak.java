@@ -233,10 +233,10 @@ public class Metodoak {
 	}
 	//operazio tablan datuak isertatzen du
 	//**********************************************************************************************
-	public static void operazioaBDsartu(String emaitza, Usuario nif) {
+	public static void operazioaBDsartu(String emaitza, Usuario nif, String tipo) {
 		String NIF = nif.getNif();
 		Connection conexion = ConexionBD.getConexion();
-		String query = kontsultak.insertOperaciones + "('" + emaitza + "','" + NIF + "')";
+		String query = kontsultak.insertOperaciones + "('" + emaitza + "','" + NIF + "','" + tipo + "')";
 
 		try {
 			Statement s;

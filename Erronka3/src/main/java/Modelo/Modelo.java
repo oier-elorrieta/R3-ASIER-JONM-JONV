@@ -55,8 +55,8 @@ public class Modelo {
 		return Metodoak.UsuarioaInsertatu(izena,pasahitza,pasahitza2,NIF);	
 	}
 	
-	public void operazioaBD(String emaitza) {
-		 Metodoak.operazioaBDsartu(emaitza,nif);
+	public void operazioaBD(String emaitza,String tipo) {
+		 Metodoak.operazioaBDsartu(emaitza,nif,tipo);
 	}
 	
 	public void pedidoBD(String direccion,int ID) {

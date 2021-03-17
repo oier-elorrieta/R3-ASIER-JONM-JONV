@@ -64,8 +64,8 @@ public class ControladorPanelTicket {
 	public void pedidosartu(String direccion,int ID) {
 		modelo.pedidoBD(direccion,ID);
 	}
-	public void registraroperacion(String emaitza) {
-		 modelo.operazioaBD(emaitza);
+	public void registraroperacion(String emaitza, String tipo) {
+		 modelo.operazioaBD(emaitza, tipo);
 	}
 	public int ateraID() {
 		return this.modelo.AteraoperazioID();

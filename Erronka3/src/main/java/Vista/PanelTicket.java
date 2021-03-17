@@ -116,7 +116,7 @@ public class PanelTicket extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String emaitzafin=textDiruTot.getText();
-				controladorPanelTicket.registraroperacion(emaitzafin);
+				controladorPanelTicket.registraroperacion(emaitzafin,"factura");
 				int ID=controladorPanelTicket.ateraID();
 				controladorPanelTicket.accionandokantisartu(ID);
 				controladorPanelTicket.accionadoBottonMostrarPanelResumen();

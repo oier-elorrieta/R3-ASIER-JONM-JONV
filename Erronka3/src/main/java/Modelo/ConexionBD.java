@@ -10,7 +10,7 @@ public class ConexionBD {
 	private static final String CONTROLADOR = "com.mysql.jdbc.Driver";
 	private static final String URL = "jdbc:mysql://localhost:33060/Erronka3";
 	private static final String USUARIO = "root";
-	private static final String CONTRASEÑA = "elorrieta14";
+	private static final String CONTRASEÑA = "elorrieta";
 	
 	public static Connection getConexion() {
 		Connection Conexion = null;

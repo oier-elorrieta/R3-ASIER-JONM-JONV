@@ -24,7 +24,7 @@ public class kontsultak {
 
 	static final String insertDatuak = "INSERT INTO usuarios VALUES";
 
-	static final String insertOperaciones = "INSERT INTO operaciones(PrecioTotalOp,NIF) VALUES";
+	static final String insertOperaciones = "INSERT INTO operaciones(PrecioTotalOp,NIF,tipo) VALUES";
 
 	static final String insertPedido = "INSERT INTO pedido(ID,DomicilioSioNo,DirDomicilio) values";
 	
