@@ -66,8 +66,8 @@ public class ControladorPanelEskaera {
 	public void pedidosartu(String direccion,int ID) {
 		modelo.pedidoBD(direccion,ID);
 	}
-	public void registraroperacion(String emaitza) {
-		 modelo.operazioaBD(emaitza);
+	public void registraroperacion(String emaitza,String tipo) {
+		 modelo.operazioaBD(emaitza,tipo);
 	}
 	public String Tipolocalateraparametrogabe() {
 		return this.modelo.AteraTipolocalmetodoa();
@@ -77,8 +77,8 @@ public class ControladorPanelEskaera {
 		return this.modelo.AteraoperazioID();
 	}
 	
-	public void accionandokantisartu(int ID) {
-		this.modelo.kantisartu(ID);
+	public void accionandoaparecensartu(int ID) {
+		this.modelo.aparecensartu(ID);
 	}
 	
 	public void kantitateaarraysartu(int kanti) {

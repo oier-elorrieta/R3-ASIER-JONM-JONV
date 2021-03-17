@@ -73,33 +73,54 @@ public class Metodoak {
 	}
 	//daraman prezioa gehitzen du(emaitza finala lortzeko)
 	//**********************************************************************************************
-	public static String daramanprezioaagertzea(String kanti, ArrayList<Double> arrayprezio, String izena) {
+	public static String daramanprezioaagertzea(String kanti, ArrayList<Double> arrayprezio, String izena,Usuario nif) {
 		Connection conexion = ConexionBD.getConexion();
-
-		String query = kontsultak.selectProdukturenprezioa + "'" + izena + "'";// lokalaren nif-rekin lokal tipoa
-																				// ateratzen du
-		double PrecioVentaProd = 0;
-		try {
-			PreparedStatement pre;
-			ResultSet resul;
-			pre = conexion.prepareStatement(query);
-			resul = pre.executeQuery();
-
-			while (resul.next()) {
-				PrecioVentaProd = resul.getDouble("PrecioVentaProd");
+		String emaitza="";
+		if(nif.getOperaziotipo()=="aprovisionamiento") {
+			String query = "SELECT PrecioCompraProd FROM productos WHERE NomProd='" + izena + "'";
+			double PrecioCompraProd = 0;
+			try {
+				PreparedStatement pre;
+				ResultSet resul;
+				pre = conexion.prepareStatement(query);
+				resul = pre.executeQuery();
+				while (resul.next()) {
+					PrecioCompraProd = resul.getDouble("PrecioCompraProd");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
+			int kantiint = Integer.parseInt(kanti);
+			double emaitzaint = PrecioCompraProd * kantiint;
+			arrayprezio = Metodoak.sartuprezioa(emaitzaint, arrayprezio);
+			double emaitzatot = 0;
+			for (int i = 0; i < arrayprezio.size(); i++) {
+				emaitzatot = emaitzatot + arrayprezio.get(i);
+			}
+			emaitza = Double.toString(emaitzatot);
+		}else {
+			String query = kontsultak.selectProdukturenprezioa + "'" + izena + "'";
+			double PrecioVentaProd = 0;
+			try {
+				PreparedStatement pre;
+				ResultSet resul;
+				pre = conexion.prepareStatement(query);
+				resul = pre.executeQuery();
+				while (resul.next()) {
+					PrecioVentaProd = resul.getDouble("PrecioVentaProd");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			int kantiint = Integer.parseInt(kanti);
+			double emaitzaint = PrecioVentaProd * kantiint;
+			arrayprezio = Metodoak.sartuprezioa(emaitzaint, arrayprezio);
+			double emaitzatot = 0;
+			for (int i = 0; i < arrayprezio.size(); i++) {
+				emaitzatot = emaitzatot + arrayprezio.get(i);
+			}
+			emaitza = Double.toString(emaitzatot);
 		}
-		int kantiint = Integer.parseInt(kanti);
-		double emaitzaint = PrecioVentaProd * kantiint;
-		arrayprezio = Metodoak.sartuprezioa(emaitzaint, arrayprezio);
-		double emaitzatot = 0;
-		for (int i = 0; i < arrayprezio.size(); i++) {
-			emaitzatot = emaitzatot + arrayprezio.get(i);
-		}
-		String emaitza = Double.toString(emaitzatot);
-
 		return emaitza;
 	}
 	//produktuen prezioa arraylist-ean sartzen du
@@ -233,10 +254,11 @@ public class Metodoak {
 	}
 	//operazio tablan datuak isertatzen du
 	//**********************************************************************************************
-	public static void operazioaBDsartu(String emaitza, Usuario nif) {
+	public static void operazioaBDsartu(String emaitza, Usuario nif,String tipo) {
 		String NIF = nif.getNif();
+		nif.setOperaziotipo(tipo);
 		Connection conexion = ConexionBD.getConexion();
-		String query = kontsultak.insertOperaciones + "('" + emaitza + "','" + NIF + "')";
+		String query ="INSERT INTO operaciones(PrecioTotalOp,NIF,tipo) VALUE '"+ emaitza +"','"+ NIF +"','"+ tipo +"'";
 
 		try {
 			Statement s;
@@ -247,6 +269,21 @@ public class Metodoak {
 
 		}
 	}
+	
+	public static void operaziotiposartu(String tipo) {
+		Connection conexion = ConexionBD.getConexion();
+		String query = "INSERT INTO operaciones VALUE '"+ tipo +"'";
+		
+		try {
+			Statement s;
+			s = conexion.createStatement();
+			s.executeUpdate(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+
+		}
+	} 
+	
 	// usuarioa operazioan dagoen id ateratzen du
 	//**********************************************************************************************
 	public static int operazioID() {
@@ -340,12 +377,11 @@ public class Metodoak {
 	}
 	//datuak 'aparecen' tablan sartzen du
 	//**********************************************************************************************
-	public static void kantisartuBD(int ID, ArrayList<Double> arrayprezio, ArrayList<String> array,ArrayList<Integer> kantitatea) {
+	public static void aparecensartuBD(int ID, ArrayList<Double> arrayprezio, ArrayList<String> array,ArrayList<Integer> kantitatea) {
 			int i = 0;
 			int kont = 1;
 			while (kont <= arrayprezio.size()) {
 				int idproducto = IDproducto(array, i);
-				System.out.println(idproduktuadago(idproducto,ID));
 				if(idproduktuadago(idproducto,ID)==false) {
 					Connection conexion = ConexionBD.getConexion();
 
@@ -412,7 +448,7 @@ public class Metodoak {
 		}
 		return badago;
 	}
-	//id produktu berdina bada kantitatea eta prezo totala aldatzen du
+	//id produktu berdina bada kantitate eta prezio totala aldatzen du
 	public static void idproduktukantigehitu(ArrayList<Integer> kantitatea,int i,int idproducto,ArrayList<Double> arrayprezio) {
 		Connection conexion = ConexionBD.getConexion();
 		String query=kontsultak.updateaparecen + "NumUniPorProd +'" + kantitatea.get(i) + "',PrecioTotPorProd=PrecioTotPorProd + '" + arrayprezio.get(i) + "' where IDProducto = '" + idproducto + "'";
@@ -435,6 +471,36 @@ public class Metodoak {
 	public static void kantisartuarrayclear(ArrayList<Integer> kantitatea) {
 		kantitatea.clear();
 	}
+	//hornikuntzan stock gehitu
+	//**********************************************************************************************
+	public static void stockgehitu(ArrayList<Integer>kantitatea,Usuario nif,ArrayList<String>array,ArrayList<Double>arrayprezio) {
+		int i = 0;
+		int kont = 1;
+		int ID = Metodoak.operazioID();
+		
+		while (kont <= array.size()) {
+			int idproducto = IDproducto(array, i);
+		Connection conexion = ConexionBD.getConexion();
+		String query="INSERT aprovisionamiento VALUE '"+ ID +"'";
+		String query1 = kontsultak.insertAparecen + "('" + ID + "','" + idproducto + "','" + kantitatea.get(i)
+		+ "','" + arrayprezio.get(i)/kantitatea.get(i) + "','" + arrayprezio.get(i) + "')";
+		
+		try {
+			Statement s;
+			s = conexion.createStatement();
+			s.executeUpdate(query);
+			Statement r;
+			r = conexion.createStatement();
+			r.executeUpdate(query1);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		kont++;
+		i++;
+		}
+	}
+
 }
 
 	

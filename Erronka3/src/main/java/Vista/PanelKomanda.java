@@ -117,9 +117,10 @@ public class PanelKomanda extends JPanel {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String emaitzafin=textDiruTot.getText();
-				controladorPanelKomanda.registraroperacion(emaitzafin);
+				String tipo="comanda";
+				controladorPanelKomanda.registraroperacion(emaitzafin,tipo);
 				int ID=controladorPanelKomanda.ateraID();
-				controladorPanelKomanda.accionandokantisartu(ID);
+				controladorPanelKomanda.accionandoaparecensartu(ID);
 				controladorPanelKomanda.accionadoBottonMostrarPanelResumen();
 			}
 		};

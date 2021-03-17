@@ -65,14 +65,14 @@ public class ControladorPanelHornikuntza {
 	public void pedidosartu(String direccion,int ID) {
 		modelo.pedidoBD(direccion,ID);
 	}
-	public void registraroperacion(String emaitza) {
-		 modelo.operazioaBD(emaitza);
+	public void registraroperacion(String emaitza,String tipo) {
+		 modelo.operazioaBD(emaitza,tipo);
 	}
 	public int ateraID() {
 		return this.modelo.AteraoperazioID();
 	}
-	public void accionandokantisartu(int ID) {
-		this.modelo.kantisartu(ID);
+	public void accionandaparecensartu(int ID) {
+		this.modelo.aparecensartu(ID);
 	}
 	
 	public void kantitateaarraysartu(int kanti) {
@@ -81,5 +81,9 @@ public class ControladorPanelHornikuntza {
 	
 	public void kantitateaarrayezabatu() {
 		this.modelo.kantitateaarrayezabatu();
+	}
+	
+	public void accionandostock() {
+		this.modelo.stockgehitumetodoa();
 	}
 }

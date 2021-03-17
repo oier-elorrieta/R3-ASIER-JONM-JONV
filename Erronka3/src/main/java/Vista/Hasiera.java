@@ -9,6 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import Controlador.ControladorPanelHasiera;
 import Modelo.Metodoak;
+import Modelo.Usuario;
 
 import java.awt.Color;
 import java.awt.Font;

@@ -106,11 +106,13 @@ public class PanelHornukuntza extends JPanel {
 	private ActionListener listenerBotonAurreraTicket(ControladorPanelHornikuntza controladorPanelHornikuntza) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				/*String emaitzafin=textDiruTot.getText();
-				controladorPanelHornikuntza.registraroperacion(emaitzafin);
+				String emaitzafin=textDiruTot.getText();
+				String tipo="aprovisionamiento";
+				controladorPanelHornikuntza.registraroperacion(emaitzafin,tipo);
 				int ID=controladorPanelHornikuntza.ateraID();
-				controladorPanelHornikuntza.accionandokantisartu(ID);*/
+				controladorPanelHornikuntza.accionandokantisartu(ID);
 				controladorPanelHornikuntza.accionadoBottonMostrarPanelResumen();
+				controladorPanelHornikuntza.accionandostock();
 			}
 		};
 	}
@@ -143,8 +145,6 @@ public class PanelHornukuntza extends JPanel {
 				String kanti=spinnerKanti.getValue().toString();
 				int kantitatea=Integer.parseInt(kanti);
 				String izena=Izenak.getSelectedItem().toString();
-				/*String emaitza=controladorPanelHornikuntza.accionandoBottonEmaitzafin(kanti,izena);
-				textDiruTot.setText(emaitza);*/
 				controladorPanelHornikuntza.accionandoBottonArray(izena);
 				controladorPanelHornikuntza.kantitateaarraysartu(kantitatea);
 			}

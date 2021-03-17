@@ -7,14 +7,14 @@ public class Modelo {
 	private ArrayList arrayprezio = new ArrayList<Double>();
 	private ArrayList arrayizena = new ArrayList<String>();
 	private ArrayList kantitateak = new ArrayList<Integer>();
-	Usuario nif = new Usuario(null);
+	Usuario nif = new Usuario(null,null);
 	
 	public String[] arrayirakurri() {
 		return Metodoak.irakurriarray();
 	}
 	
 	public String botonEmaitzafin(String kanti,String izena) {
-		return Metodoak.daramanprezioaagertzea(kanti,arrayprezio,izena);
+		return Metodoak.daramanprezioaagertzea(kanti,arrayprezio,izena,nif);
 		
 	}
 	
@@ -55,8 +55,8 @@ public class Modelo {
 		return Metodoak.UsuarioaInsertatu(izena,pasahitza,pasahitza2,NIF);	
 	}
 	
-	public void operazioaBD(String emaitza) {
-		 Metodoak.operazioaBDsartu(emaitza,nif);
+	public void operazioaBD(String emaitza,String tipo) {
+		 Metodoak.operazioaBDsartu(emaitza,nif,tipo);
 	}
 	
 	public void pedidoBD(String direccion,int ID) {
@@ -79,8 +79,8 @@ public class Modelo {
 		return Metodoak.operazioID();
 	}
 	
-	public void kantisartu(int ID) {
-		Metodoak.kantisartuBD(ID,arrayprezio,arrayizena,kantitateak);
+	public void aparecensartu(int ID) {
+		Metodoak.aparecensartuBD(ID,arrayprezio,arrayizena,kantitateak);
 	}
 	
 	public void kantitateaarrayeansartu(int kanti) {
@@ -89,5 +89,9 @@ public class Modelo {
 	
 	public void kantitateaarrayezabatu() {
 		Metodoak.kantisartuarrayclear(kantitateak);
+	}
+	
+	public void stockgehitumetodoa() {
+		Metodoak.stockgehitu(kantitateak,nif,arrayizena,arrayprezio);
 	}
 }
