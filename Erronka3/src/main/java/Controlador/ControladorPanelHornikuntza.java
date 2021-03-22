@@ -86,4 +86,12 @@ public class ControladorPanelHornikuntza {
 	public void accionandostock() {
 		this.modelo.stockgehitumetodoa();
 	}
+	
+	public void accionandoaparecensartu(int id) {
+		this.modelo.aparecensartu(id);
+	}
+	
+	public String accionandoBottonEmaitzafinhorni(String kanti,String izena) {
+		return this.modelo.botonEmaitzafinhorni(kanti,izena);
+	}
 }

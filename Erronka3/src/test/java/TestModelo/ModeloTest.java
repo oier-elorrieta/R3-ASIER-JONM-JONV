@@ -110,14 +110,14 @@ public class ModeloTest {
 	
 	@Test
 	public void Test_TipoLocalAtera() {
-		Usuario a = new Usuario("12345678b");
+		Usuario a = new Usuario("12345678b",null);
 		String tipolocal=Metodoak.TipoLocalAtera(a);
 		String espero="Restaurante";
 		assertEquals(espero,tipolocal);
 	}
 	@Test
 	public void Test_TipoLocalAteranif() {
-		Usuario a = new Usuario("12345678b");
+		Usuario a = new Usuario("12345678b",null);
 		String tipolocal=Metodoak.TipoLocalAteranif("12345678b",a);
 		String espero="Restaurante";
 		assertEquals(espero,tipolocal);

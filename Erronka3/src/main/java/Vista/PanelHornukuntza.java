@@ -31,6 +31,7 @@ public class PanelHornukuntza extends JPanel {
 	private JComboBox<String> Izenak;
 	private JButton btnAukeratu;
 	private JSpinner spinnerKanti;
+	private JTextField textDiruTot;
 	
 
 
@@ -93,31 +94,41 @@ public class PanelHornukuntza extends JPanel {
 		lblProduktoHorretaikZnbat.setFont(new Font("Tahoma", Font.BOLD, 11));
 		lblProduktoHorretaikZnbat.setBounds(21, 121, 278, 14);
 		add(lblProduktoHorretaikZnbat);
+		
+		textDiruTot = new JTextField();
+		textDiruTot.setColumns(10);
+		textDiruTot.setBounds(120, 253, 60, 39);
+		add(textDiruTot);
+		
+		JLabel lblDiruTot = new JLabel("Daramazun dirua:");
+		lblDiruTot.setForeground(Color.BLACK);
+		lblDiruTot.setBounds(10, 266, 106, 13);
+		add(lblDiruTot);
 
 		initializeEvents();
 		}
 	
 	private void initializeEvents() {
-		this.btnAurreraTicket.addActionListener(listenerBotonAurreraTicket(this.controladorPanelHornikuntza));
-		this.btnExitTicket.addActionListener(listenerBotonExitTicket(this.controladorPanelHornikuntza));
+		this.btnAurreraTicket.addActionListener(listenerBotonAurreraHornikuntza(this.controladorPanelHornikuntza));
+		this.btnExitTicket.addActionListener(listenerBotonExitHornikuntza(this.controladorPanelHornikuntza));
 		this.btnAukeratu.addActionListener(listenerBotonAukeratu(this.controladorPanelHornikuntza)); 
 	}
 	
-	private ActionListener listenerBotonAurreraTicket(ControladorPanelHornikuntza controladorPanelHornikuntza) {
+	private ActionListener listenerBotonAurreraHornikuntza(ControladorPanelHornikuntza controladorPanelHornikuntza) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String emaitzafin=textDiruTot.getText();
 				String tipo="aprovisionamiento";
 				controladorPanelHornikuntza.registraroperacion(emaitzafin,tipo);
 				int ID=controladorPanelHornikuntza.ateraID();
-				controladorPanelHornikuntza.accionandokantisartu(ID);
-				controladorPanelHornikuntza.accionadoBottonMostrarPanelResumen();
+				controladorPanelHornikuntza.accionandoaparecensartu(ID);
 				controladorPanelHornikuntza.accionandostock();
+				controladorPanelHornikuntza.accionadoBottonMostrarPanelResumen();
 			}
 		};
 	}
 	
-	private ActionListener listenerBotonExitTicket(ControladorPanelHornikuntza controladorPanelHornikuntza) {
+	private ActionListener listenerBotonExitHornikuntza(ControladorPanelHornikuntza controladorPanelHornikuntza) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
@@ -145,6 +156,8 @@ public class PanelHornukuntza extends JPanel {
 				String kanti=spinnerKanti.getValue().toString();
 				int kantitatea=Integer.parseInt(kanti);
 				String izena=Izenak.getSelectedItem().toString();
+				String emaitza=controladorPanelHornikuntza.accionandoBottonEmaitzafinhorni(kanti,izena);
+				textDiruTot.setText(emaitza);
 				controladorPanelHornikuntza.accionandoBottonArray(izena);
 				controladorPanelHornikuntza.kantitateaarraysartu(kantitatea);
 			}

@@ -73,32 +73,10 @@ public class Metodoak {
 	}
 	//daraman prezioa gehitzen du(emaitza finala lortzeko)
 	//**********************************************************************************************
-	public static String daramanprezioaagertzea(String kanti, ArrayList<Double> arrayprezio, String izena,Usuario nif) {
+	public static String daramanprezioaagertzea(String kanti, ArrayList<Double> arrayprezio, String izena) {
 		Connection conexion = ConexionBD.getConexion();
 		String emaitza="";
-		if(nif.getOperaziotipo()=="aprovisionamiento") {
-			String query = "SELECT PrecioCompraProd FROM productos WHERE NomProd='" + izena + "'";
-			double PrecioCompraProd = 0;
-			try {
-				PreparedStatement pre;
-				ResultSet resul;
-				pre = conexion.prepareStatement(query);
-				resul = pre.executeQuery();
-				while (resul.next()) {
-					PrecioCompraProd = resul.getDouble("PrecioCompraProd");
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			int kantiint = Integer.parseInt(kanti);
-			double emaitzaint = PrecioCompraProd * kantiint;
-			arrayprezio = Metodoak.sartuprezioa(emaitzaint, arrayprezio);
-			double emaitzatot = 0;
-			for (int i = 0; i < arrayprezio.size(); i++) {
-				emaitzatot = emaitzatot + arrayprezio.get(i);
-			}
-			emaitza = Double.toString(emaitzatot);
-		}else {
+
 			String query = kontsultak.selectProdukturenprezioa + "'" + izena + "'";
 			double PrecioVentaProd = 0;
 			try {
@@ -120,7 +98,7 @@ public class Metodoak {
 				emaitzatot = emaitzatot + arrayprezio.get(i);
 			}
 			emaitza = Double.toString(emaitzatot);
-		}
+		
 		return emaitza;
 	}
 	//produktuen prezioa arraylist-ean sartzen du
@@ -254,11 +232,12 @@ public class Metodoak {
 	}
 	//operazio tablan datuak isertatzen du
 	//**********************************************************************************************
-	public static void operazioaBDsartu(String emaitza, Usuario nif,String tipo) {
+	public static void operazioaBDsartu(String emaitza, Usuario nif, String tipo) {
 		String NIF = nif.getNif();
 		nif.setOperaziotipo(tipo);
 		Connection conexion = ConexionBD.getConexion();
-		String query ="INSERT INTO operaciones(PrecioTotalOp,NIF,tipo) VALUE '"+ emaitza +"','"+ NIF +"','"+ tipo +"'";
+		String query = kontsultak.insertOperaciones + "('" + emaitza + "','" + NIF + "','" + tipo + "')";
+
 
 		try {
 			Statement s;
@@ -270,7 +249,7 @@ public class Metodoak {
 		}
 	}
 	
-	public static void operaziotiposartu(String tipo) {
+	/*public static void operaziotiposartu(String tipo) {
 		Connection conexion = ConexionBD.getConexion();
 		String query = "INSERT INTO operaciones VALUE '"+ tipo +"'";
 		
@@ -282,7 +261,7 @@ public class Metodoak {
 			e.printStackTrace();
 
 		}
-	} 
+	} */
 	
 	// usuarioa operazioan dagoen id ateratzen du
 	//**********************************************************************************************
@@ -471,34 +450,50 @@ public class Metodoak {
 	public static void kantisartuarrayclear(ArrayList<Integer> kantitatea) {
 		kantitatea.clear();
 	}
-	//hornikuntzan stock gehitu
+	//hornikuntzaren datuak BD-an sartu
 	//**********************************************************************************************
-	public static void stockgehitu(ArrayList<Integer>kantitatea,Usuario nif,ArrayList<String>array,ArrayList<Double>arrayprezio) {
-		int i = 0;
-		int kont = 1;
+	//aprovisionamiento tablan datuak sartu
+	public static void stockgehitu() {
 		int ID = Metodoak.operazioID();
-		
-		while (kont <= array.size()) {
-			int idproducto = IDproducto(array, i);
 		Connection conexion = ConexionBD.getConexion();
-		String query="INSERT aprovisionamiento VALUE '"+ ID +"'";
-		String query1 = kontsultak.insertAparecen + "('" + ID + "','" + idproducto + "','" + kantitatea.get(i)
-		+ "','" + arrayprezio.get(i)/kantitatea.get(i) + "','" + arrayprezio.get(i) + "')";
+		String nombre="fabricante1";
+		String query="INSERT INTO aprovisionamiento VALUES ('"+ ID +"','" + nombre + "')";
+
 		
 		try {
 			Statement s;
 			s = conexion.createStatement();
-			s.executeUpdate(query);
-			Statement r;
-			r = conexion.createStatement();
-			r.executeUpdate(query1);
+			s.executeUpdate(query);;
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		kont++;
-		i++;
-		}
+	}
+	//daraman prezioa hornikuntzan
+	public static String daramanprezioaagertzeahorni(String kanti, ArrayList<Double> arrayprezio, String izena) {
+		Connection conexion = ConexionBD.getConexion();
+		String emaitza="";
+			String query = "SELECT PrecioCompraProd FROM productos WHERE NomProd='" + izena + "'";
+			double PrecioCompraProd = 0;
+			try {
+				PreparedStatement pre;
+				ResultSet resul;
+				pre = conexion.prepareStatement(query);
+				resul = pre.executeQuery();
+				while (resul.next()) {
+					PrecioCompraProd = resul.getDouble("PrecioCompraProd");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			int kantiint = Integer.parseInt(kanti);
+			double emaitzaint = PrecioCompraProd * kantiint;
+			arrayprezio = Metodoak.sartuprezioa(emaitzaint, arrayprezio);
+			double emaitzatot = 0;
+			for (int i = 0; i < arrayprezio.size(); i++) {
+				emaitzatot = emaitzatot + arrayprezio.get(i);
+			}
+			return emaitza = Double.toString(emaitzatot);
 	}
 
 }

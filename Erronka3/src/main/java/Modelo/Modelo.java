@@ -14,7 +14,12 @@ public class Modelo {
 	}
 	
 	public String botonEmaitzafin(String kanti,String izena) {
-		return Metodoak.daramanprezioaagertzea(kanti,arrayprezio,izena,nif);
+		return Metodoak.daramanprezioaagertzea(kanti,arrayprezio,izena);
+		
+	}
+	
+	public String botonEmaitzafinhorni(String kanti,String izena) {
+		return Metodoak.daramanprezioaagertzeahorni(kanti,arrayprezio,izena);
 		
 	}
 	
@@ -92,6 +97,6 @@ public class Modelo {
 	}
 	
 	public void stockgehitumetodoa() {
-		Metodoak.stockgehitu(kantitateak,nif,arrayizena,arrayprezio);
+		Metodoak.stockgehitu();
 	}
 }
