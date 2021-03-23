@@ -72,7 +72,7 @@ public class PanelKomanda extends JPanel {
 		Izenak = new JComboBox();
 		Izenak.setBounds(21, 76, 226, 21);
 		add(Izenak);
-		String[] arrayizenak = Metodoak.irakurriarray();
+		String[] arrayizenak = Metodoak.irakurriarraykomanda();
 		for(int i = 0;i < arrayizenak.length;i++) {
 		Izenak.addItem(arrayizenak[i]);
 		}

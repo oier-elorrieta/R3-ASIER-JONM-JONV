@@ -15,6 +15,7 @@ import Modelo.Metodoak;
 
 import javax.swing.JList;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JCheckBoxMenuItem;
 import java.awt.Choice;
 import javax.swing.JComboBox;
@@ -177,10 +178,16 @@ public class Eskaera extends JPanel {
 				String kanti=spinnerKanti.getValue().toString();
 				int kantitatea=Integer.parseInt(kanti);
 				String izena=Izenak.getSelectedItem().toString();
-				String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti,izena);
-				textDiruTot.setText(emaitza);
-				controladorPanelEskaera.accionandoBottonArray(izena);
-				controladorPanelEskaera.kantitateaarraysartu(kantitatea);
+				int komprobatustock=controladorPanelEskaera.stockbegiratu(izena,kantitatea);
+				System.out.println(komprobatustock);
+				if(komprobatustock!=-1) {
+					String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti,izena);
+					textDiruTot.setText(emaitza);
+					controladorPanelEskaera.accionandoBottonArray(izena);
+					controladorPanelEskaera.kantitateaarraysartu(kantitatea);
+				}else {
+					JOptionPane.showInternalMessageDialog(null,"Ez dago stock nahikorik");
+				}
 				}
 		};
 }

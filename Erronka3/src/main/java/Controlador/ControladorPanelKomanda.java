@@ -82,4 +82,8 @@ public class ControladorPanelKomanda {
 	public void kantitateaarrayezabatu() {
 		this.modelo.kantitateaarrayezabatu();
 	}
+	
+	public String[] accionandoarraykomanda() {
+		return this.modelo.arrayirakurrikomanda();
+	}
 }

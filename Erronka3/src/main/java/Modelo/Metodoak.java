@@ -495,7 +495,110 @@ public class Metodoak {
 			}
 			return emaitza = Double.toString(emaitzatot);
 	}
+	//platerrak kombobox-ean sartu
+	//**********************************************************************************************
+	public static String[] irakurriarraykomanda() {
+		//int id = 1;
 
+		Connection conexion = ConexionBD.getConexion();
+		int zenbat = Zenbatplater();
+		String[] platerizena = new String[zenbat];
+		//Produktuak[] arrayobj = new Produktuak[zenbat];
+		for (int i = 1; i <= zenbat; i++) {
+			String query = "SELECT nombre FROM platos  WHERE codigo= '" + i + "'";// platerak base datutik ateratzen du
+			String nombre = "";
+			try {
+				PreparedStatement pre;
+				ResultSet resul;
+
+				pre = conexion.prepareStatement(query);
+				resul = pre.executeQuery();
+
+				while (resul.next()) {
+
+					nombre = resul.getString("nombre");
+					//Produktuak a = new Produktuak(NomProd, PrecioVentaProd);
+				}
+				platerizena[i-1]=nombre;
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+		}
+
+		return platerizena;
+	}
+
+	public static int Zenbatplater() {
+		int zenbat = 0;
+		Connection conexion = ConexionBD.getConexion();
+		String query = "SELECT count(Nombre) FROM platos";
+
+		try {
+			PreparedStatement pre;
+			ResultSet resul;
+
+			pre = conexion.prepareStatement(query);
+			resul = pre.executeQuery();
+			if (resul.next()) {
+				zenbat = resul.getInt(1);
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return zenbat;
+	}
+	//stock ez badago ezin du produktua aukeratu
+	//**********************************************************************************************
+	public static int stockbegiratu(Usuario nif,String izena,int kanti) {
+		int stock=0;
+		int begiratu=0;
+		int idproducto=Metodoak.IDproductostock(izena);
+		Connection conexion = ConexionBD.getConexion();
+		String query = "SELECT StockProd FROM tiene WHERE NIF='"+nif+"'and IDProducto='"+idproducto+"'";
+		try {
+			PreparedStatement pre;
+			ResultSet resul;
+
+			pre = conexion.prepareStatement(query);
+			resul = pre.executeQuery();
+			
+			while (resul.next()) {
+				stock = resul.getInt("StockProd");
+				System.out.println(stock+"wer");
+			}
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		if(kanti<stock) {
+			begiratu=-1;
+		}
+		return begiratu;
+	}
+	
+	public static int IDproductostock(String izena) {
+		int IDProducto = 0;
+		Connection conexion = ConexionBD.getConexion();
+		String query = kontsultak.selectIDproducto + "'" + izena + "'";
+		
+		try {
+			PreparedStatement pre;
+			ResultSet resul;
+
+			pre = conexion.prepareStatement(query);
+			resul = pre.executeQuery();
+			while (resul.next()) {
+				IDProducto = resul.getInt("IDProducto");
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return IDProducto;
+
+	}
 }
 
 	

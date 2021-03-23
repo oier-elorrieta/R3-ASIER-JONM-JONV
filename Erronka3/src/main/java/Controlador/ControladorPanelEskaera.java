@@ -89,4 +89,8 @@ public class ControladorPanelEskaera {
 	public void kantitateaarrayezabatu() {
 		this.modelo.kantitateaarrayezabatu();
 	}
+	
+	public int stockbegiratu(String izena, int kanti) {
+		return this.modelo.stockkomprobatu(izena,kanti);
+	}
 }

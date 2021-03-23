@@ -13,6 +13,10 @@ public class Modelo {
 		return Metodoak.irakurriarray();
 	}
 	
+	public String[] arrayirakurrikomanda() {
+		return Metodoak.irakurriarraykomanda();
+	}
+	
 	public String botonEmaitzafin(String kanti,String izena) {
 		return Metodoak.daramanprezioaagertzea(kanti,arrayprezio,izena);
 		
@@ -98,5 +102,9 @@ public class Modelo {
 	
 	public void stockgehitumetodoa() {
 		Metodoak.stockgehitu();
+	}
+	
+	public int stockkomprobatu(String izena,int kanti) {
+		return Metodoak.stockbegiratu(nif, izena, kanti);
 	}
 }
