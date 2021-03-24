@@ -86,4 +86,12 @@ public class ControladorPanelKomanda {
 	public String[] accionandoarraykomanda() {
 		return this.modelo.arrayirakurrikomanda();
 	}
+	
+	public int stockbegiratu(String izena, int kanti) {
+		return this.modelo.stockkomprobatu(izena,kanti);
+	}
+	
+	public void registrarkomanda(int id) {
+		 modelo.komandaBD(id);
+	}
 }

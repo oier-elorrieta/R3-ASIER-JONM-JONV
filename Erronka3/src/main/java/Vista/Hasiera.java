@@ -2,11 +2,15 @@ package Vista;
 
 
 import java.awt.event.ActionEvent;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import Controlador.ControladorPanelHasiera;
 import Modelo.Metodoak;
 import Modelo.Usuario;
@@ -25,13 +29,21 @@ public class Hasiera extends JPanel {
 	private JLabel lbloperatividad;
 	private JButton btnDeslogeatu;
 	private ControladorPanelHasiera controladorPanelHasiera;
-	
+	private JTextField lbldata;
+	private int anyo;
+	private int mes;
+	private int dia;
+	Calendar fecha = new GregorianCalendar();
 	
 	
 	public Hasiera(ControladorPanelHasiera controladorPanelHasiera) {
 		this.controladorPanelHasiera = controladorPanelHasiera;
 
 		setLayout(null);
+		
+		anyo = fecha.get(Calendar.YEAR);
+		mes = fecha.get(Calendar.MONTH);
+		dia = fecha.get(Calendar.DAY_OF_MONTH);
 
 		setBackground(Color.LIGHT_GRAY);
 		setForeground(Color.DARK_GRAY);
@@ -76,6 +88,10 @@ public class Hasiera extends JPanel {
 		btnDeslogeatu.setOpaque(true);
 		btnDeslogeatu.setBorderPainted(false);
 		add(btnDeslogeatu);
+		
+		lbldata  = new JTextField(dia + "/" + (mes + 1) + "/" + anyo); 
+		lbldata.setBounds(28, 275, 82, 14);
+		add(lbldata);
 
 		initializeEvents();
 		}

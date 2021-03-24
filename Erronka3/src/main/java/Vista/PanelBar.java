@@ -2,6 +2,8 @@ package Vista;
 
 
 import java.awt.event.ActionEvent;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 
@@ -10,6 +12,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
 import Controlador.ControladorPanelBar;
 import Modelo.Metodoak;
 
@@ -24,6 +28,11 @@ public class PanelBar extends JPanel {
 	private JButton btntickets;
 	private JButton btnDeslogeatu;
 	private ControladorPanelBar controladorPanelBar;
+	private JTextField lbldata;
+	private int anyo;
+	private int mes;
+	private int dia;
+	Calendar fecha = new GregorianCalendar();
 	
 	
 	public PanelBar(ControladorPanelBar controladorPanelBar) {
@@ -31,6 +40,10 @@ public class PanelBar extends JPanel {
 		
 		setLayout(null);
 		setBackground(Color.LIGHT_GRAY);
+		
+		anyo = fecha.get(Calendar.YEAR);
+		mes = fecha.get(Calendar.MONTH);
+		dia = fecha.get(Calendar.DAY_OF_MONTH);
 		
 		btnhornikuntza = new JButton("Hornikuntza");
 		btnhornikuntza.setOpaque(true);
@@ -54,6 +67,10 @@ public class PanelBar extends JPanel {
 		btnDeslogeatu.setBackground(new Color(130, 130, 130));
 		btnDeslogeatu.setBounds(318, 267, 122, 23);
 		add(btnDeslogeatu);
+		
+		lbldata  = new JTextField(dia + "/" + (mes + 1) + "/" + anyo); 
+		lbldata.setBounds(26, 271, 82, 14);
+		add(lbldata);
 		
 		initializeEvents();
 	}

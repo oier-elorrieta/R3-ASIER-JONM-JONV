@@ -1,6 +1,8 @@
 package Vista;
 
 import java.awt.Color;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.awt.Font;
 
 import javax.swing.JButton;
@@ -17,20 +19,28 @@ import javax.swing.JTextPane;
 @SuppressWarnings("serial")
 public class PanelResumen extends JPanel {
 
+	Calendar fecha = new GregorianCalendar();
 	private ControladorPanelResumen controladorPanelResumen;
 	private JLabel lblLaburpena;
 	private JButton btnexitResum;
 	private JButton btnResumen;
 	private JTextField textpreziotot;
 	private JLabel lblresumen;
+	private JTextField lbldata;
+	private int anyo;
+	private int mes;
+	private int dia; 
 	
 	public PanelResumen(ControladorPanelResumen controladorPanelResumen) {
 		this.controladorPanelResumen = controladorPanelResumen;
 		setBackground(Color.LIGHT_GRAY);
 
-		setLayout(null);
-		
+		setLayout(null);	
 
+		anyo = fecha.get(Calendar.YEAR);
+		mes = fecha.get(Calendar.MONTH);
+		dia = fecha.get(Calendar.DAY_OF_MONTH);
+		
 		lblLaburpena = new JLabel("LABURPENA");
 		lblLaburpena.setBounds(181, 30, 106, 14);
 		lblLaburpena.setForeground(Color.BLACK);
@@ -81,6 +91,10 @@ public class PanelResumen extends JPanel {
 		lblline_2_1.setForeground(Color.BLACK);
 		lblline_2_1.setBounds(26, 225, 400, 14);
 		add(lblline_2_1);
+		
+		lbldata  = new JTextField(dia + "/" + (mes + 1) + "/" + anyo); 
+		lbldata.setBounds(356, 11, 82, 14);
+		add(lbldata);
 
 		initializeEvents();
 		}

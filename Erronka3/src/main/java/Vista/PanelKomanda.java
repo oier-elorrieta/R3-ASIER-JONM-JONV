@@ -1,12 +1,16 @@
 package Vista;
 
 import javax.swing.JButton;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 
 
 
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Controlador.ControladorPanelHasiera;
@@ -24,15 +28,22 @@ import javax.swing.JSpinner;
 
 @SuppressWarnings("serial")
 public class PanelKomanda extends JPanel {
-
+	Calendar fecha = new GregorianCalendar();
 	private ControladorPanelKomanda controladorPanelKomanda;
 	private JButton btnExitTicket;
 	private JButton btnAurreraTicket;
 	private JComboBox<String> Izenak;
+	private JComboBox<String> Izenakprod;
 	private JTextField textDiruTot;
 	private JButton btnAukeratu;
+	private JButton btnAukeratu1;
 	private JSpinner spinnerKanti;
-	
+	private JSpinner spinnerKanti_1;
+	private JTextField lbldata;
+	private int anyo;
+	private int mes;
+	private int dia; 
+	private JLabel lblKanti_1;
 
 
 	public PanelKomanda(ControladorPanelKomanda controladorPanelKomanda) {
@@ -40,7 +51,10 @@ public class PanelKomanda extends JPanel {
 		setBackground(Color.LIGHT_GRAY);
 		this.controladorPanelKomanda = controladorPanelKomanda;
 		setLayout(null);
-
+		
+		anyo = fecha.get(Calendar.YEAR);
+		mes = fecha.get(Calendar.MONTH);
+		dia = fecha.get(Calendar.DAY_OF_MONTH);
 
 		JLabel lblkomanda = new JLabel("KOMANDA");
 		lblkomanda.setForeground(Color.BLACK);
@@ -77,7 +91,14 @@ public class PanelKomanda extends JPanel {
 		Izenak.addItem(arrayizenak[i]);
 		}
 
-
+		Izenakprod = new JComboBox();
+		Izenakprod.setBounds(21, 156, 226, 21);
+		add(Izenakprod);
+		String[] arrayproduktu=Metodoak.irakurriarray();
+		for(int i = 0;i < arrayproduktu.length;i++) {
+			Izenakprod.addItem(arrayproduktu[i]);
+			}
+		
 		spinnerKanti = new JSpinner();
 		spinnerKanti.setBounds(356, 76, 30, 20);
 		add(spinnerKanti);
@@ -103,6 +124,32 @@ public class PanelKomanda extends JPanel {
 		btnAukeratu.setOpaque(true);
 		btnAukeratu.setBorderPainted(false);
 		add(btnAukeratu);
+		
+		lbldata  = new JTextField(dia + "/" + (mes + 1) + "/" + anyo); 
+		lbldata.setBounds(356, 11, 82, 14);
+		add(lbldata);
+		
+		JLabel lblZerProduktuNahi = new JLabel("Zer produktu nahi duzu?");
+		lblZerProduktuNahi.setForeground(Color.BLACK);
+		lblZerProduktuNahi.setFont(new Font("Tahoma", Font.BOLD, 11));
+		lblZerProduktuNahi.setBounds(21, 131, 151, 14);
+		add(lblZerProduktuNahi);
+		
+		lblKanti_1 = new JLabel("Kantitatea:");
+		lblKanti_1.setForeground(Color.BLACK);
+		lblKanti_1.setBounds(264, 159, 123, 13);
+		add(lblKanti_1);
+		
+		spinnerKanti_1 = new JSpinner();
+		spinnerKanti_1.setBounds(356, 156, 30, 20);
+		add(spinnerKanti_1);
+		
+		btnAukeratu1 = new JButton("Aukeratu");
+		btnAukeratu1.setOpaque(true);
+		btnAukeratu1.setBorderPainted(false);
+		btnAukeratu1.setBackground(new Color(130, 130, 130));
+		btnAukeratu1.setBounds(297, 196, 89, 23);
+		add(btnAukeratu1);
 
 		initializeEvents();
 		}
@@ -120,7 +167,8 @@ public class PanelKomanda extends JPanel {
 				String tipo="comanda";
 				controladorPanelKomanda.registraroperacion(emaitzafin,tipo);
 				int ID=controladorPanelKomanda.ateraID();
-				controladorPanelKomanda.accionandoaparecensartu(ID);
+				controladorPanelKomanda.registrarkomanda(ID);
+				//controladorPanelKomanda.accionandoaparecensartu(ID);
 				controladorPanelKomanda.accionadoBottonMostrarPanelResumen();
 			}
 		};
@@ -150,10 +198,12 @@ public class PanelKomanda extends JPanel {
 	private ActionListener listenerBotonAukeratu(ControladorPanelKomanda controladorPanelKomanda) {
 		return new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				String kanti=spinnerKanti.getValue().toString();
 				int kantitatea=Integer.parseInt(kanti);
 				String izena=Izenak.getSelectedItem().toString();
+				String kanti1=spinnerKanti_1.getValue().toString();
+				int kantitatea1=Integer.parseInt(kanti1);
+				String izena1=Izenakprod.getSelectedItem().toString();
 				String emaitza=controladorPanelKomanda.accionandoBottonEmaitzafin(kanti,izena);
 				textDiruTot.setText(emaitza);
 				controladorPanelKomanda.accionandoBottonArray(izena);

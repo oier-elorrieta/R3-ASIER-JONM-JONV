@@ -1,6 +1,8 @@
 package Vista;
 
 import javax.swing.JButton;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 
@@ -25,6 +27,7 @@ import javax.swing.JSpinner;
 @SuppressWarnings("serial")
 public class PanelHornukuntza extends JPanel {
 
+	Calendar fecha = new GregorianCalendar();
 	private ControladorPanelHornikuntza controladorPanelHornikuntza;
 	private JButton btnExitTicket;
 	private JButton btnAurreraTicket;
@@ -32,7 +35,10 @@ public class PanelHornukuntza extends JPanel {
 	private JButton btnAukeratu;
 	private JSpinner spinnerKanti;
 	private JTextField textDiruTot;
-	
+	private JTextField lbldata;
+	private int anyo;
+	private int mes;
+	private int dia;
 
 
 	public PanelHornukuntza(ControladorPanelHornikuntza controladorPanelHornikuntza) {
@@ -41,6 +47,9 @@ public class PanelHornukuntza extends JPanel {
 		this.controladorPanelHornikuntza = controladorPanelHornikuntza;
 		setLayout(null);
 
+		anyo = fecha.get(Calendar.YEAR);
+		mes = fecha.get(Calendar.MONTH);
+		dia = fecha.get(Calendar.DAY_OF_MONTH);
 
 		JLabel lblHornikuntza = new JLabel("HORNIKUNTZA");
 		lblHornikuntza.setForeground(Color.BLACK);
@@ -105,6 +114,10 @@ public class PanelHornukuntza extends JPanel {
 		lblDiruTot.setBounds(10, 266, 106, 13);
 		add(lblDiruTot);
 
+		lbldata  = new JTextField(dia + "/" + (mes + 1) + "/" + anyo); 
+		lbldata.setBounds(356, 11, 82, 14);
+		add(lbldata);
+		
 		initializeEvents();
 		}
 	

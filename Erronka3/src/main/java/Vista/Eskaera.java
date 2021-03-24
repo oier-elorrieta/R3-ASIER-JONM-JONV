@@ -1,6 +1,8 @@
 package Vista;
 
 import java.awt.Color;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import java.awt.Font;
 
@@ -8,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.awt.event.ActionEvent;
 import Controlador.ControladorPanelEskaera;
 import Controlador.ControladorPanelTicket;
@@ -25,6 +28,7 @@ import javax.swing.JTextField;
 @SuppressWarnings("serial")
 public class Eskaera extends JPanel {
 
+	Calendar fecha = new GregorianCalendar();
 	private ControladorPanelEskaera controladorPanelEskaera;;
 	private JButton btnAurreraPedido;
 	private JButton btnExitPedido;
@@ -34,12 +38,20 @@ public class Eskaera extends JPanel {
 	private JSpinner spinnerKanti;
 	private JButton btnAukeratu;
 	private JTextField texthelbidea;
+	private JTextField textdata;
+	private int anyo;
+	private int mes;
+	private int dia; 
 	
 	public Eskaera(ControladorPanelEskaera controladorPanelEskaera) {
 		this.controladorPanelEskaera = controladorPanelEskaera;
 
 		setLayout(null);
 		setBackground(Color.LIGHT_GRAY);
+		
+		anyo = fecha.get(Calendar.YEAR);
+		mes = fecha.get(Calendar.MONTH);
+		dia = fecha.get(Calendar.DAY_OF_MONTH);
 
 		setLayout(null);
 
@@ -124,6 +136,10 @@ public class Eskaera extends JPanel {
 		texthelbidea.setBounds(298, 188, 89, 20);
 		add(texthelbidea);
 		texthelbidea.setColumns(10);
+		
+		textdata  = new JTextField(dia + "/" + (mes + 1) + "/" + anyo); 
+		textdata.setBounds(358, 11, 82, 14);
+		add(textdata);
 
 		initializeEvents();
 		}
@@ -179,7 +195,6 @@ public class Eskaera extends JPanel {
 				int kantitatea=Integer.parseInt(kanti);
 				String izena=Izenak.getSelectedItem().toString();
 				int komprobatustock=controladorPanelEskaera.stockbegiratu(izena,kantitatea);
-				System.out.println(komprobatustock);
 				if(komprobatustock!=-1) {
 					String emaitza=controladorPanelEskaera.accionandoBottonEmaitzafin(kanti,izena);
 					textDiruTot.setText(emaitza);

@@ -488,10 +488,12 @@ public class Metodoak {
 			}
 			int kantiint = Integer.parseInt(kanti);
 			double emaitzaint = PrecioCompraProd * kantiint;
+			System.out.println(emaitzaint);
 			arrayprezio = Metodoak.sartuprezioa(emaitzaint, arrayprezio);
 			double emaitzatot = 0;
 			for (int i = 0; i < arrayprezio.size(); i++) {
 				emaitzatot = emaitzatot + arrayprezio.get(i);
+				System.out.println(emaitzatot+"tot");
 			}
 			return emaitza = Double.toString(emaitzatot);
 	}
@@ -556,7 +558,7 @@ public class Metodoak {
 		int begiratu=0;
 		int idproducto=Metodoak.IDproductostock(izena);
 		Connection conexion = ConexionBD.getConexion();
-		String query = "SELECT StockProd FROM tiene WHERE NIF='"+nif+"'and IDProducto='"+idproducto+"'";
+		String query = "SELECT StockProd FROM tiene WHERE NIF='"+nif.getNif()+"'and IDProducto='"+idproducto+"'";
 		try {
 			PreparedStatement pre;
 			ResultSet resul;
@@ -566,13 +568,12 @@ public class Metodoak {
 			
 			while (resul.next()) {
 				stock = resul.getInt("StockProd");
-				System.out.println(stock+"wer");
 			}
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		}
-		if(kanti<stock) {
+		if(kanti>stock) {
 			begiratu=-1;
 		}
 		return begiratu;
@@ -597,7 +598,48 @@ public class Metodoak {
 			e.printStackTrace();
 		}
 		return IDProducto;
+	}
+	//stock ez badago ezin du produktua aukeratu
+	//**********************************************************************************************
+	public static void komandaBDsartu(int id) {
+		Connection conexion = ConexionBD.getConexion();
+		String query="INSERT INTO comandas VALUES ('"+ id +"','" + 0 + "')";
+		
+		try {
+			Statement s;
+			s = conexion.createStatement();
+			s.executeUpdate(query);;
 
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//platera den edo produktua den
+	public static boolean produktuada(ArrayList<String> arrayizena,int i) {
+		boolean bada=false;
+		Connection conexion = ConexionBD.getConexion();
+		String query = kontsultak.selectIDproducto + "'" + arrayizena.get(i) + "'";
+		
+		try {
+			PreparedStatement pre;
+			ResultSet resul;
+
+			pre = conexion.prepareStatement(query);
+			resul = pre.executeQuery();
+			while (resul.next()) {
+				bada=true;
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return bada;
+		
+	}
+	//platera bada contine sartu eta produktua bada aparecen sartu
+	public static void sartudatuakkomanda(ArrayList<String> arrayizena) {
+		
 	}
 }
 

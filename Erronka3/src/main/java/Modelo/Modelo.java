@@ -107,4 +107,8 @@ public class Modelo {
 	public int stockkomprobatu(String izena,int kanti) {
 		return Metodoak.stockbegiratu(nif, izena, kanti);
 	}
+	
+	public void komandaBD(int id) {
+		 Metodoak.komandaBDsartu(id);
+	}
 }

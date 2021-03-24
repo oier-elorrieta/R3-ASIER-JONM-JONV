@@ -1,11 +1,14 @@
 package Vista;
 
 import javax.swing.JButton;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Controlador.ControladorPanelHasiera;
@@ -14,6 +17,8 @@ import Modelo.Metodoak;
 import Modelo.Produktuak;
 
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -24,6 +29,7 @@ import javax.swing.JSpinner;
 @SuppressWarnings("serial")
 public class PanelTicket extends JPanel {
 
+	Calendar fecha = new GregorianCalendar();
 	private ControladorPanelTicket controladorPanelTicket;
 	private JButton btnExitTicket;
 	private JButton btnAurreraTicket;
@@ -31,7 +37,10 @@ public class PanelTicket extends JPanel {
 	private JTextField textDiruTot;
 	private JButton btnAukeratu;
 	private JSpinner spinnerKanti;
-	
+	private JTextField textdate;
+	private int anyo;
+	private int mes;
+	private int dia;
 
 
 	public PanelTicket(ControladorPanelTicket controladorPanelTicket) {
@@ -40,6 +49,9 @@ public class PanelTicket extends JPanel {
 		this.controladorPanelTicket = controladorPanelTicket;
 		setLayout(null);
 
+		anyo = fecha.get(Calendar.YEAR);
+		mes = fecha.get(Calendar.MONTH);
+		dia = fecha.get(Calendar.DAY_OF_MONTH);
 
 		JLabel lblTicket = new JLabel("TICKET");
 		lblTicket.setForeground(Color.BLACK);
@@ -102,6 +114,10 @@ public class PanelTicket extends JPanel {
 		btnAukeratu.setOpaque(true);
 		btnAukeratu.setBorderPainted(false);
 		add(btnAukeratu);
+		
+		textdate = new JTextField(dia + "/" + (mes + 1) + "/" + anyo); 
+		textdate.setBounds(356, 8, 82, 14);
+		add(textdate);
 
 		initializeEvents();
 		}
@@ -155,10 +171,16 @@ public class PanelTicket extends JPanel {
 				String kanti=spinnerKanti.getValue().toString();
 				int kantitatea=Integer.parseInt(kanti);
 				String izena=Izenak.getSelectedItem().toString();
-				String emaitza=controladorPanelTicket.accionandoBottonEmaitzafin(kanti,izena);
-				textDiruTot.setText(emaitza);
-				controladorPanelTicket.accionandoBottonArray(izena);
-				controladorPanelTicket.kantitateaarraysartu(kantitatea);
+				int komprobatustock=controladorPanelTicket.stockbegiratu(izena,kantitatea);
+				if(komprobatustock!=-1) {
+					String emaitza=controladorPanelTicket.accionandoBottonEmaitzafin(kanti,izena);
+					textDiruTot.setText(emaitza);
+					controladorPanelTicket.accionandoBottonArray(izena);
+					controladorPanelTicket.kantitateaarraysartu(kantitatea);
+				}else {
+					JOptionPane.showInternalMessageDialog(null,"Ez dago stock nahikorik");
+				}
+				
 			}
 		};
 	}
